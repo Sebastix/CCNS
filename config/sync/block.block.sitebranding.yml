@@ -5,9 +5,9 @@ dependencies:
   module:
     - system
   theme:
-    - hix
+    - ccns_theme
 id: sitebranding
-theme: hix
+theme: ccns_theme
 region: header
 weight: -5
 provider: null

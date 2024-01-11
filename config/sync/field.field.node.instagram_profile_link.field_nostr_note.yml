@@ -16,7 +16,7 @@ field_name: field_nostr_note
 entity_type: node
 bundle: instagram_profile_link
 label: 'Nostr note'
-description: 'The content of this field will be posted as a short note to Nostr on behalf of @cchs.social '
+description: 'The content of this field will be posted as a short note to Nostr on behalf of @ccns.social '
 required: false
 translatable: false
 default_value: {  }

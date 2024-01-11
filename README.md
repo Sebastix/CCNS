@@ -1,10 +1,12 @@
-# cchs.social
+# CCNS
 
-CCHS - Community Curated Honda Stuff
+Community Curated Nostr Stuff
 
-![](https://cchs.social/themes/custom/hix/images/Screen-Shot-1.png)
-![](https://cchs.social/themes/custom/hix/images/Screen-Shot-2.png)
-![](https://cchs.social/themes/custom/hix/images/Screen-Shot-3.png)
+> **Problem**
+>
+> Activity on https://stacker.news/~nostr has decreased significant since the introduction of territories.
+
+A Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.pub), [Lobste.rs](http://Lobste.rs) and [Stacker.news](http://Stacker.news).
 
 ## Roadmap
 
@@ -20,15 +22,18 @@ Contact [Sebastian Hagens - Sebastix](https://gitlab.com/Sebastix)
 
 # CI/CD
 
+@TODO
 See `.gitlab-ci.yml`
 
 # Build with Drupal
+
+@TODO
 
 ## Progressive Web Application
 
 @TODO
 
-## Contrib modules
+## Used Drupal contrib modules
 
 * Config split
 * Drush
@@ -59,7 +64,7 @@ See `.gitlab-ci.yml`
 * Nostr internet identifier NIP-05
 * Nostr simple publish
 
-Development only:
+Modules for development only:
 * Coder
 * Devel
 * Webprofiler
@@ -73,20 +78,24 @@ The icons used are from https://heroicons.com/.
 
 ## Custom work
 
-### CCHS module
+### CCNS module
+
+@TODO
 
 ### Theme hooks
+
+@TODO
 
 ## Security checks
 
 @TODO
-- https://github.com/FriendsOfPHP/security-advisories
-- https://github.com/fabpot/local-php-security-checker
--
+- [ ] https://github.com/FriendsOfPHP/security-advisories
+- [ ] https://github.com/fabpot/local-php-security-checker
 
 ## Code checks
 
-@TODO - https://www.drupal.org/project/coder
+@TODO
+- [ ] https://www.drupal.org/project/coder
 
 # License
 

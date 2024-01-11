@@ -1,0 +1,22 @@
+uuid: 795935d7-70b7-4e1d-a703-73fff2ecc201
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ccns_theme
+_core:
+  default_config_hash: hBHXB7hC05XU7pDYzETt-GUcpFlogK1gkjyAsg0Ym58
+id: ccns_content
+theme: ccns_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

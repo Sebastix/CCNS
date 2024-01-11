@@ -1,10 +1,10 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: nl
-uuid: df4124af-b797-4e7b-9e30-3ed0f00a0715
-name: CCHS
-mail: info@cchs.social
-slogan: 'Community Curated Honda Stuff'
+uuid: be102e49-937a-4775-8537-76a13d78507d
+name: CCNS
+mail: info@sebastix.nl
+slogan: 'Community Curated Nostr Stuff'
 page:
   403: ''
   404: ''

@@ -21,7 +21,7 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
-  rate_cchs_plus_1:
+  rate_ccns_plus_1:
     settings: {  }
     third_party_settings: {  }
     weight: 100

@@ -15,7 +15,7 @@ events:
       - authenticated
       - content_editor
       - administrator
-      - hix
+      - ccns
     create: {  }
     update: {  }
     delete: {  }

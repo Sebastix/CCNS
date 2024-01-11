@@ -8,9 +8,9 @@ id: global
 label: Global
 tags:
   canonical_url: '[current-page:url]'
-  description: 'CCHS is een online community platform waarop je de beste content van Honda liefhebbers kunt vinden. '
-  keywords: 'honda community'
-  og_description: 'CCHS is een online community platform waarop je de beste content van Honda liefhebbers kunt vinden. '
+  description: ''
+  keywords: ''
+  og_description: ''
   og_site_name: '[site:name] - [site:slogan]'
   og_title: '[current-page:title] | [site:name] - [site:slogan]'
   og_url: '[current-page:url]'

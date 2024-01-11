@@ -11,7 +11,7 @@ configuration:
   email_bcc:
     addresses:
       -
-        value: cchs@sebastix.dev
+        value: info@sebastix.nl
         display: ''
   mailer_default_headers: {  }
   mailer_inline_css: {  }

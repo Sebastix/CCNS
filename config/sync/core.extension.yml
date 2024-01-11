@@ -13,7 +13,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
-  cchs: 0
+  ccns: 0
   ckeditor5: 0
   comment: 0
   comments_order: 0
@@ -51,8 +51,6 @@ module:
   multiple_registration: 0
   mysql: 0
   node: 0
-  nostr_id_nip05: 0
-  nostr_simple_publish: 0
   options: 0
   page_cache: 0
   path: 0
@@ -85,5 +83,5 @@ theme:
   claro: 0
   gin: 0
   stark: 0
-  hix: 0
+  ccns_theme: 0
 profile: standard

@@ -1,0 +1,182 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the CCNS theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function ccns_preprocess_html(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function ccns_preprocess_page(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function ccns_preprocess_node(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for form.html.twig.
+ */
+function ccns_preprocess_form(&$variables){
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function ccns_preprocess_block(&$variables) {
+
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ccns_form_comment_form_alter(&$form, FormStateInterface $form_state) {
+  $form['comment_body']['widget'][0]['#title'] = '';
+  $form['actions']['submit']['#value'] = new TranslatableMarkup('Post comment');
+  $form['comment_body']['widget']['#after_build'][] = '_remove_formatter';
+}
+
+function _remove_formatter($form_element, FormStateInterface $form_state) {
+  unset($form_element[0]['format']['help']);
+  unset($form_element[0]['format']['guidelines']);
+  unset($form_element[0]['format']['#type']);
+  unset($form_element[0]['format']['#theme_wrappers']);
+  return $form_element;
+}
+
+/**
+ * Implements hook_preprocess_views_view__VIEW_ID().
+ */
+function ccns_preprocess_views_view__frontpage_links(&$variables) {
+  $rows = $variables['view']->result;
+  foreach ($rows as $key => $row) {
+    // Do something with each row
+
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_field().
+ */
+function ccns_preprocess_views_view_field(&$variables){
+  /** @var \Drupal\views\Entity\View $view */
+  $view = $variables['view'];
+  /** @var \Drupal\views\Plugin\views\field\EntityField $field */
+  $field = $variables['field'];
+  if($view->id() === 'frontpage_links') {
+    if($field->options['field'] === 'field_instagram_profile_uri') {
+      $value = $field->getValue($variables['row']);
+      $regex = '/(?:(?:http|https):\/\/)?(?:www\.)?(?:instagram\.com|instagr\.am)\/([A-Za-z0-9-_\.]+)/im';
+      preg_match($regex, $value, $matches);
+      if(isset($matches[1])) {
+        $instagram_handle = '@' . $matches[1];
+      }
+      else {
+        $instagram_handle = $value;
+      }
+      $string_output = sprintf('<a href="%s" target="_blank">%s</a>', $value, $instagram_handle);
+      $variables['output'] = Markup::create($string_output);
+    }
+  }
+}
+
+function ccns_preprocess_comment(&$variables) {
+  /** @var \Drupal\Core\Datetime\DateFormatterInterface $date_formatter */
+  $date_formatter = \Drupal::service('date.formatter');
+  /** @var \Drupal\comment\CommentInterface $comment */
+  $comment = $variables['elements']['#comment'];
+  $created_ago = $date_formatter->formatTimeDiffSince($comment->getCreatedTime());
+  $variables['submitted'] = new TranslatableMarkup('by @username &middot; @ago ago', ['@username' => $variables['author'], '@ago' => $created_ago]);
+  $variables['delete_own_comment'] = (\Drupal::currentUser()->id() === $comment->getOwnerId()) ? TRUE : FALSE;
+}
+
+/**
+ * @param array $suggestions
+ * @param array $variables
+ * @param $hook
+ */
+function ccns_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  // Forms.
+  if ($hook === 'form' & !empty($variables['element']['#id'])) {
+    $suggestions[] = 'form__' . str_replace('-', '_', $variables['element']['#id']);
+
+    if (isset($variables['element']['#theme'])) {
+      if (is_array($variables['element']['#theme']) === false) {
+        $suggestions[] = 'form__' . str_replace('-', '_', $variables['element']['#theme']);
+      } else {
+        foreach ($variables['element']['#theme'] as $theme) {
+          $suggestions[] = 'form__' . str_replace('-', '_', $theme);
+        }
+      }
+    }
+  }
+  // Form elements.
+  if ($hook === 'form_element' && isset($variables['element']['#id'])) {
+    $suggestions[] = 'form_element__' . $variables['element']['#type'] . '__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+  if ($hook === 'container' && isset($variables['element']['#attributes']['data-drupal-selector'])) {
+    $suggestions[] = 'container__' . str_replace('-', '_', $variables['element']['#attributes']['data-drupal-selector']);
+  }
+  if ($hook === 'input' && isset($variables['element']['#id'])) {
+    $suggestions[] = 'input__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+  if ($hook === 'select' && isset($variables['element']['#attributes']['data-drupal-selector'])) {
+    $suggestions[] = 'select__' . str_replace('-', '_', $variables['element']['#attributes']['data-drupal-selector']);
+  }
+  if ($hook === 'form_element_label' && isset($variables['element']['#id'])) {
+    $suggestions[] = 'form_element_label__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+  if ($hook === 'fieldset') {
+    if (isset($variables['element']['#form_id'])) {
+      $suggestions[] = 'fieldset__' . str_replace('-', '_', $variables['element']['#form_id']);
+      $children = Element::children($variables['element']);
+      if (isset($children[0]) && isset($variables['element'][$children[0]]['#type'])) {
+        $type = $variables['element'][$children[0]]['#type'];
+        foreach ($suggestions as $suggestion) {
+          $suggestions[] = $suggestion . '__element_type__' . $type;
+        }
+        $suggestions[] = 'fieldset__element_type__' . $type;
+      }
+    }
+  }
+  // Views.
+  if ($hook === 'views_view') {
+    $suggestions[] = 'views_view__' . $variables['view']->id();
+  }
+  if ($hook === 'views_view_table') {
+    $suggestions[] = 'views_view_table__' . $variables['view']->id();
+  }
+  if ($hook === 'views_view_unformatted') {
+    $suggestions[] = 'views_view_unformatted__' . $variables['view']->id();
+  }
+  if ($hook === 'views_view_fields') {
+    $suggestions[] = 'views_view_fields__' . $variables['view']->id();
+  }
+  if ($hook === 'views_view_field') {
+    /** @var \Drupal\views\Plugin\views\field\EntityField $field */
+    $field = $variables['field'];
+    $suggestions[] = 'views_view_field__' . $variables['view']->id() . '__' . $field->options['field'];
+  }
+  if ($hook === 'views_mini_pager') {
+    // @todo get view
+    //$suggestions[] = 'views_mini_pager__' . $variables['view']->id();
+  }
+}

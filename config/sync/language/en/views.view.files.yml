@@ -28,7 +28,6 @@ display:
           label: 'Used in'
           alter:
             path: 'admin/content/files/usage/{{ fid }}'
-          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
       pager:
         options:
           tags:
@@ -76,7 +75,6 @@ display:
           label: 'Registering module'
         count:
           label: 'Use count'
-          format_plural_string: !!binary MQNAY291bnQ=
       pager:
         options:
           tags:

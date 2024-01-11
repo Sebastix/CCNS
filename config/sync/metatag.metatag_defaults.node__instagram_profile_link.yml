@@ -5,7 +5,7 @@ dependencies: {  }
 id: node__instagram_profile_link
 label: 'Content: Instagram profiel post'
 tags:
-  description: 'Honda Instagram profiel van [node:title] op CCHS'
-  og_description: 'Honda Instagram profiel van [node:title] op CCHS'
+  description: 'Honda Instagram profiel van [node:title] op ccns'
+  og_description: 'Honda Instagram profiel van [node:title] op ccns'
   og_title: '[node:title] | [site:name] - [site:slogan]'
   title: '[node:title] | [site:name] - [site:slogan]'

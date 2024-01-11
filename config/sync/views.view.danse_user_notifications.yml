@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - user.role.authenticated
-    - user.role.hix
+    - user.role.ccns
   module:
     - danse
     - user
@@ -400,7 +400,7 @@ display:
         options:
           role:
             authenticated: authenticated
-            hix: hix
+            ccns: ccns
       cache:
         type: tag
         options: {  }

@@ -12,9 +12,9 @@ dependencies:
 third_party_settings:
   comment_delete:
     operation:
+      hard: '0'
+      hard_partial: '0'
       soft: soft
-      hard: 0
-      hard_partial: 0
     visibility: visible
     label:
       hard: ''

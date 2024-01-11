@@ -11,7 +11,7 @@ dependencies:
 third_party_settings:
   unique_content_field_validation:
     unique: true
-    unique_text: '%value is already posted to CCHS'
+    unique_text: '%value is already posted to ccns'
 id: node.instagram_profile_link.field_instagram_profile_uri
 field_name: field_instagram_profile_uri
 entity_type: node

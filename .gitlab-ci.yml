@@ -4,17 +4,17 @@ image: php:8.2-alpine
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
 variables:
   # Test
-  DRUPAL_PROJECTROOT: "/var/www/cchs.sebastix.dev"
-  URL: "https://cchs.sebastix.dev"
+  DRUPAL_PROJECTROOT: "/var/www/ccns.sebastix.dev"
+  URL: "https://ccns.sebastix.dev"
   SSH_LOGIN: "ssh -T root@sebastix.dev"
   SSH_USER: "root"
   SSH_HOST: "sebastix.dev"
   # Production
-  DRUPAL_PROJECTROOT_PROD: "/home/cchs/domains/cchs.social"
-  URL_PROD: "https://cchs.social"
-  SSH_LOGIN_PROD: "ssh -T cchs@cchs.social"
-  SSH_USER_PROD: "cchs"
-  SSH_HOST_PROD: "cchs.social"
+#  DRUPAL_PROJECTROOT_PROD: "/home/cchs/domains/ccns.social"
+#  URL_PROD: "https://ccns.social"
+#  SSH_LOGIN_PROD: "ssh -T ccns@ccns.social"
+#  SSH_USER_PROD: "ccns"
+#  SSH_HOST_PROD: "ccns.social"
 
 stages:
   - build
@@ -63,12 +63,12 @@ build:drupal:
 build:theme:
   stage: build
   script:
-    - cd web/themes/custom/hix
+    - cd web/themes/custom/ccns
     - npm install
     - npm run build
   artifacts:
     paths:
-      - web/themes/custom/hix/dist
+      - web/themes/custom/ccns/dist
 
 deploy:test:
   rules:
@@ -103,32 +103,32 @@ deploy:test:
     #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm run build"
     - echo "Deployment ready, check $URL"
 
-deploy:prod:
-  rules:
-    - if: $CI_COMMIT_BRANCH == "develop"
-      when: manual
-    - if: $CI_COMMIT_BRANCH == "master"
-      when: manual
-  stage: deploy
-  dependencies:
-    - build:drupal
-    - build:theme
-  script:
-    - rsync -avz -e ssh ./composer.json $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz -e ssh ./composer.lock $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./config"
-    - rsync -avz --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./web"
-    # symlinks
-    # private_html -> web: ln -s ./web ./private_html
-    # public_html -> web: ln -s ./web ./public_html
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush cache-rebuild -y"
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush updatedb -y"
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush config-import -y"
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush locale:check"
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush locale:update"
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush core-cron"
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush cache-rebuild -y"
-    - echo "Deployment ready, check $URL_PROD"
+#deploy:prod:
+#  rules:
+#    - if: $CI_COMMIT_BRANCH == "develop"
+#      when: manual
+#    - if: $CI_COMMIT_BRANCH == "master"
+#      when: manual
+#  stage: deploy
+#  dependencies:
+#    - build:drupal
+#    - build:theme
+#  script:
+#    - rsync -avz -e ssh ./composer.json $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+#    - rsync -avz -e ssh ./composer.lock $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+#    - rsync -avz --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./config"
+#    - rsync -avz --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+#    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./web"
+#    # symlinks
+#    # private_html -> web: ln -s ./web ./private_html
+#    # public_html -> web: ln -s ./web ./public_html
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush cache-rebuild -y"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush updatedb -y"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush config-import -y"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush locale:check"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush locale:update"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush core-cron"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush cache-rebuild -y"
+#    - echo "Deployment ready, check $URL_PROD"
