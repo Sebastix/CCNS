@@ -1,0 +1,99 @@
+label: 'Votingapi Votes'
+description: 'Lists of all votes and votes per entity. '
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      fields:
+        id:
+          label: ID
+          separator: ', '
+        type:
+          label: 'Vote type'
+          separator: ', '
+        value:
+          label: Value
+          separator: ', '
+        vote_source:
+          label: 'Vote Source'
+          separator: ', '
+        user_id:
+          label: 'Voted by'
+          separator: ', '
+        timestamp:
+          label: 'Voted on'
+          separator: ', '
+      filters:
+        type:
+          expose:
+            label: 'Vote type'
+        title:
+          expose:
+            label: 'Voted entity'
+        entity_type:
+          expose:
+            label: 'Entity Type'
+        vote_source:
+          expose:
+            label: 'Vote Source'
+        name:
+          expose:
+            label: 'Voted by'
+      title: 'Voting API votes'
+  admin_page:
+    display_title: 'All Votes'
+    display_options:
+      fields:
+        id:
+          label: ID
+          separator: ', '
+        type:
+          label: 'Vote type'
+          separator: ', '
+        entity_id:
+          label: 'Voted entity'
+          separator: ', '
+        entity_type:
+          label: 'Entity Type'
+          separator: ', '
+        value:
+          label: Value
+          separator: ', '
+        vote_source:
+          label: 'Vote Source'
+          separator: ', '
+        user_id:
+          label: 'Voted by'
+          separator: ', '
+        timestamp:
+          label: 'Voted on'
+          separator: ', '
+      menu:
+        title: Votes
+  node_page:
+    display_title: 'Entity Votes'
+    display_options:
+      menu:
+        title: Votes
+      arguments:
+        entity_id:
+          exception:
+            title: All

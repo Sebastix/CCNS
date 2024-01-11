@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for cchs module.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function cchs_form_node_instagram_profile_link_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  array_unshift($form['#validate'], 'instagram_profile_link_form_validate');
+}
+
+/**
+ * Strip query parameter beginning with ? from LinkItem uri
+ *
+ * @param $form
+ * @param FormStateInterface $form_state
+ * @return void
+ */
+function instagram_profile_link_form_validate(&$form, FormStateInterface $form_state) {
+  $value = $form_state->getValue('field_instagram_profile_uri');
+  $url = parse_url($value[0]['uri']);
+  if (isset($url['query'])) {
+    $value[0]['uri'] = str_replace('?'.$url['query'], '', $value[0]['uri']);
+    $form_state->setValue('field_instagram_profile_uri', $value);
+  }
+}
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function cchs_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+  if ($entity_type->id() === 'node' && $bundle === 'instagram_profile_link' && isset($fields['field_instagram_profile_uri'])) {
+    $fields['field_instagram_profile_uri']->addConstraint('InstagramProfileUriConstraint', []);
+  }
+}

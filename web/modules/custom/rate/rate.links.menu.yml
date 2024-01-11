@@ -1,0 +1,13 @@
+rate.admin_settings:
+  title: Rate settings
+  description: 'Management options for the Rate module.'
+  route_name: rate.admin_settings
+  parent: votingapi.admin_settings
+# ##############################
+# Rate widget settings
+# ##############################
+entity.rate_widget.collection:
+  title: 'Rate widgets'
+  parent: system.admin_structure
+  description: 'Manage rating widgets.'
+  route_name: entity.rate_widget.collection

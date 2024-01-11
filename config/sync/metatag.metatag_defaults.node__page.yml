@@ -1,0 +1,13 @@
+uuid: 39d344da-9a15-4dc2-b33f-41bdeabfbc6c
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Eenvoudige pagina'
+tags:
+  description: '[node:body]'
+  og_description: '[node:body]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title] | [site:name] - [site:slogan]'
+  og_url: '[current-page:url]'
+  title: '[node:title] | [site:name] - [site:slogan]'

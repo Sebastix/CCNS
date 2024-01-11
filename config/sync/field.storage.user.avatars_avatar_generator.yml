@@ -1,0 +1,23 @@
+uuid: 885aaad2-fe4c-4352-8f02-43e8df7cda0f
+langcode: nl
+status: true
+dependencies:
+  module:
+    - options
+    - user
+_core:
+  default_config_hash: EKuqU523rXav-KZ1uLVrpo5B53SwS47ajiCtBTx0lC4
+id: user.avatars_avatar_generator
+field_name: avatars_avatar_generator
+entity_type: user
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: avatars_callback_avatar_generators
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

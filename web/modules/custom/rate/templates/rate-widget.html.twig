@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a voting widget.
+ *
+ * Available variables:
+ * - widget_template: name of the template.
+ * - display_settings: the display settings of the rate widget.
+ * - results_settings: settings for the resulsts of the rate widget.
+ * - label_attributes: class and collspan for the label.
+ * - description_attributes: class and collspan for the label.
+ * - result_attributes: class and collspan for the label.
+ *
+ * @ingroup themeable
+ */
+#}
+<table class="rating-table">
+  {% if display_settings.display_label and display_settings.label_position == 'above' %}
+    <tr class="rating-table-tr">
+      <td {{ label_attributes.addClass('rating-table-td') }}>{{ display_settings.display_label }}</td>
+    </tr>
+  {% endif %}
+<tr class="rating-table-tr">
+  {% if display_settings.display_label and display_settings.label_position == 'inline' %}
+    <td {{ label_attributes.addClass('rating-table-td') }}>{{ display_settings.display_label }}</td>
+  {% endif %}
+  <td class="rating-table-td">{{ form|without('result') }}</td>
+  {% if results_settings.result_position == 'right' %}
+    <td {{ result_attributes.addClass('rating-table-td')}}>{{ form.result }}</td>
+  {% endif %}
+  {% if display_settings.description_position == 'right' %}
+    <td{{ description_attributes.addClass('rating-table-td') }}>{{ display_settings.description }}</td>
+  {% endif %}
+</tr>
+{% if display_settings.description and display_settings.description_position == 'below' %}
+  <tr class="rating-table-tr">
+    {% if display_settings.display_label and display_settings.label_position == 'inline' %}
+    <td class="rating-table-td"></td>
+    {% endif %}
+    <td{{ description_attributes.addClass('rating-table-td') }}>{{ display_settings.description }}</td>
+  </tr>
+{% endif %}
+{% if results_settings.result_position == 'below' %}
+  <tr class="rating-table-tr">
+    {% if display_settings.display_label and display_settings.label_position == 'inline' %}
+    <td class="rating-table-td"></td>
+    {% endif %}
+    <td{{result_attributes.addClass('rating-table-td')}}>{{ form.result }}</td>
+  </tr>
+{% endif %}
+</table>

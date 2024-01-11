@@ -1,0 +1,11 @@
+uuid: 959393ab-cd4d-4383-a738-51dcce97fce7
+langcode: nl
+status: true
+dependencies:
+  config:
+    - comment.type.link_comment
+id: comment.link_comment
+target_entity_type_id: comment
+target_bundle: link_comment
+default_langcode: site_default
+language_alterable: false

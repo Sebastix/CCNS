@@ -1,0 +1,25 @@
+uuid: 29bc225b-af67-4371-a209-f19f79da8618
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:523baf8d-c292-4710-aa15-908005f82285'
+  module:
+    - block_content
+  theme:
+    - hix
+id: hix_header
+theme: hix
+region: header
+weight: -4
+provider: null
+plugin: 'block_content:523baf8d-c292-4710-aa15-908005f82285'
+settings:
+  id: 'block_content:523baf8d-c292-4710-aa15-908005f82285'
+  label: Header
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

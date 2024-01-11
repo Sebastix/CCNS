@@ -1,0 +1,7 @@
+{% if results.rate_count|default == 0 or results.rate_count|default is empty %}
+  {{ 'No votes have been submitted yet.'|trans }}
+{% else %}
+  {% trans %}
+    {{ results.rate_count }} votes with an average rating of {{ results.rate_average }}.
+  {% endtrans %}
+{% endif %}

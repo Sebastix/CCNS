@@ -1,0 +1,17 @@
+uuid: 8cb51bb3-dde8-4575-99e1-c6970e529391
+langcode: nl
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  canonical_url: '[current-page:url]'
+  description: 'CCHS is een online community platform waarop je de beste content van Honda liefhebbers kunt vinden. '
+  keywords: 'honda community'
+  og_description: 'CCHS is een online community platform waarop je de beste content van Honda liefhebbers kunt vinden. '
+  og_site_name: '[site:name] - [site:slogan]'
+  og_title: '[current-page:title] | [site:name] - [site:slogan]'
+  og_url: '[current-page:url]'
+  title: '[current-page:title] | [site:name] - [site:slogan]'

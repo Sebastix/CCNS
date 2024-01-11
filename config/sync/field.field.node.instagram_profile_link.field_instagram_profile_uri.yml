@@ -1,0 +1,28 @@
+uuid: 081805a6-d413-4675-9550-783f3683fded
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_instagram_profile_uri
+    - node.type.instagram_profile_link
+  module:
+    - link
+    - unique_content_field_validation
+third_party_settings:
+  unique_content_field_validation:
+    unique: true
+    unique_text: '%value is already posted to CCHS'
+id: node.instagram_profile_link.field_instagram_profile_uri
+field_name: field_instagram_profile_uri
+entity_type: node
+bundle: instagram_profile_link
+label: 'Instagram profiel link'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

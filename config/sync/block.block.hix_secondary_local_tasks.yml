@@ -1,0 +1,22 @@
+uuid: 367d1b5d-625a-4f64-98cc-3cf43b259215
+langcode: en
+status: false
+dependencies:
+  theme:
+    - hix
+_core:
+  default_config_hash: BCWhood0xXFQYqxFgL1spXdb9KeIuXH1YvTdjIEedDg
+id: hix_secondary_local_tasks
+theme: hix
+region: sidebar_first
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

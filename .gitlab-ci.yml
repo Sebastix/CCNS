@@ -1,0 +1,134 @@
+image: php:8.2-alpine
+
+# Preparation:
+# Save $SSH_PRIVATE_KEY first in GitLab CI variables.
+variables:
+  # Test
+  DRUPAL_PROJECTROOT: "/var/www/cchs.sebastix.dev"
+  URL: "https://cchs.sebastix.dev"
+  SSH_LOGIN: "ssh -T root@sebastix.dev"
+  SSH_USER: "root"
+  SSH_HOST: "sebastix.dev"
+  # Production
+  DRUPAL_PROJECTROOT_PROD: "/home/cchs/domains/cchs.social"
+  URL_PROD: "https://cchs.social"
+  SSH_LOGIN_PROD: "ssh -T cchs@cchs.social"
+  SSH_USER_PROD: "cchs"
+  SSH_HOST_PROD: "cchs.social"
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+  - 'which ssh-agent || ( apk add --update openssh )'
+  - apk add --update bash
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | ssh-add -
+  - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  # Install rsync
+  - apk add rsync
+  - rsync --version
+  # Install curl
+  - apk add curl
+  # Install composer
+  - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+  - alias composer='php /usr/bin/composer'
+  - composer --version
+  # Install nodejs and npm
+  - apk add nodejs npm
+  - node --version
+  - npm --version
+  # install php gd extension
+  # - see https://github.com/mlocati/docker-php-extension-installer
+  - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
+  - chmod +x /usr/bin/install-php-extensions
+  - install-php-extensions gd gmp
+  # install git
+  - apk add git
+
+build:drupal:
+  stage: build
+  script:
+    - composer install --no-dev --prefer-dist --optimize-autoloader
+  artifacts:
+    paths:
+      - web
+      - vendor
+
+build:theme:
+  stage: build
+  script:
+    - cd web/themes/custom/hix
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - web/themes/custom/hix/dist
+
+deploy:test:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: always
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: manual
+  stage: deploy
+  dependencies:
+    - build:drupal
+    - build:theme
+  script:
+    - rsync -avz -e ssh ./composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz -e ssh ./composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz --delete -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz --delete -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
+    - rsync -avz --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
+    - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && composer install --optimize-autoloader --no-dev --prefer-dist"
+    # New site install
+    #- $SSH_LOGIN "drush si -y"
+    # Existing site: updates must be run before configuration is imported
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush updatedb -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush config-import -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush locale:check"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush locale:update"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush core-cron"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush cache-rebuild -y"
+    # Compile theme assets
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm install"
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm run build"
+    - echo "Deployment ready, check $URL"
+
+deploy:prod:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: manual
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: manual
+  stage: deploy
+  dependencies:
+    - build:drupal
+    - build:theme
+  script:
+    - rsync -avz -e ssh ./composer.json $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avz -e ssh ./composer.lock $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avz --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./config"
+    - rsync -avz --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./web"
+    # symlinks
+    # private_html -> web: ln -s ./web ./private_html
+    # public_html -> web: ln -s ./web ./public_html
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush cache-rebuild -y"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush updatedb -y"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush config-import -y"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush locale:check"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush locale:update"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush core-cron"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush cache-rebuild -y"
+    - echo "Deployment ready, check $URL_PROD"

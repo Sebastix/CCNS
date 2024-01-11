@@ -1,0 +1,28 @@
+uuid: fb11cada-4e2b-410b-8cd5-99c7d43dc708
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_verified
+    - node.type.instagram_profile_link
+  module:
+    - options
+    - unique_content_field_validation
+third_party_settings:
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
+id: node.instagram_profile_link.field_is_verified
+field_name: field_is_verified
+entity_type: node
+bundle: instagram_profile_link
+label: Verified
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

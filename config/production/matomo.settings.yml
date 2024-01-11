@@ -1,0 +1,56 @@
+site_id: '11'
+url_http: 'http://matomo.sebastix.nl/'
+url_https: 'https://matomo.sebastix.nl/'
+domain_mode: 0
+visibility:
+  request_path_mode: null
+  request_path_pages: ''
+  user_role_mode: null
+  user_role_roles: {  }
+  user_account_mode: 0
+track:
+  mailto: false
+  files: false
+  files_extensions: ''
+  colorbox: false
+  userid: false
+  messages: {  }
+  site_search: false
+privacy:
+  donottrack: false
+  disablecookies: false
+custom:
+  variable:
+    1:
+      slot: 1
+      name: ''
+      value: ''
+      scope: visit
+    2:
+      slot: 2
+      name: ''
+      value: ''
+      scope: visit
+    3:
+      slot: 3
+      name: ''
+      value: ''
+      scope: visit
+    4:
+      slot: 4
+      name: ''
+      value: ''
+      scope: visit
+    5:
+      slot: 5
+      name: ''
+      value: ''
+      scope: visit
+codesnippet:
+  before: ''
+  after: ''
+disable_tracking: false
+cache: false
+page_title_hierarchy: false
+page_title_hierarchy_exclude_home: false
+status_codes_disabled: {  }

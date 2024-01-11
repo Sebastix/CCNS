@@ -1,0 +1,22 @@
+# Main theme library.
+global:
+  css:
+    base:
+      css/base/elements.css: {}
+    component:
+      css/components/breadcrumb.css: {}
+      css/components/field.css: {}
+      css/components/form.css: {}
+      css/components/header.css: {}
+      css/components/menu.css: {}
+      css/components/messages.css: {}
+      css/components/node.css: {}
+      css/components/sidebar.css: {}
+      css/components/table.css: {}
+      css/components/tabs.css: {}
+      css/components/buttons.css: {}
+    layout:
+      css/layouts/layout.css: {}
+    theme:
+      dist/tailwind.css: {}
+      css/theme/print.css: { media: print }

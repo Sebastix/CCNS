@@ -1,0 +1,23 @@
+uuid: 7083c87a-ec0e-4cc0-bd1a-4535454b47ab
+langcode: nl
+status: true
+dependencies:
+  module:
+    - comment
+    - field_permissions
+    - media
+    - search
+    - system
+_core:
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access user profiles'
+  - 'search content'
+  - 'view field_is_verified'
+  - 'view media'

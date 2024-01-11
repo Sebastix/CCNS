@@ -1,0 +1,14 @@
+rate.admin_settings:
+  title: 'Rate settings'
+  description: 'Management options for Rate module.'
+  route_name: rate.admin_settings
+  weight: 30
+  base_route: votingapi.admin_settings
+# ##############################
+# Rate widget settings
+# ##############################
+rate.node_results_page:
+  route_name: rate.node_results_page
+  title: ' Node Votes'
+  weight: 10
+  base_route: entity.node.canonical

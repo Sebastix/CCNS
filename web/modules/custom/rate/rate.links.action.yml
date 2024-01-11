@@ -1,0 +1,5 @@
+rate.widget_add:
+  route_name: rate.widget_add
+  title: 'Add rate widget'
+  appears_on:
+    - entity.rate_widget.collection

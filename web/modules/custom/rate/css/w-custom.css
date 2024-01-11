@@ -1,0 +1,67 @@
+/* Rate widget custom CSS */
+
+.custom-rating-wrapper {
+  display: inline;
+  padding: 0px;
+}
+
+div.custom > form > table > tbody > tr.rating-table-tr {
+  border: none;
+}
+
+div.custom > form > table > tbody > tr > td.rating-table-td {
+  border: none;
+  padding: 0px;
+}
+
+div.custom-rating-wrapper > div.form-type-radio {
+  display: inline;
+  padding: 0px;
+}
+
+/* Deafault button styles, override in widget settings */
+div.custom-rating-wrapper > div > label.rating-label {
+  display: inline-block;
+  vertical-align: baseline;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+div.custom-rating-wrapper > div > label.custom-rating-label {
+  background: #eee;
+  padding: 0 5px;
+  color: #666;
+  border: 1px solid #ccc;
+  text-align: center;
+  display: inline-block;
+}
+
+div.custom-rating-wrapper > div > label.custom-rating-label:hover,
+div.custom-rating-wrapper > div > label.custom-rating-label:active,
+div.custom-rating-wrapper > div > label.custom-rating-label:focus {
+  color: #666;
+}
+
+div.custom-rating-wrapper > div > label.custom-rating-label:hover {
+  background: #ddd;
+  text-decoration: none;
+}
+
+div.custom-rating-wrapper > div > div.rating-option-result {
+  display: inline;
+  text-align: center;
+  padding: 5px;
+  vertical-align: baseline;
+}
+
+input.custom-rating-input {
+  display: none;
+}
+button.custom-rating-submit {
+  display: none;
+}
+
+input.custom-rating-submit {
+  display: none;
+}

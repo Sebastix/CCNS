@@ -1,0 +1,20 @@
+label: 'Recente reacties'
+description: 'Recente reacties.'
+display:
+  default:
+    display_title: Standaard
+    display_options:
+      title: 'Recente reacties'
+      fields:
+        changed:
+          settings:
+            future_format: '@interval vanaf nu'
+            past_format: '@interval geleden'
+      empty:
+        area_text_custom:
+          content: 'Geen reacties beschikbaar.'
+  block_1:
+    display_title: Blok
+    display_options:
+      block_description: 'Recente reacties'
+      block_category: 'Lijsten (Overzichten)'

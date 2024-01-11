@@ -1,0 +1,17 @@
+uuid: 4f2c86d6-1522-4eb1-8475-b75cff37a76c
+langcode: en
+status: true
+dependencies:
+  module:
+    - raven
+title: 'Default cron handler'
+id: raven_cron
+weight: 0
+module: raven
+callback: raven_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

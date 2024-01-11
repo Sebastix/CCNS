@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+<form{{ attributes }}>
+  <div class="alert my-6">
+    Na het aanmaken van je account, zal deze handmatig worden geactiveerd door de beheerder.
+    <br />
+    Per mail ontvang je hier bericht van.
+  </div>
+  {{ children }}
+</form>

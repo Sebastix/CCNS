@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a form element.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - errors: (optional) Any inline error messages to display for this form
+ *   element; may not be set.
+ * - required: The required marker, or empty if the associated form element is
+ *   not required.
+ * - type: The type of the element.
+ * - name: The name of the element.
+ * - label: A rendered label element.
+ * - label_display: Label display setting. It can have these values:
+ *   - before: The label is output before the element. This is the default.
+ *     The label includes the #title and the required marker, if #required.
+ *   - after: The label is output after the element. For example, this is used
+ *     for radio and checkbox #type elements. If the #title is empty but the
+ *     field is #required, the label will contain only the required marker.
+ *   - invisible: Labels are critical for screen readers to enable them to
+ *     properly navigate through forms but can be visually distracting. This
+ *     property hides the label for everyone except screen readers.
+ *   - attribute: Set the title attribute on the element to create a tooltip but
+ *     output no label element. This is supported only for checkboxes and radios
+ *     in \Drupal\Core\Render\Element\CompositeFormElementTrait::preRenderCompositeFormElement().
+ *     It is used where a visual label is not needed, such as a table of
+ *     checkboxes where the row and column provide the context. The tooltip will
+ *     include the title and required marker.
+ * - description: (optional) A list of description properties containing:
+ *    - content: A description of the form element, may not be set.
+ *    - attributes: (optional) A list of HTML attributes to apply to the
+ *      description content wrapper. Will only be set when description is set.
+ * - description_display: Description display setting. It can have these values:
+ *   - before: The description is output before the element.
+ *   - after: The description is output after the element. This is the default
+ *     value.
+ *   - invisible: The description is output after the element, hidden visually
+ *     but available to screen readers.
+ * - disabled: True if the element is disabled.
+ * - title_display: Title display setting.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_form_element()
+ */
+#}
+{%
+  set classes = [
+    'form-item',
+    'js-form-item',
+    'form-type-' ~ type|clean_class,
+    'js-form-type-' ~ type|clean_class,
+    'form-item-' ~ name|clean_class,
+    'js-form-item-' ~ name|clean_class,
+    title_display not in ['after', 'before'] ? 'form-no-label',
+    disabled == 'disabled' ? 'form-disabled',
+    is_form_group ? 'form-group',
+    is_checkbox ? 'checkbox',
+    is_autocomplete ? 'form-autocomplete',
+    has_error ? 'error has-error'
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <label{{ attributes.addClass(label_attributes.class|merge(['cursor-pointer'])) }}>
+    {{ children }}
+    <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 opacity-20 hover:opacity-100 {{ random(['', '-']) }}rotate-{{ random([45, 90, 180]) }}" viewBox="0 0 32 32"><g fill="none"><path fill="#F8312F" d="M9.4 11.236L6.025 2.341c-.088-.233.181-.437.382-.29l7.9 5.806c.107.08.26.06.343-.046l2.963-3.724a.25.25 0 0 1 .444.132l.416 4.493a.25.25 0 0 0 .308.22l7.97-1.938a.25.25 0 0 1 .242.412l-4.927 5.37a.25.25 0 0 0 .055.382l7.344 4.456a.25.25 0 0 1-.104.463l-8.555.891a.25.25 0 0 0-.213.325l1.398 4.386a.25.25 0 0 1-.39.275l-3.842-2.908a.25.25 0 0 0-.382.104l-3.57 8.703a.25.25 0 0 1-.476-.042L11.054 19.2a.25.25 0 0 0-.303-.192l-7.433 1.783c-.245.058-.413-.243-.234-.421l5.145-5.102a.25.25 0 0 0-.084-.41l-3.97-1.572a.25.25 0 0 1 .032-.475l5.02-1.244a.25.25 0 0 0 .173-.332Z"/><path fill="#FCD53F" d="m12.276 15.226l-1.2 1.213a.25.25 0 0 0 .22.422l2.056-.367a.25.25 0 0 1 .29.205l.69 4.092c.046.264.413.296.502.043l1.296-3.665a.25.25 0 0 1 .396-.108l1.064.888a.25.25 0 0 0 .41-.192v-1.486a.25.25 0 0 1 .27-.249l4.512.37c.228.019.303-.3.09-.385l-4.712-1.893a.25.25 0 0 1-.116-.37l.889-1.34a.25.25 0 0 0-.217-.389l-1.475.047a.25.25 0 0 1-.257-.233l-.177-2.672c-.017-.25-.349-.323-.469-.104l-1.197 2.189a.25.25 0 0 1-.373.077l-2.349-1.835a.25.25 0 0 0-.393.268l.893 2.976a.25.25 0 0 1-.199.319l-2.05.341a.25.25 0 0 0-.088.461l1.645.987a.25.25 0 0 1 .049.39Z"/></g></svg>
+  </label>
+  {% if option_result is not empty %}
+    <div class="rating-option-result">
+      <small>{{ option_result }}</small>
+    </div>
+  {% endif %}
+  {% if errors %}
+    <div class="form-item--error-message">
+      <strong>{{ errors }}</strong>
+    </div>
+  {% endif %}
+</div>

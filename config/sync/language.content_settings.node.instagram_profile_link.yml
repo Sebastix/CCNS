@@ -1,0 +1,11 @@
+uuid: d1cc64c9-da1c-4747-adab-6363032f820f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.instagram_profile_link
+id: node.instagram_profile_link
+target_entity_type_id: node
+target_bundle: instagram_profile_link
+default_langcode: site_default
+language_alterable: false

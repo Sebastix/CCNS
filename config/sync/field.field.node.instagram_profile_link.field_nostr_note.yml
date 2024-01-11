@@ -1,0 +1,25 @@
+uuid: 07a2b7e1-cc3b-4dbf-b04c-17d7edd5ac9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nostr_note
+    - node.type.instagram_profile_link
+  module:
+    - unique_content_field_validation
+third_party_settings:
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
+id: node.instagram_profile_link.field_nostr_note
+field_name: field_nostr_note
+entity_type: node
+bundle: instagram_profile_link
+label: 'Nostr note'
+description: 'The content of this field will be posted as a short note to Nostr on behalf of @cchs.social '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

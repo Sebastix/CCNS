@@ -1,0 +1,24 @@
+uuid: 953c081e-666f-4cb5-b7ad-9bea510cab58
+langcode: en
+status: true
+dependencies: {  }
+name: 'CKEditor comment'
+format: ckeditor_comment
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<br> <p> <strong> <em> <u>'
+      filter_html_help: false
+      filter_html_nofollow: true
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 255

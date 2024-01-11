@@ -1,0 +1,74 @@
+label: 'Rate Widgets Voting Results'
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      fields:
+        user_id:
+          label: User
+          separator: ', '
+        value:
+          label: 'Vote Value'
+          separator: ', '
+        timestamp:
+          label: Date
+          separator: ', '
+      title: 'Voting Results'
+      empty:
+        area:
+          content:
+            value: 'No votes currently recorded.'
+      arguments:
+        entity_id:
+          exception:
+            title: All
+        entity_type:
+          exception:
+            title: All
+        rate_widget:
+          exception:
+            title: All
+  node_results_block:
+    display_title: Block
+    display_options:
+      block_description: 'Rate Voting Results'
+      fields:
+        user_id:
+          label: User
+          separator: ', '
+        value:
+          label: 'Vote Value'
+          separator: ', '
+        timestamp:
+          label: Date
+          separator: ', '
+      pager:
+        options:
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+  node_summary_block:
+    display_title: Block
+    display_options:
+      title: 'Voting Summary'
+      fields:
+        value_1:
+          label: 'Vote value'
+          separator: ', '
+        value:
+          label: Total
+          separator: ','
+      block_description: 'Rate Voting Summary'

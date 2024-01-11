@@ -1,0 +1,107 @@
+##########################
+# Rate widgets libraries.
+##########################
+
+fontawesome:
+  css:
+    theme:
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {}
+
+unvote-helper:
+  version: 1.0
+  js:
+    js/unvote-helper.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+w-custom:
+  version: 1.0
+  js:
+    js/w-custom.js : {}
+  css:
+    theme:
+      css/w-custom.css: {}
+  dependencies:
+    - core/drupal.ajax
+    - core/jquery
+    - core/drupal
+    - rate/fontawesome
+
+w-emotion:
+  version: 1.0
+  js:
+    js/w-emotion.js : {}
+  css:
+    theme:
+      css/w-emotion.css: {}
+  dependencies:
+    - core/drupal.ajax
+    - core/jquery
+    - core/drupal
+    - rate/fontawesome
+
+w-fivestar:
+  version: 1.0
+  js:
+    js/w-fivestar.js : {}
+  css:
+    theme:
+      css/w-fivestar.css: {}
+  dependencies:
+    - core/drupal.ajax
+    - core/jquery
+    - core/drupal
+    - rate/fontawesome
+
+w-yesno:
+  version: 1.0
+  js:
+    js/w-yesno.js : {}
+  css:
+    theme:
+      css/w-yesno.css: {}
+  dependencies:
+    - core/drupal.ajax
+    - core/jquery
+    - core/drupal
+    - rate/fontawesome
+
+w-thumbsupdown:
+  version: 1.0
+  js:
+    js/w-thumbsupdown.js : {}
+  css:
+    theme:
+      css/w-thumbsupdown.css: {}
+  dependencies:
+    - core/drupal.ajax
+    - core/jquery
+    - core/drupal
+    - rate/fontawesome
+
+w-thumbsup:
+  version: 1.0
+  js:
+    js/w-thumbsup.js : {}
+  css:
+    theme:
+      css/w-thumbsup.css: {}
+  dependencies:
+    - core/drupal.ajax
+    - core/jquery
+    - core/drupal
+    - rate/fontawesome
+
+w-numberupdown:
+  version: 1.0
+  js:
+    js/w-numberupdown.js : {}
+  css:
+    theme:
+      css/w-numberupdown.css: {}
+  dependencies:
+    - core/drupal.ajax
+    - core/jquery
+    - core/drupal
+    - rate/fontawesome

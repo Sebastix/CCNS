@@ -1,0 +1,68 @@
+/* Rate widget fivestar CSS */
+
+.fivestar-rating-wrapper {
+  display: inline-block;
+  padding: 0px;
+  line-height: 0;
+}
+
+div.fivestar > form > table > tbody > tr.rating-table-tr {
+  border: none;
+}
+
+div.fivestar > form > table > tbody > tr > td.rating-table-td {
+  border: none;
+  padding: 0px;
+}
+
+div.fivestar-rating-wrapper > div.form-type-radio {
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+}
+
+div.fivestar-rating-wrapper > div > label {
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+}
+
+div.fivestar-rating-wrapper > div > label::before {
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  content: "\f005";
+}
+
+div.fivestar-rating-wrapper > div > label,
+div.fivestar-rating-wrapper > div > label.empty {
+  color: #ddd; /* empty star background - grey */
+}
+
+div.fivestar-rating-wrapper > div > label.full {
+  color: #ffcc00; /* full star background - gold */
+}
+div.fivestar-rating-wrapper > div > label.hover {
+  color: #ff9900 !important; /* full star background - orange */
+}
+
+div.fivestar-rating-wrapper > div > label.average {
+  color: #ffcc00; /* full star background - gold */
+}
+
+div.fivestar-rating-wrapper > div > div.rating-option-result {
+  display: inline;
+  text-align: center;
+  padding: 5px;
+}
+
+input.fivestar-rating-input {
+  display: none;
+}
+
+button.fivestar-rating-submit {
+  display: none;
+}
+
+input.fivestar-rating-submit {
+  display: none;
+}

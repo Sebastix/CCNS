@@ -1,0 +1,62 @@
+rate.admin_settings:
+  path: '/admin/config/search/votingapi/rate'
+  defaults:
+   _title: 'Rate settings'
+   _description: 'Management options for the Rate module.'
+   _form: '\Drupal\rate\Form\RateSettingsForm'
+  requirements:
+    _permission: 'administer rate'
+
+# ##############################
+# Rate widgets settings
+# ##############################
+
+rate.widget_add:
+  path: '/admin/structure/rate/add'
+  defaults:
+    _entity_form: 'rate_widget.add'
+    _title: 'Add rate widget'
+  requirements:
+    _permission: 'administer rate'
+
+entity.rate_widget.edit_form:
+  path: '/admin/structure/rate/{rate_widget}/edit'
+  defaults:
+    _entity_form: 'rate_widget.edit'
+    _title: 'Edit rate widget'
+  requirements:
+    _permission: 'administer rate'
+
+entity.rate_widget.template_form:
+  path: '/admin/structure/rate/{rate_widget}/template'
+  defaults:
+    _entity_form: 'rate_widget.template'
+    _title: 'Change rate widget template'
+  requirements:
+    _permission: 'administer rate'
+
+entity.rate_widget.delete_form:
+  path: '/admin/structure/rate/{rate_widget}/delete'
+  defaults:
+    _entity_form: 'rate_widget.delete'
+    _title: 'Delete rate_widget'
+  requirements:
+    _permission: 'administer rate'
+
+entity.rate_widget.collection:
+  path: '/admin/structure/rate_widgets'
+  defaults:
+    _entity_list: 'rate_widget'
+    _title: 'Rate widgets'
+  requirements:
+    _permission: 'administer rate'
+
+rate.node_results_page:
+  path: '/node/{node}/node-rating'
+  defaults:
+    _title: 'Rate Voting results'
+    _controller: '\Drupal\rate\Controller\WidgetResultsController::nodeResults'
+  requirements:
+    _permission: 'view rate results page'
+  options:
+    _node_operation_route: TRUE

@@ -1,0 +1,10 @@
+services:
+  rate.bot_detector:
+    class: Drupal\rate\Plugin\RateBotDetector
+    arguments: ['@config.factory', '@database', '@http_client', '@request_stack', '@datetime.time']
+# ##############################
+# Rate widgets
+# ##############################
+  rate.vote_widget_base:
+    class: Drupal\rate\Plugin\RateWidgetBase
+    arguments: ['@entity_type.manager', '@plugin.manager.votingapi.resultfunction', '@entity.form_builder', '@current_user', '@request_stack', '@config.factory', '@module_handler', '@rate.bot_detector']

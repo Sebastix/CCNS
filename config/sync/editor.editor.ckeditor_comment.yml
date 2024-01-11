@@ -1,0 +1,18 @@
+uuid: 99233bf4-ba43-4703-a2fa-a7a997d324c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.ckeditor_comment
+  module:
+    - ckeditor5
+format: ckeditor_comment
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - bold
+      - italic
+      - underline
+  plugins: {  }
+image_upload: {  }

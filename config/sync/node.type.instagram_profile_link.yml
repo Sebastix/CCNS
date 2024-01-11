@@ -1,0 +1,21 @@
+uuid: f9b7f7f9-a382-4ccb-b4e6-d07fbf58901a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - unique_content_field_validation
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
+name: 'Instagram profiel post'
+type: instagram_profile_link
+description: ''
+help: 'Post een link naar een Instagram profiel van een Honda.'
+new_revision: false
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,30 @@
+uuid: 70aab56e-f622-470a-aec1-1769fb06efac
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.link_comment
+    - field.field.comment.link_comment.comment_body
+  module:
+    - text
+id: comment.link_comment.default
+targetEntityType: comment
+bundle: link_comment
+mode: default
+content:
+  comment_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  danse_subscribe:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  links: true
+  rate_comment_upvote: true

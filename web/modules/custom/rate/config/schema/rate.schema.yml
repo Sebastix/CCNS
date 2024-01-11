@@ -1,0 +1,109 @@
+rate.settings:
+  type: config_object
+  label: 'Rate settings'
+  mapping:
+    disable_log:
+      type: boolean
+      label: 'Disable log messages'
+    disable_fontawesome:
+      type: boolean
+      label: 'Disable fontawesome'
+    bot_minute_threshold:
+      type: string
+      label: 'Bot minute threshold'
+    bot_hour_threshold:
+      type: string
+      label: 'Bot hour threshold'
+    botscout_key:
+      type: string
+      label: 'BotScout.com API key'
+rate.rate_widget.*:
+  type: config_entity
+  label: 'Rate widget'
+  mapping:
+    id:
+      type: string
+      label: 'Machine-readable name'
+    label:
+      type: label
+      label: 'Label'
+    template:
+      type: string
+      label: 'Template'
+    value_type:
+      type: string
+      label: 'Value type'
+    entity_types:
+      type: sequence
+      label: 'Entity types'
+      sequence:
+        type: string
+    comment_types:
+      type: sequence
+      label: 'Comment types'
+      sequence:
+        type: string
+    options:
+      type: sequence
+      label: 'Options'
+      sequence:
+        type: mapping
+        label: 'Option settings'
+        mapping:
+          value:
+            type: string
+            label: 'Option value'
+          label:
+            type: label
+            label: 'Option label'
+          class:
+            type: string
+            label: 'Option class'
+    voting:
+      type: mapping
+      label: 'Voting settings'
+      mapping:
+        use_deadline:
+          type: integer
+          label: 'Use deadline'
+        anonymous_window:
+          type: integer
+          label: 'Anonymous vote rollover'
+        user_window:
+          type: integer
+          label: 'Registered user vote rollover'
+    display:
+      type: mapping
+      label: 'Display settings'
+      mapping:
+        display_label:
+          type: label
+          label: 'Display label'
+        label_class:
+          type: string
+          label: 'Label classes'
+        label_position:
+          type: string
+          label: 'Label position'
+        description:
+          type: label
+          label: 'Description'
+        description_class:
+          type: string
+          label: 'Label classes'
+        description_position:
+          type: string
+          label: 'Description position'
+        readonly:
+          type: integer
+          label: 'Read only'
+    results:
+      type: mapping
+      label: 'Results'
+      mapping:
+        result_type:
+          type: string
+          label: 'Result type'
+        result_position:
+          type: string
+          label: 'Result position'

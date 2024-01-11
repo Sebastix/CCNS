@@ -1,0 +1,12 @@
+uuid: 2d732ac2-d5ab-466c-994c-4b8b65873d6d
+langcode: nl
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: Content
+tags:
+  canonical_url: '[node:url]'
+  description: '[current-page:title] [node:summary]'
+  title: '[current-page:title] | [site:name] - [site:slogan]'

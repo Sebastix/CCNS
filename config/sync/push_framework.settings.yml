@@ -1,0 +1,25 @@
+_core:
+  default_config_hash: OkT8RW1XS_pK5VVevlY3qkDtmtiloWfIkAdH219F7BU
+display_modes:
+  avatars_preview: teaser
+  block_content: full
+  comment: full
+  danse_event: teaser
+  danse_notification_action: teaser
+  danse_notification: teaser
+  file: token
+  media: full
+  menu_link_content: token
+  node: teaser
+  path_alias: token
+  taxonomy_term: full
+  user: compact
+  vote: teaser
+  vote_result: teaser
+  symfony_mailer_log: teaser
+pattern:
+  subject: '[site:name] notification: [push-object:label]'
+  body:
+    value: "[user:display-name],\r\n\r\n[push-object:content]"
+    format: plain_text
+langcode: nl

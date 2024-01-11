@@ -1,0 +1,11 @@
+uuid: 1463a38f-6e46-4ed3-9011-456d779d2021
+langcode: nl
+status: true
+dependencies:
+  module:
+    - menu_link_content
+id: menu_link_content.menu_link_content
+target_entity_type_id: menu_link_content
+target_bundle: menu_link_content
+default_langcode: site_default
+language_alterable: false

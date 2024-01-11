@@ -1,0 +1,41 @@
+uuid: e41b077b-3118-47f4-bc7d-c09e726b622e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.ckeditor_comment
+    - node.type.instagram_profile_link
+  module:
+    - avatars
+    - comment
+    - comment_delete
+    - field_permissions
+    - file
+    - filter
+    - node
+    - rate
+    - search
+id: hix
+label: 'CCHS member'
+weight: 4
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'avatars avatar_generator user user_upload'
+  - 'cancel account'
+  - 'cast rate vote on node of instagram_profile_link'
+  - 'create instagram_profile_link content'
+  - 'delete own comment'
+  - 'delete own comment anytime'
+  - 'delete own files'
+  - 'delete own instagram_profile_link content'
+  - 'delete own node instagram_profile_link field_comments'
+  - 'delete own node instagram_profile_link field_comments anytime'
+  - 'edit own comments'
+  - 'post comments'
+  - 'search content'
+  - 'select account cancellation method'
+  - 'skip comment approval'
+  - 'use text format ckeditor_comment'
+  - 'view field_is_verified'
+  - 'view own field_is_verified'

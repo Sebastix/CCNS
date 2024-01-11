@@ -1,0 +1,67 @@
+/* Rate widget emotion CSS */
+
+.emotion-rating-wrapper {
+  display: inline;
+  padding: 0px;
+}
+
+div.emotion > form > table > tbody > tr.rating-table-tr {
+  border: none;
+}
+
+div.emotion > form > table > tbody > tr > td.rating-table-td {
+  border: none;
+  padding: 0px;
+}
+
+div.emotion-rating-wrapper > div.form-type-radio {
+  display: inline;
+  padding: 0px;
+}
+
+/* Deafault button styles, override in widget settings */
+div.emotion-rating-wrapper > div > label.rating-label {
+  display: inline-block;
+  vertical-align: baseline;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+div.emotion-rating-wrapper > div > label.emotion-rating-label {
+  background: #eee;
+  padding: 0 5px;
+  color: #666;
+  border: 1px solid #ccc;
+  text-align: center;
+  display: inline-block;
+}
+
+div.emotion-rating-wrapper > div > label.emotion-rating-label:hover,
+div.emotion-rating-wrapper > div > label.emotion-rating-label:active,
+div.emotion-rating-wrapper > div > label.emotion-rating-label:focus {
+  color: #666;
+}
+
+div.emotion-rating-wrapper > div > label.emotion-rating-label:hover {
+  background: #ddd;
+  text-decoration: none;
+}
+
+div.emotion-rating-wrapper > div > div.rating-option-result {
+  display: inline;
+  text-align: center;
+  padding: 5px;
+  vertical-align: baseline;
+}
+
+input.emotion-rating-input {
+  display: none;
+}
+button.emotion-rating-submit {
+  display: none;
+}
+
+input.emotion-rating-submit {
+  display: none;
+}

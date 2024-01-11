@@ -1,0 +1,34 @@
+uuid: 5540151a-652d-447c-b49b-b5e43e5dcd32
+langcode: nl
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.avatars_avatar_generator
+    - field.field.user.user.avatars_user_picture
+    - field.field.user.user.user_picture
+  module:
+    - user
+_core:
+  default_config_hash: FaQ9Ptcpxpg30AtiqRDtl_8zbJArHP1LPfug_s59TOA
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 5
+    region: content
+hidden:
+  avatars_avatar_generator: true
+  avatars_user_picture: true
+  langcode: true
+  language: true
+  path: true
+  timezone: true
+  user_picture: true

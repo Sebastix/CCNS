@@ -1,0 +1,69 @@
+label: Inhoud
+description: 'Inhoud zoeken en beheren'
+display:
+  default:
+    display_title: Standaard
+    display_options:
+      title: Inhoud
+      fields:
+        title:
+          label: Titel
+        type:
+          label: Inhoudstype
+          separator: ', '
+        name:
+          label: Auteur
+        status:
+          label: Status
+          settings:
+            format_custom_false: 'Niet gepubliceerd'
+            format_custom_true: Gepubliceerd
+        changed:
+          label: Bijgewerkt
+        operations:
+          label: Bewerkingen
+      pager:
+        options:
+          tags:
+            next: 'Volgende ›'
+            previous: '‹ Vorige'
+            first: '« Eerste'
+            last: 'Laatste »'
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      empty:
+        area_text_custom:
+          content: 'Geen inhoud beschikbaar.'
+      filters:
+        title:
+          expose:
+            label: Titel
+        type:
+          expose:
+            label: Inhoudstype
+        status:
+          expose:
+            label: Status
+          group_info:
+            label: Publicatiestatus
+            group_items:
+              1:
+                title: Gepubliceerd
+              2:
+                title: 'Niet gepubliceerd'
+        langcode:
+          expose:
+            label: Taal
+  page_1:
+    display_title: Pagina
+    display_options:
+      menu:
+        title: Inhoud
+      tab_options:
+        title: Inhoud
+        description: 'Inhoud vinden en beheren'

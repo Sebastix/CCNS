@@ -1,0 +1,22 @@
+uuid: ce6ec950-4b1c-4ba0-9d21-8268b1b9afb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.instagram_profile_link
+id: node.instagram_profile_link.promote
+field_name: promote
+entity_type: node
+bundle: instagram_profile_link
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

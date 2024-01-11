@@ -1,0 +1,8 @@
+uuid: 52d3e82f-1995-43df-9209-966e0c4ab546
+langcode: en
+status: true
+dependencies: {  }
+id: upvote
+label: upvote
+value_type: points
+description: 'Upvote with 1 point'

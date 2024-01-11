@@ -1,0 +1,105 @@
+label: Reacties
+description: 'Zoek en beheer reacties.'
+display:
+  default:
+    display_title: Standaard
+    display_options:
+      title: Reacties
+      fields:
+        comment_bulk_form:
+          action_title: Actie
+        subject:
+          label: Onderwerp
+          separator: ', '
+        uid:
+          separator: ', '
+        name:
+          label: Auteur
+          separator: ', '
+        entity_id:
+          label: 'Geplaatst in'
+          separator: ', '
+        changed:
+          label: Bijgewerkt
+          separator: ', '
+        operations:
+          label: Bewerkingen
+        name_1:
+          separator: ', '
+      pager:
+        options:
+          tags:
+            next: 'volgende ›'
+            previous: '‹ vorige'
+            first: '« eerste'
+            last: 'laatste »'
+          expose:
+            items_per_page_label: 'Items per pagina'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Startpunt
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      empty:
+        area_text_custom:
+          content: 'Geen reacties beschikbaar.'
+      filters:
+        subject:
+          expose:
+            label: Onderwerp
+        combine:
+          expose:
+            label: 'Naam auteur'
+        langcode:
+          expose:
+            label: Taal
+      use_more_text: meer
+  page_published:
+    display_title: 'Gepubliceerde reacties'
+    display_options:
+      display_description: 'Lijst met goedgekeurde reacties.'
+      menu:
+        title: Reacties
+        description: 'Reacties gepubliceerd.'
+  page_unapproved:
+    display_title: 'Niet-goedgekeurde reacties'
+    display_options:
+      fields:
+        comment_bulk_form:
+          action_title: Actie
+        subject:
+          label: Onderwerp
+          separator: ', '
+        uid:
+          separator: ', '
+        name:
+          label: Auteur
+          separator: ', '
+        entity_id:
+          label: 'Geplaatst in'
+          separator: ', '
+        changed:
+          label: Bijgewerkt
+          separator: ', '
+        operations:
+          label: Bewerkingen
+        name_1:
+          separator: ', '
+      filters:
+        subject:
+          expose:
+            label: Onderwerp
+        combine:
+          expose:
+            label: Auteursnaam
+        langcode:
+          expose:
+            label: Taal
+      display_description: 'Lijst met afgekeurde reacties.'
+      menu:
+        title: 'Niet-goedgekeurde reacties'
+        description: 'Reacties afgekeurd'

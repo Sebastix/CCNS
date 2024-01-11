@@ -1,0 +1,254 @@
+<?php
+
+/**
+ * @file
+ * Installation/Uninstallation functions for rate module.
+ */
+
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Implements hook_schema().
+ */
+function rate_schema() {
+  $schema = [];
+
+  $schema['rate_bot_agent'] = [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'pattern' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  $schema['rate_bot_ip'] = [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'ip' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_update_last_removed().
+ */
+function rate_update_last_removed() {
+  // Removed 8002, enabling multiple entities and widgets for the 8.x-1.x.
+  // The next update function is rate_update_8201().
+  return 8002;
+}
+
+/**
+ * Consolidates votes into new vote types.
+ */
+function rate_update_8001(&$sandbox) {
+  // Ideally recreating the votes and results would go through th APIs
+  // (deleting, creating, recalulating results), but as the number of votes can
+  // grow quickly, the overhead of going through the API can quickly reach an
+  // unreasonable amount of time for the hook to run (e.g. days), so we're
+  // opting for the slightly less safe method of direct database updates. Also,
+  // the module is still in an alpha state, so even having an upgrade path is a
+  // nicety.
+  $entityTypeManager = \Drupal::entityTypeManager();
+  $voteStorage = $entityTypeManager->getStorage('vote');
+  $voteTypeStorage = $entityTypeManager->getStorage('vote_type');
+  $database = \Drupal::database();
+  $oldVoteTypes = ['up', 'down', 'star1', 'star2', 'star3', 'star4', 'star5'];
+
+  if (!isset($sandbox['progress'])) {
+    // Add the new vote types. Update hooks should always be run prior to
+    // importing configurations, so these should not exist yet, but in the off-
+    // chance that there was a failure partway through the update hook, we'll
+    // check to ensure that the hook can be re-run.
+    $voteType = $voteTypeStorage->load('updown');
+    if (!$voteType) {
+      $voteTypeStorage->create([
+        'id' => 'updown',
+        'label' => 'Up/Down',
+        'value_type' => 'points',
+      ])->save();
+    }
+    $voteType = $voteTypeStorage->load('fivestar');
+    if (!$voteType) {
+      $voteTypeStorage->create([
+        'id' => 'fivestar',
+        'label' => 'Five star',
+        'value_type' => 'points',
+      ])->save();
+    }
+
+    // Delete old voting results.
+    $query = $database->delete('votingapi_result');
+    $query->condition('type', $oldVoteTypes, 'IN');
+    $query->execute();
+
+    // Update vote entities.
+    $query = $database->update('votingapi_vote');
+    $query->fields(['type' => 'updown', 'value' => -1]);
+    $query->condition('type', 'down');
+    $query->execute();
+    $query = $database->update('votingapi_vote');
+    $query->fields(['type' => 'updown']);
+    $query->condition('type', 'up');
+    $query->execute();
+    $query = $database->update('votingapi_vote');
+    $query->fields(['type' => 'fivestar']);
+    $query->condition('type', 'star1');
+    $query->execute();
+    $query = $database->update('votingapi_vote');
+    $query->fields(['type' => 'fivestar', 'value' => 2]);
+    $query->condition('type', 'star2');
+    $query->execute();
+    $query = $database->update('votingapi_vote');
+    $query->fields(['type' => 'fivestar', 'value' => 3]);
+    $query->condition('type', 'star3');
+    $query->execute();
+    $query = $database->update('votingapi_vote');
+    $query->fields(['type' => 'fivestar', 'value' => 4]);
+    $query->condition('type', 'star4');
+    $query->execute();
+    $query = $database->update('votingapi_vote');
+    $query->fields(['type' => 'fivestar', 'value' => 5]);
+    $query->condition('type', 'star5');
+    $query->execute();
+    // Ensure that any cached entities are flushed so that the results are
+    // recalculated correctly.
+    \Drupal::cache()->deleteAll();
+    $voteStorage->resetCache();
+    $entityTypeManager->getStorage('vote_result')->resetCache();
+
+    // Initialize the batch.
+    $sandbox['progress'] = 0;
+    $sandbox['max'] = $voteStorage->getAggregateQuery()
+      ->groupBy('entity_type')
+      ->groupBy('entity_id')
+      ->accessCheck(FALSE)
+      ->condition('type', ['updown', 'fivestar'], 'IN')
+      ->count()
+      ->execute();
+  }
+
+  // Recalculate all the voting results.
+  if ($sandbox['max']) {
+    $time = \Drupal::time()->getRequestTime();
+    $query = \Drupal::database()->select('votingapi_vote', 'v')
+      ->fields('v', ['type', 'entity_type', 'entity_id'])
+      ->groupBy('type')
+      ->groupBy('entity_type')
+      ->groupBy('entity_id')
+      ->orderBy('type')
+      ->orderBy('entity_type')
+      ->orderBy('entity_id')
+      ->range($sandbox['progress'], 1000);
+    $query->condition('type', ['updown', 'fivestar'], 'IN');
+    $results = $query->execute();
+    while ($row = $results->fetchAssoc()) {
+      $fields = [
+        'entity_id' => $row['entity_id'],
+        'entity_type' => $row['entity_type'],
+        'type' => 'updown',
+        'timestamp' => $time,
+      ];
+      // Manual recalculation of voting results for the base Voting API and our
+      // one result plugin.
+      $query = $database->select('votingapi_vote');
+      $query->condition('entity_type', $row['entity_type']);
+      $query->condition('entity_id', $row['entity_id']);
+      $query->condition('type', $row['type']);
+      $count = $query->countQuery()->execute()->fetchField();
+      $database->insert('votingapi_result')
+        ->fields($fields + [
+          'function' => 'vote_count',
+          'value' => $count,
+        ])
+        ->execute();
+      $query = $database->select('votingapi_vote');
+      $query->addExpression('SUM(value)');
+      $query->condition('entity_type', $row['entity_type']);
+      $query->condition('entity_id', $row['entity_id']);
+      $query->condition('type', $row['type']);
+      $sum = $query->execute()->fetchField();
+      $database->insert('votingapi_result')
+        ->fields($fields + [
+          'function' => 'vote_sum',
+          'value' => $sum,
+        ])
+        ->execute();
+      $average = $sum / $count;
+      $database->insert('votingapi_result')
+        ->fields($fields + [
+          'function' => 'vote_average',
+          'value' => $average,
+        ])
+        ->execute();
+      $query = $database->select('votingapi_vote');
+      $query->condition('entity_type', $row['entity_type']);
+      $query->condition('entity_id', $row['entity_id']);
+      $query->condition('type', $row['type']);
+      $query->condition('value', 1);
+      $value = $query->countQuery()->execute()->fetchField();
+      $database->insert('votingapi_result')
+        ->fields($fields + [
+          'function' => 'rate_count_up',
+          'value' => $value,
+        ])->execute();
+      $sandbox['progress']++;
+    }
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : $sandbox['progress'] / $sandbox['max'];
+
+  // Better message if running from  Drush.
+  if (function_exists('drush_print')) {
+    drush_print(t('@percent% of the results have been recalculated.', ['@percent' => round($sandbox['#finished'] * 100)]));
+  }
+
+  if ($sandbox['#finished'] == 1) {
+    // Delete the old vote types.
+    foreach ($oldVoteTypes as $type) {
+      $voteType = $voteTypeStorage->load($type);
+      if ($voteType) {
+        $voteType->delete();
+      }
+    }
+
+    return t('Finished unifying vote types.');
+  }
+}
+
+/**
+ * Adds the rate_widget column to the votingapi_vote table.
+ */
+function rate_update_8201(&$sandbox) {
+  $storage = BaseFieldDefinition::create('string')
+    ->setLabel(t('Rate widget'))
+    ->setDescription(t('Holds the Rate field name.'))
+    ->setRevisionable(FALSE)
+    ->setCustomStorage(FALSE)
+    ->setTranslatable(FALSE)
+    ->setRequired(FALSE)
+    ->setPropertyConstraints('value', ['Length' => ['max' => FieldStorageConfig::NAME_MAX_LENGTH]]);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('rate_widget', 'vote', 'rate', $storage);
+}

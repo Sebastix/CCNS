@@ -1,0 +1,45 @@
+events:
+  create_event:
+    publish: '1'
+    create: 0
+    update: 0
+    delete: 0
+    unpublish: 0
+  push:
+    create: '1'
+    update: '1'
+    delete: '1'
+  allow_entity_subscription:
+    publish:
+      - authenticated
+      - content_editor
+      - administrator
+      - hix
+    create: {  }
+    update: {  }
+    delete: {  }
+    unpublish: {  }
+  'access settings':
+    create: {  }
+    update: {  }
+    delete: {  }
+  force:
+    create: 0
+    update: 0
+    delete: 0
+  silent:
+    create: 0
+    update: 0
+    delete: 0
+  allow_subscription:
+    create: {  }
+    update: {  }
+    delete: {  }
+    publish: {  }
+    unpublish: {  }
+  allow_related_entity_subscription:
+    create: {  }
+    update: {  }
+    delete: {  }
+    publish: {  }
+    unpublish: {  }

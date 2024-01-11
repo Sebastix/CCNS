@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+<form{{ attributes }}>
+  {{ children }}
+  <p class="my-6 text-center">
+    Heb je nog geen account?
+    <br />
+    <a href="{{ path('multiple_registration.role_registration_page', { 'rid' : 'hix' }) }}">Klik dan hier om je te registreren</a>
+  </p>
+</form>

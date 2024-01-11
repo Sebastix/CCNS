@@ -1,0 +1,28 @@
+uuid: fea52550-187c-4272-ac5e-97c938e0ca4e
+langcode: nl
+status: true
+dependencies:
+  module:
+    - avatars
+    - comment
+    - field_permissions
+    - file
+    - media
+    - search
+    - system
+_core:
+  default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access user profiles'
+  - 'avatars avatar_generator user user_upload'
+  - 'delete own files'
+  - 'post comments'
+  - 'search content'
+  - 'view field_is_verified'
+  - 'view media'

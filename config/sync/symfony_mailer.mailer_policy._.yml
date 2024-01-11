@@ -1,0 +1,32 @@
+uuid: 3367cc84-e2e4-410f-af7e-04e05b8bdd63
+langcode: nl
+status: true
+dependencies:
+  module:
+    - symfony_mailer_log
+_core:
+  default_config_hash: UKAWomTpkBsRaG2cDv6a-j36Y3kT3Yr4qTW2jd4SLNk
+id: _
+configuration:
+  email_bcc:
+    addresses:
+      -
+        value: cchs@sebastix.dev
+        display: ''
+  mailer_default_headers: {  }
+  mailer_inline_css: {  }
+  symfony_mailer_log: {  }
+  reroute_email:
+    addresses:
+      -
+        value: info@sebastix.nl
+        display: ''
+    allowlist: ''
+    show_message: 1
+    add_mail_description: 1
+  email_theme:
+    theme: _active_fallback
+  mailer_url_to_absolute: {  }
+  mailer_wrap_and_convert:
+    plain: false
+    swiftmailer: false

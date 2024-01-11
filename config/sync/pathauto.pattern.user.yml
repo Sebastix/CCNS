@@ -1,0 +1,25 @@
+uuid: 9e20faf0-c068-49a7-b12e-ce050cdb23d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - user
+id: user
+label: User
+type: 'canonical_entities:user'
+pattern: '/profiel/[user:account-name]'
+selection_criteria:
+  a46d243b-75eb-497a-9e3c-b01c1bfb75ce:
+    id: language
+    negate: false
+    uuid: a46d243b-75eb-497a-9e3c-b01c1bfb75ce
+    context_mapping:
+      language: 'user:langcode:language'
+    langcodes:
+      nl: nl
+selection_logic: and
+weight: -5
+relationships:
+  'user:langcode:language':
+    label: Language

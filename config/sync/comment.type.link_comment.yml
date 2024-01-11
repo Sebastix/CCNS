@@ -1,0 +1,8 @@
+uuid: 658c9c51-9305-4fcf-a9ec-2853df3896a8
+langcode: en
+status: true
+dependencies: {  }
+id: link_comment
+label: 'Link comment'
+target_entity_type_id: node
+description: 'Comment to a posted link'

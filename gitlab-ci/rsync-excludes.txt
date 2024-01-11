@@ -1,0 +1,3 @@
+files
+settings.local.php
+symfony_mailer.mailer_transport.smtp.yml

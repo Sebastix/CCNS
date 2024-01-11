@@ -1,0 +1,22 @@
+uuid: 03548030-6c17-4700-9a73-80df60948543
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hix
+_core:
+  default_config_hash: WvPhI8OwllG0gE69-F8qL3ai3nd5SbYD6JpmEuZcyok
+id: hix_messages
+theme: hix
+region: content
+weight: -4
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

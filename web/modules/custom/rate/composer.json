@@ -1,0 +1,13 @@
+{
+  "name": "drupal/rate",
+  "description": "Flexible voting options for entity types.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/rate",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/rate"
+  },
+  "require": {
+    "drupal/core": "^9 || ^10",
+    "drupal/votingapi": "^3.0"
+  }
+}

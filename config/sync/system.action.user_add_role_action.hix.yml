@@ -1,0 +1,14 @@
+uuid: 56795a8a-edca-41fb-b86c-844c15970d5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.hix
+  module:
+    - user
+id: user_add_role_action.hix
+label: 'Add the HiX member role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: hix

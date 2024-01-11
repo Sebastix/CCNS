@@ -1,0 +1,12 @@
+uuid: 82c29e24-af98-44cc-87d5-3f8d405ce969
+langcode: nl
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: LFWr8uP6ISsZ0oiyc7LcC1AYEbUw-X9w4Yu6x66ak1g
+id: user_upload
+label: 'User upload'
+weight: -6
+plugin: user
+provider: avatars
+settings: {  }

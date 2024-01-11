@@ -1,0 +1,24 @@
+uuid: e9886b15-2149-44b1-962d-de50fa708f14
+langcode: en
+status: false
+dependencies: {  }
+id: production
+label: Production
+description: ''
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: ../config/production
+module:
+  matomo: 0
+  raven: 0
+theme: {  }
+complete_list:
+  - advagg.settings
+  - robotstxt.settings
+  - symfony_mailer.settings
+  - symfony_mailer_mailer_transport.smtp
+  - symfony_mailer_reroute.settings.yml
+  - system.logging
+partial_list: {  }

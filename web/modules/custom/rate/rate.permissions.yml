@@ -1,0 +1,8 @@
+view rate results page:
+  title: 'View rate results page'
+  description: 'View node tab that lists voting details.'
+administer rate:
+  title: 'Administer Rate options'
+  description: 'Manage administrative options of the rate module.'
+permission_callbacks:
+  - Drupal\rate\RatePermissions::permissions

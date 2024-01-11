@@ -1,0 +1,91 @@
+label: Bestanden
+description: 'Bestanden vinden en beheren.'
+display:
+  default:
+    display_title: Standaard
+    display_options:
+      title: Bestanden
+      fields:
+        fid:
+          label: Fid
+        filename:
+          label: Naam
+          separator: ', '
+        filemime:
+          label: MIME-type
+        filesize:
+          label: Grootte
+        status:
+          label: Status
+          settings:
+            format_custom_false: Tijdelijk
+            format_custom_true: Permanent
+        created:
+          label: Uploaddatum
+        changed:
+          label: Aanpassingsdatum
+        count:
+          label: 'Gebruikt in'
+          alter:
+            path: 'admin/content/files/usage/{{ fid }}'
+      pager:
+        options:
+          tags:
+            next: 'Volgende ›'
+            previous: '‹ Vorige'
+          expose:
+            items_per_page_label: 'Items per pagina'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Startpunt
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      empty:
+        area_text_custom:
+          content: 'Geen bestanden beschikbaar.'
+      filters:
+        filename:
+          expose:
+            label: Bestandsnaam
+        filemime:
+          expose:
+            label: MIME-type
+        status:
+          expose:
+            label: Status
+  page_1:
+    display_title: Bestandenoverzicht
+    display_options:
+      menu:
+        title: Bestanden
+  page_2:
+    display_title: Bestandsgebruik
+    display_options:
+      title: Bestandsgebruik
+      fields:
+        entity_label:
+          label: Entiteit
+        type:
+          label: Entiteitstype
+        module:
+          label: 'Module registreren'
+        count:
+          label: Gebruiksfrequentie
+      pager:
+        options:
+          tags:
+            next: 'Volgende ›'
+            previous: '‹ Vorige'
+          expose:
+            items_per_page_label: 'Items per pagina'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Startpunt
+      arguments:
+        fid:
+          exception:
+            title: Alle
+          title: 'Bestandsgebruikinformatie voor {{ arguments.fid }}'

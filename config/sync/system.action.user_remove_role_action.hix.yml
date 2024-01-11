@@ -1,0 +1,14 @@
+uuid: d5fc1ba5-139e-4778-adf4-bb668a89e1ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.hix
+  module:
+    - user
+id: user_remove_role_action.hix
+label: 'Remove the HiX member role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: hix

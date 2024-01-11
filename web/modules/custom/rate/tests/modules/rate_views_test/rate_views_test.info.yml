@@ -1,0 +1,13 @@
+name: 'Rate Views Test'
+description: 'Provides default views for testing'
+type: module
+package: Testing
+dependencies:
+  - drupal:node
+  - drupal:views
+  - votingapi:votingapi
+
+# Information added by Drupal.org packaging script on 2022-03-04
+version: '3.0.1'
+project: 'rate'
+datestamp: 1646428104

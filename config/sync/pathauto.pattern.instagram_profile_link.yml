@@ -1,0 +1,33 @@
+uuid: 23c3854a-994d-41a6-92db-2669ab5f30d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: instagram_profile_link
+label: 'Instagram profile link'
+type: 'canonical_entities:node'
+pattern: '/link/instagram/profiel/[node:title]'
+selection_criteria:
+  f35e09b5-db3c-42b2-97f4-cc7aedbef28b:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: f35e09b5-db3c-42b2-97f4-cc7aedbef28b
+    context_mapping:
+      node: node
+    bundles:
+      instagram_profile_link: instagram_profile_link
+  a80cf8bd-ce55-485d-b5d9-8a55ee7d652a:
+    id: language
+    negate: false
+    uuid: a80cf8bd-ce55-485d-b5d9-8a55ee7d652a
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      nl: nl
+selection_logic: and
+weight: -5
+relationships:
+  'node:langcode:language':
+    label: Language

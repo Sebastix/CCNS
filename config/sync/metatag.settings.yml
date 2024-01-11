@@ -1,0 +1,11 @@
+langcode: nl
+entity_type_groups: {  }
+tag_trim_method: beforeValue
+tag_trim_maxlength:
+  metatag_maxlength_title: null
+  metatag_maxlength_description: 160
+  metatag_maxlength_abstract: null
+  metatag_maxlength_og_description: 200
+  metatag_maxlength_og_site_name: null
+  metatag_maxlength_og_title: null
+tag_scroll_max_height: ''

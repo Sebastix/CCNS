@@ -1,0 +1,22 @@
+uuid: 818cb9a8-0b3c-4665-a837-67f1bb2ece66
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - hix
+_core:
+  default_config_hash: y9X3xgCsO59pQyzNLzY1D3SDJJxCHILLWkpPnmuTJ2E
+id: hix_breadcrumbs
+theme: hix
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

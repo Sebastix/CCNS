@@ -1,0 +1,23 @@
+uuid: eaa6a4d7-3b8c-41cb-b16b-25d780fe44e2
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.user.avatars_avatar_generator
+  module:
+    - options
+    - user
+_core:
+  default_config_hash: 9hy_OkxX4IAkQrUcyImNU8aMq7gnlEyTYbF7nD50iAw
+id: user.user.avatars_avatar_generator
+field_name: avatars_avatar_generator
+entity_type: user
+bundle: user
+label: 'Avatar Generator'
+description: 'Select source of avatar.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

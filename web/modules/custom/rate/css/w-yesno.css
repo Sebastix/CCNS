@@ -1,0 +1,70 @@
+/* Rate widget yesno CSS */
+
+.yesno-rating-wrapper {
+  display: inline;
+  padding: 0px;
+}
+
+div.yesno > form > table > tbody > tr.rating-table-tr {
+  border: none;
+}
+
+div.yesno > form > table > tbody > tr > td.rating-table-td {
+  border: none;
+  padding: 0px;
+}
+
+
+div.yesno-rating-wrapper > div.form-type-radio {
+  display: inline;
+  padding: 0px;
+}
+
+/* Deafault button styles, override in widget settings */
+div.yesno-rating-wrapper > div > label.rating-label {
+  display: inline-block;
+  vertical-align: baseline;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+div.yesno-rating-wrapper > div > label.yesno-rating-label {
+  background: #eee;
+  padding: 0 2px;
+  color: #666;
+  border: 1px solid #ccc;
+  width: 40px;
+  text-align: center;
+  display: inline-block;
+}
+
+div.yesno-rating-wrapper > div > label.yesno-rating-label:hover,
+div.yesno-rating-wrapper > div > label.yesno-rating-label:active,
+div.yesno-rating-wrapper > div > label.yesno-rating-label:focus {
+  color: #666;
+}
+
+div.yesno-rating-wrapper > div > label.yesno-rating-label:hover {
+  background: #ddd;
+  text-decoration: none;
+}
+
+div.yesno-rating-wrapper > div > div.rating-option-result {
+  display: inline;
+  text-align: center;
+  padding: 5px;
+  vertical-align: baseline;
+}
+
+input.yesno-rating-input {
+  display: none;
+}
+
+button.yesno-rating-submit {
+  display: none;
+}
+
+input.yesno-rating-submit {
+  display: none;
+}

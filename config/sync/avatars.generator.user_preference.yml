@@ -1,0 +1,12 @@
+uuid: 836412ff-dea1-40c9-9fac-90b101aab573
+langcode: nl
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2nwEP0bxQtG_Vg6uQlbZ9WQc1-SA7M9cEoQ_eD1Z5WE
+id: user_preference
+label: 'User preference'
+weight: -7
+plugin: user_preference
+provider: avatars
+settings: {  }

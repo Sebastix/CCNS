@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: Byws3OlAsGkraZVbQPblPvzF02BqNlP94CaPJ1j4gMs
+langcode: nl
+refresh_interval:
+  dynamic: 3600
+  static: 0

@@ -1,0 +1,56 @@
+id: d7_rate_widgets
+label: Rate widgets
+migration_tags:
+  - Drupal 7
+  - Configuration
+source:
+  plugin: rate_widget
+  constants:
+    voting:
+      use_deadline: 0
+      anonymous_window: -2
+      user_window: -2
+    display:
+      display_label: ''
+      label_class: ''
+      label_position: above
+      description_class: ''
+      description_position: below
+      readonly: 0
+    results:
+      result_position: right
+      result_type: user_vote_empty
+process:
+  id: name
+  label: title
+  template:
+    plugin: static_map
+    source: template
+    bypass: true
+    map:
+      thumbs_up_down: thumbsupdown
+      number_up_down: numberupdown
+      thumbs_up: thumbsup
+      slider: custom
+      yes_no: yesno
+  value_type: value_type
+  options:
+    -
+      plugin: rate_widgets_process_options
+      source:
+       - options
+       - template
+  entity_types:
+    -
+      plugin: rate_widgets_process_types
+      source: node_types
+  comment_types:
+    -
+      plugin: rate_widgets_process_types
+      source: comment_types
+  voting: 'constants/voting'
+  display: 'constants/display'
+  'display/description': description
+  results: 'constants/results'
+destination:
+  plugin: entity:rate_widget

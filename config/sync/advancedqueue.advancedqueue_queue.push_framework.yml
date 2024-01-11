@@ -1,0 +1,13 @@
+uuid: b7bf15e8-ac28-43b3-b003-0a0a223d5df1
+langcode: en
+status: true
+dependencies: {  }
+id: push_framework
+label: 'Push Framework'
+backend: database
+backend_configuration:
+  lease_time: 300
+processor: cron
+processing_time: 90
+locked: false
+threshold: {  }
