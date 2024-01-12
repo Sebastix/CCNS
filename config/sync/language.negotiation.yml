@@ -8,8 +8,6 @@ url:
   prefixes:
     en: en
     '': null
-    nl: nl
   domains:
     en: ''
-    nl: ''
 selected_langcode: site_default

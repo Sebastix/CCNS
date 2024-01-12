@@ -11,5 +11,5 @@ page:
   front: /front
 admin_compact_mode: false
 weight_select_max: 100
-default_langcode: nl
+default_langcode: en
 mail_notification: ''
