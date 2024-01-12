@@ -94,8 +94,6 @@ deploy:test:
     # Existing site: updates must be run before configuration is imported
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush updatedb -y"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush config-import -y"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush locale:check"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush locale:update"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush core-cron"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush cache-rebuild -y"
     # Compile theme assets
