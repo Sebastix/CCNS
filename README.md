@@ -10,7 +10,11 @@ A Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.
 
 ## Roadmap
 
-@TODO
+- [ ] Create content model
+- [ ] Add content entities and fields
+- [ ] Add NDK for Nostr integration for authenticating users
+- [ ] Integrate Nostr key authentication with the Drupal user management system
+- [ ] Add crosspost to Nostr option to broadcast an event with your submitted link with [Nostr Simple Publish](https://www.drupal.org/project/nostr_simple_publish)
 
 ## Issues and contributions
 
@@ -61,8 +65,6 @@ See `.gitlab-ci.yml`
 * Field permissions
 * DANSE
 * Honeypot
-* Nostr internet identifier NIP-05
-* Nostr simple publish
 
 Modules for development only:
 * Coder
@@ -73,8 +75,18 @@ Modules for development only:
 
 ## Theme
 
+All theme files are located in `web/themes/custom/ccns_theme`.
+
 TailwindCSS + Daisy UI using Lofi as the base theme (see `web/themes/custom/hix/tailwind.config.js`).
 The icons used are from https://heroicons.com/.
+
+- Node version `>=16.9.0`
+
+`cd web/themes/custom/ccns_theme`
+`npm install`
+`npm run build`
+
+Or run `npm run dev` while developing.
 
 ## Custom work
 

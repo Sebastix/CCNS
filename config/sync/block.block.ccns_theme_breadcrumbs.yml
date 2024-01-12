@@ -1,5 +1,5 @@
-uuid: 818cb9a8-0b3c-4665-a837-67f1bb2ece66
-langcode: en
+uuid: c7a63e8a-613c-4315-ab78-2f20c9f0391a
+langcode: nl
 status: false
 dependencies:
   module:
@@ -8,7 +8,7 @@ dependencies:
     - ccns_theme
 _core:
   default_config_hash: y9X3xgCsO59pQyzNLzY1D3SDJJxCHILLWkpPnmuTJ2E
-id: ccns_breadcrumbs
+id: ccns_theme_breadcrumbs
 theme: ccns_theme
 region: breadcrumb
 weight: 0
@@ -16,7 +16,7 @@ provider: null
 plugin: system_breadcrumb_block
 settings:
   id: system_breadcrumb_block
-  label: Breadcrumbs
+  label: Kruimelpad
   label_display: '0'
   provider: system
 visibility: {  }

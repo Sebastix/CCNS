@@ -1,0 +1,25 @@
+uuid: dffd1b9e-98ae-48b2-a3bd-92cd13966742
+langcode: nl
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9374e7a3-72b4-42f6-8f2d-5f7960875838'
+  module:
+    - block_content
+  theme:
+    - ccns_theme
+id: ccns_theme_headermenu
+theme: ccns_theme
+region: header
+weight: -3
+provider: null
+plugin: 'block_content:9374e7a3-72b4-42f6-8f2d-5f7960875838'
+settings:
+  id: 'block_content:9374e7a3-72b4-42f6-8f2d-5f7960875838'
+  label: 'Header menu'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

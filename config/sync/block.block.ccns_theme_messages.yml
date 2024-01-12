@@ -1,6 +1,6 @@
-uuid: 03548030-6c17-4700-9a73-80df60948543
-langcode: en
-status: false
+uuid: 9e2089bc-8507-47a2-af0e-695936669a56
+langcode: nl
+status: true
 dependencies:
   module:
     - system
@@ -8,15 +8,15 @@ dependencies:
     - ccns_theme
 _core:
   default_config_hash: WvPhI8OwllG0gE69-F8qL3ai3nd5SbYD6JpmEuZcyok
-id: ccns_messages
+id: ccns_theme_messages
 theme: ccns_theme
 region: content
-weight: -4
+weight: -3
 provider: null
 plugin: system_messages_block
 settings:
   id: system_messages_block
-  label: 'Status messages'
+  label: Statusberichten
   label_display: '0'
   provider: system
 visibility: {  }

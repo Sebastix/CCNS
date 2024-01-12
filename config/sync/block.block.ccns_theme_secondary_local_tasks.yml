@@ -1,20 +1,20 @@
-uuid: 367d1b5d-625a-4f64-98cc-3cf43b259215
-langcode: en
+uuid: 25913904-ff98-40cd-a00a-40d99cff5065
+langcode: nl
 status: false
 dependencies:
   theme:
     - ccns_theme
 _core:
   default_config_hash: BCWhood0xXFQYqxFgL1spXdb9KeIuXH1YvTdjIEedDg
-id: ccns_secondary_local_tasks
+id: ccns_theme_secondary_local_tasks
 theme: ccns_theme
-region: sidebar_first
+region: content
 weight: 0
 provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
-  label: 'Secondary tabs'
+  label: 'Secundaire tabs'
   label_display: '0'
   provider: core
   primary: false

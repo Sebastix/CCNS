@@ -1,15 +1,15 @@
-uuid: 4e594490-68bf-4bca-a08f-eb8d9ce77c1b
-langcode: en
+uuid: a4a8d42f-59ad-4bd2-9b3b-b24261907600
+langcode: nl
 status: true
 dependencies:
   module:
     - system
   theme:
     - ccns_theme
-id: sitebranding
+id: ccns_theme_sitebranding
 theme: ccns_theme
 region: header
-weight: -5
+weight: -4
 provider: null
 plugin: system_branding_block
 settings:
@@ -18,6 +18,6 @@ settings:
   label_display: '0'
   provider: system
   use_site_logo: true
-  use_site_name: true
-  use_site_slogan: true
+  use_site_name: false
+  use_site_slogan: false
 visibility: {  }

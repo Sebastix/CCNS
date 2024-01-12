@@ -25,7 +25,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Community Curated Honda Stuff'
+      title: 'Community Curated Nostr Stuff'
       fields:
         title:
           id: title
@@ -609,18 +609,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text_custom
-          empty: true
-          content: 'Honda Instagram profielen'
-          tokenize: false
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -634,8 +623,8 @@ display:
       tags:
         - 'config:field.storage.node.field_instagram_profile_uri'
         - 'config:field.storage.node.field_is_verified'
-  page_1:
-    id: page_1
+  front:
+    id: front
     display_title: Page
     display_plugin: page
     position: 1
