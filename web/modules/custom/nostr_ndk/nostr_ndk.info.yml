@@ -1,0 +1,7 @@
+name: 'nostr_ndk'
+type: module
+description: 'Load Nostr Dev Kit package as a library to your Drupal project'
+package: Nostr
+core_version_requirement: ^10
+libraries:
+  - nostr_ndk/nostr-dev-kit
