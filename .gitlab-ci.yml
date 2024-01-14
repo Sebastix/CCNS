@@ -26,7 +26,6 @@ before_script:
   - apk add --update bash
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | ssh-add -
-  - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
