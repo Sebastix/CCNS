@@ -1,9 +1,9 @@
-uuid: f8f5065c-86eb-4d57-9b1f-cb952ce5c5d3
-langcode: nl
+uuid: 2dceaf23-0d34-4148-9ace-1478e963c470
+langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:17f06ed1-6dc5-4983-9129-3544809b7b6b'
+    - 'block_content:basic:8783ba47-092f-4762-a8e1-6a479053c32e'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: ccns_theme
 region: footer
 weight: 0
 provider: null
-plugin: 'block_content:17f06ed1-6dc5-4983-9129-3544809b7b6b'
+plugin: 'block_content:8783ba47-092f-4762-a8e1-6a479053c32e'
 settings:
-  id: 'block_content:17f06ed1-6dc5-4983-9129-3544809b7b6b'
+  id: 'block_content:8783ba47-092f-4762-a8e1-6a479053c32e'
   label: 'Footer menu'
   label_display: '0'
   provider: block_content
