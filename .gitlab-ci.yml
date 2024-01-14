@@ -62,12 +62,12 @@ build:drupal:
 build:theme:
   stage: build
   script:
-    - cd web/themes/custom/ccns
+    - cd web/themes/custom/ccns_theme
     - npm install
     - npm run build
   artifacts:
     paths:
-      - web/themes/custom/ccns/dist
+      - web/themes/custom/ccns_theme/dist
 
 deploy:test:
   rules:
