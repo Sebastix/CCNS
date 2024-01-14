@@ -73,3 +73,5 @@
 /web/themes/custom/*/dist/
 /docker
 /dumps
+*.sql
+/web/libraries

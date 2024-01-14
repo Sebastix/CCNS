@@ -1,0 +1,7 @@
+ccns.post:
+  path: '/post'
+  defaults:
+    _title: 'Let`s post some stuff'
+    _controller: '\Drupal\ccns\Controller\CcnsController'
+  requirements:
+    _permission: 'access content'

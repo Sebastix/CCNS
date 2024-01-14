@@ -77,7 +77,7 @@ Modules for development only:
 
 All theme files are located in `web/themes/custom/ccns_theme`.
 
-TailwindCSS + Daisy UI using Lofi as the base theme (see `web/themes/custom/hix/tailwind.config.js`).
+TailwindCSS + Daisy UI using Lofi as the base theme (see `web/themes/custom/ccns_theme/tailwind.config.js`).
 The icons used are from https://heroicons.com/.
 
 - Node version `>=16.9.0`
@@ -93,6 +93,10 @@ Or run `npm run dev` while developing.
 ### CCNS module
 
 @TODO
+
+### Nostr NDK
+
+When you enable this module, the Nostr Dev Kit package is downloaded to the `/web/libraries` directory. The package is loaded as a global assets on the website defined in `libraries.info.yml`.
 
 ### Theme hooks
 
