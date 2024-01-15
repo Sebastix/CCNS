@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe552473b47ebaea141db1838ac3d79b",
+    "content-hash": "37cf3c7f1469946f8cfac32ac17f83d2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3982,6 +3982,69 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/unlimited_number",
                 "issues": "https://www.drupal.org/project/issues/unlimited_number"
+            }
+        },
+        {
+            "name": "drupal/vite",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/vite.git",
+                "reference": "1.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/vite-1.1.2.zip",
+                "reference": "1.1.2",
+                "shasum": "e37eb7c24f8efe3995724779778dc09365704cd8"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "require-dev": {
+                "acquia/coding-standards": "^v2.0",
+                "armin/editorconfig-cli": "^1.7",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "drupal/coder": "^8.3",
+                "ergebnis/composer-normalize": "^2.39",
+                "mglaman/phpstan-drupal": "^1.2",
+                "phpstan/extension-installer": "^1.3",
+                "phpstan/phpstan": "^1.10",
+                "phpstan/phpstan-deprecation-rules": "^1.1",
+                "phpstan/phpstan-strict-rules": "^1.5",
+                "phpunit/phpunit": "^9.6",
+                "slevomat/coding-standard": "^8.14",
+                "squizlabs/php_codesniffer": "^3.7",
+                "vincentlanglet/twig-cs-fixer": "^1.6"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.2",
+                    "datestamp": "1700659155",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "wotnak",
+                    "homepage": "https://www.drupal.org/u/wotnak",
+                    "email": "wotnak@pm.me",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Vite integration for Drupal asset libraries.",
+            "homepage": "https://drupal.org/project/vite",
+            "support": {
+                "source": "https://git.drupalcode.org/project/vite",
+                "issues": "https://drupal.org/project/issues/vite"
             }
         },
         {

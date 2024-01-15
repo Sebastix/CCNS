@@ -3,3 +3,7 @@ type: module
 description: Custom module for CCNS
 package: Custom
 core_version_requirement: ^10
+libraries:
+  - ccns/nostr_login
+dependencies:
+  - nostr_ndk:nostr_ndk

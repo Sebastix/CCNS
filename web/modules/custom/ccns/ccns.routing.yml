@@ -2,6 +2,21 @@ ccns.post:
   path: '/post'
   defaults:
     _title: 'Let`s post some stuff'
-    _controller: '\Drupal\ccns\Controller\CcnsController'
+    _controller: '\Drupal\ccns\Controller\CcnsController::post'
+  requirements:
+    _permission: 'access content'
+
+ccns.login:
+  path: '/login'
+  defaults:
+    _title: 'Login'
+    _controller: '\Drupal\ccns\Controller\CcnsController::login'
+  requirements:
+    _permission: 'access content'
+
+ccns.login_modal:
+  path: 'ajax/login-modal'
+  defaults:
+    _controller: '\Drupal\ccns\Controller\CcnsController::loginModal'
   requirements:
     _permission: 'access content'

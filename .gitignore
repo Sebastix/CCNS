@@ -71,6 +71,8 @@
 /web/README.md
 /web/themes/custom/*/node_modules/
 /web/themes/custom/*/dist/
+/web/modules/custom/*/node_modules/
+/web/modules/custom/*/dist/
 /docker
 /dumps
 *.sql

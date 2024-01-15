@@ -1,4 +1,11 @@
 # Custom library for general purposes.
 nostr-dev-kit:
   js:
-    /libraries/nostr-dev-kit/dist/index.js: {}
+    dist/js/main.js: {
+      attributes: {
+        type: 'module'
+      }
+    }
+  dependencies:
+    - core/drupal
+    - core/jquery

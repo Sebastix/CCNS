@@ -39,3 +39,17 @@ function ccns_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $enti
     $fields['field_instagram_profile_uri']->addConstraint('InstagramProfileUriConstraint', []);
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function ccns_theme($existing, $type, $theme, $path) {
+  // Custom template callbacks for render arrays.
+  return [
+    'nostr_login' => [
+      'variables' => [],
+      'template' => 'nostr-login',
+      'path' => $path . '/templates',
+    ]
+  ];
+}

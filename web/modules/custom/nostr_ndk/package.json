@@ -1,0 +1,19 @@
+{
+  "name": "nostr-ndk",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "watch": "vite build --watch",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.11"
+  },
+  "dependencies": {
+    "@nostr-dev-kit/ndk": "^2.3.2"
+  }
+}

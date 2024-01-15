@@ -15,42 +15,42 @@ use Symfony\Component\Filesystem\Filesystem;
  */
 function nostr_ndk_install() {
   // Download NDK package
-  $package_url = AssetManager::getNPMRegistryPackageUrl();
-  $package_download_url = AssetManager::getNPMRegistryDistUrl($package_url);
-  $package_name = AssetManager::getPackageName();
-  $package_directory = sys_get_temp_dir() . '/' . $package_name;
-  $package_archive = sys_get_temp_dir() . "/$package_name.tgz";
-  try {
-    // Download NDK package
-    $fileSystem = new FileSystem();
-    $httpClient = new Client();
-    $fileSystem->mkdir($package_directory);
-    $httpClient->get($package_download_url, ['sink' => $package_archive]);
-    // Extract file
-    if (is_file($package_archive) && is_dir($package_directory)) {
-      $archive = new Tar($package_archive);
-      $archive->extract($package_directory);
-    }
-    // Install NDK package
-    $library_path_ndk = \Drupal::root() . '/libraries/nostr-dev-kit';
-    $fileSystem->mkdir($library_path_ndk);
-    $fileSystem->mirror($package_directory . '/package/', $library_path_ndk, NULL, ['override' => TRUE]);
-  } catch (\Exception $e) {
-    \Drupal::logger('nostr_ndk')->error($e->getMessage());
-  }
+//  $package_url = AssetManager::getNPMRegistryPackageUrl();
+//  $package_download_url = AssetManager::getNPMRegistryDistUrl($package_url);
+//  $package_name = AssetManager::getPackageName();
+//  $package_directory = sys_get_temp_dir() . '/' . $package_name;
+//  $package_archive = sys_get_temp_dir() . "/$package_name.tgz";
+//  try {
+//    // Download NDK package
+//    $fileSystem = new FileSystem();
+//    $httpClient = new Client();
+//    $fileSystem->mkdir($package_directory);
+//    $httpClient->get($package_download_url, ['sink' => $package_archive]);
+//    // Extract file
+//    if (is_file($package_archive) && is_dir($package_directory)) {
+//      $archive = new Tar($package_archive);
+//      $archive->extract($package_directory);
+//    }
+//    // Install NDK package
+//    $library_path_ndk = \Drupal::root() . '/libraries/nostr-dev-kit';
+//    $fileSystem->mkdir($library_path_ndk);
+//    $fileSystem->mirror($package_directory . '/package/', $library_path_ndk, NULL, ['override' => TRUE]);
+//  } catch (\Exception $e) {
+//    \Drupal::logger('nostr_ndk')->error($e->getMessage());
+//  }
 }
 
 /**
  * Implements hook_uninstall().
  */
 function nostr_ndk_uninstall() {
-  $library_path_ndk = \Drupal::root() . '/libraries/nostr-dev-kit';
-  try {
-    if (is_dir($library_path_ndk)){
-      $fileSystem = new FileSystem();
-      $fileSystem->remove($library_path_ndk);
-    }
-  } catch (\Exception $e) {
-    \Drupal::logger('nostr_ndk')->error($e->getMessage());
-  }
+//  $library_path_ndk = \Drupal::root() . '/libraries/nostr-dev-kit';
+//  try {
+//    if (is_dir($library_path_ndk)){
+//      $fileSystem = new FileSystem();
+//      $fileSystem->remove($library_path_ndk);
+//    }
+//  } catch (\Exception $e) {
+//    \Drupal::logger('nostr_ndk')->error($e->getMessage());
+//  }
 }
