@@ -59,6 +59,16 @@ build:drupal:
       - web
       - vendor
 
+build:nostr-ndk:
+  stage: build
+  script:
+    - web/modules/custom/nostr_ndk
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - web/modules/custom/nostr_ndk/dist
+
 build:theme:
   stage: build
   script:
@@ -78,6 +88,7 @@ deploy:test:
   stage: deploy
   dependencies:
     - build:drupal
+    - build:nostr-ndk
     - build:theme
   script:
     - rsync -avz -e ssh ./composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
