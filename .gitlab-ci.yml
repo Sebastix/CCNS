@@ -62,7 +62,7 @@ build:drupal:
 build:nostr-ndk:
   stage: build
   script:
-    - web/modules/custom/nostr_ndk
+    - cd web/modules/custom/nostr_ndk
     - npm install
     - npm run build
   artifacts:
