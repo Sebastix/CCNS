@@ -1,5 +1,7 @@
 # CCNS
 
+---
+
 Community Curated Nostr Stuff
 
 > **Problem**
@@ -8,7 +10,9 @@ Community Curated Nostr Stuff
 
 A Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.pub), [Lobste.rs](http://Lobste.rs) and [Stacker.news](http://Stacker.news).
 
-## Roadmap
+# Roadmap
+
+---
 
 - [ ] Create content model
 - [ ] Add content entities and fields
@@ -16,20 +20,38 @@ A Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.
 - [ ] Integrate Nostr key authentication with the Drupal user management system
 - [ ] Add crosspost to Nostr option to broadcast an event with your submitted link with [Nostr Simple Publish](https://www.drupal.org/project/nostr_simple_publish)
 
-## Issues and contributions
+To see all items on a Kanban project board, please have a look at https://github.com/users/Sebastix/projects/2.
 
-https://gitlab.com/sebastix-group/cchs.social/-/issues
+# Issues and contributions
 
-## Support
+---
 
-Contact [Sebastian Hagens - Sebastix](https://gitlab.com/Sebastix)
+All contributions and issues are handled in the Github repo.
+The issue queue: https://github.com/Sebastix/CCNS/issues.
+
+# Support
+
+---
+
+Contact [Sebastian Hagens](https://gitlab.com/Sebastix)
+
+Sebastian Hagens is a self-employed creative technologist working as a Drupal & fullstack webdeveloper and tech consultant from The Netherlands.
+
+Follow Sebastian on Nostr:
+
+Pubkey: `npub1qe3e5wrvnsgpggtkytxteaqfprz0rgxr8c3l34kk3a9t7e2l3acslezefe`
+
+Handle: `sebastian@sebastix.dev`
 
 # CI/CD
 
-@TODO
+---
+
 See `.gitlab-ci.yml`
 
 # Build with Drupal
+
+---
 
 @TODO
 
@@ -83,20 +105,25 @@ The icons used are from https://heroicons.com/.
 - Node version `>=16.9.0`
 
 `cd web/themes/custom/ccns_theme`
+
+Install all packages:
+
 `npm install`
+
 `npm run build`
 
 Or run `npm run dev` while developing.
 
 ## Custom work
 
+
 ### CCNS module
 
-@TODO
+Custom module located at `web/modules/custom/ccns` and depends on the `nostr_ndk` module.
 
-### Nostr NDK
+### Nostr NDK module
 
-When you enable this module, the Nostr Dev Kit package is downloaded to the `/web/libraries` directory. The package is loaded as a global assets on the website defined in `libraries.info.yml`.
+Custom module located at `web/modules/custom/nostr_ndk`.
 
 ### Theme hooks
 
@@ -115,4 +142,8 @@ When you enable this module, the Nostr Dev Kit package is downloaded to the `/we
 
 # License
 
-@TODO
+---
+
+`GPL-2.0` GNU General Public License v2.0
+
+
