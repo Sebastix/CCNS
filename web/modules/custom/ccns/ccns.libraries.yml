@@ -1,7 +1,9 @@
 # Custom library for general purposes.
-nostr_login:
+nostr-login:
   js:
-    js/main.js: { attributes: { type: 'module' } }
+    js/main.js: {
+      attributes: { type: 'module' }
+    }
   dependencies:
     - core/drupal
     - core/jquery

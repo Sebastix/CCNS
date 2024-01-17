@@ -1,56 +1,82 @@
 import NDK, { NDKNip07Signer } from "@nostr-dev-kit/ndk";
 
-console.log('NDK loaded');
-
 (function ($, Drupal, drupalSettings) {
   "use strict";
+
+  Drupal.Ndk = Drupal.Ndk || {};
+
   Drupal.behaviors.nostr_ndk = {
 
     // This function is called when the document is ready.
     attach: async function(context, settings) {
-      console.log('Ready for NDK init')
+      /**
+       * Create NdkStore
+       * @type {NdkStore}
+       */
+      const store = new NdkStore();
+      store.get('ndk', NDK);
       const nip07signer = new NDKNip07Signer();
-      const ndk = new NDK({
-        explicitRelayUrls: ["wss://nostr.sebastix.dev"],
-        enableOutboxModel: true,
-        signer: nip07signer
-      });
-
-      await ndk.connect();
-
-      nip07signer.user().then(async (user) => {
-        if (!!user.npub) {
-          console.log("Permission granted to read their public key:", user.npub);
-        }
-      });
-
-      const instance = new NdkStore();
-      instance.create(ndk);
-
-      // @todo find a way to export this instance with the NdkStore
-
+      store.get('nip07signer', nip07signer);
+      Drupal.Ndk.store = store;
+      console.log('NdkStore initialized');
     }
   }
 }) (jQuery, Drupal, drupalSettings);
 
-export class NdkStore {
+/**
+ * NdkStore singleton class for a key-value store.
+ */
+class NdkStore {
+  /**
+   * Constructor.
+   *
+   * @returns {NdkStore}
+   */
   constructor() {
     if(!NdkStore.instance) {
-      this._data = [];
+      this._data = {};
       NdkStore.instance = this;
     }
     return NdkStore.instance;
   }
-  create(item){
-    this._data.push(item)
+
+  /**
+   * Setter.
+   *
+   * @param key
+   * @param value
+   */
+  set(key, value){
+    this._data[key] = value;
   }
-  read(id){
-    return this._data.find(d => d.id === id);
+
+  /**
+   * Getter.
+   *
+   * @param key
+   * @returns {*}
+   */
+  get(key){
+    return this._data[key];
   }
-  update(id){
+
+  /**
+   * Delete an entry.
+   *
+   * @param key
+   */
+  delete(key){
 
   }
-  delete(id){
-
+  /**
+   * Return all keys in an array.
+   * @returns {*[]}
+   */
+  getAllKeys(){
+    const keys = [];
+    for (const key in this._data) {
+      keys.push(key)
+    }
+    return keys;
   }
 }

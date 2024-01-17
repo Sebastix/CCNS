@@ -116,6 +116,11 @@ Or run `npm run dev` while developing.
 
 ## Custom work
 
+### Drupal core doesn't support Javascript ES6 for exporting / importing modules
+
+Support for exporting / importing modules with Javascript ES6 is a work in progress for Drupal core. I've found another way to create a Javascript singleton instance which can be used by multiple Drupal modules.
+Why would you use this? For using a store for example, so you can share different states and data between components and pages.
+In our case we need a global accessible store with the Nostr Dev Kit instance provided by the NDK library.
 
 ### CCNS module
 
