@@ -15,9 +15,9 @@ import NDK, { NDKNip07Signer } from "@nostr-dev-kit/ndk";
        * @type {NdkStore}
        */
       const store = new NdkStore();
-      store.get('ndk', new NDK());
+      store.set('ndk', new NDK());
       const nip07signer = new NDKNip07Signer();
-      store.get('nip07signer', nip07signer);
+      store.set('nip07signer', nip07signer);
       // Let's 'export' the store, so we can use it globally in other Javascript files loaded by Drupal.
       Drupal.Ndk.store = store;
       console.log('NdkStore initialized');

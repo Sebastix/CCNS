@@ -27,7 +27,7 @@
       {% if logged_in %}
         <a href="{{ path('user.logout') }}">logout</a>
       {% else %}
-        <a href="{{ path('ccns.login') }}" class="">login</a>
+        <a href="{{ path('ccns.login_modal') }}" class="use-ajax" id="nostr-login">login</a>
       {% endif %}
     </div>
   </div>

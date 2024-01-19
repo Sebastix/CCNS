@@ -30,8 +30,9 @@ final class CcnsController extends ControllerBase {
   public function loginModal(): AjaxResponse
   {
     $response = new AjaxResponse();
-    $content = 'Content of login modal';
-    $response->addCommand(new OpenModalDialogCommand('Modal title', $content, ['width' => 'auto', 'height' => 'auto']));
+    // @todo use a template file for the content of this modal
+    $content = '<button id="nostr-login-nip07" class="btn btn-warning">Login with Nostr extension</button>';
+    $response->addCommand(new OpenModalDialogCommand('', $content, ['width' => 'auto', 'height' => 'auto']));
     return $response;
   }
 
