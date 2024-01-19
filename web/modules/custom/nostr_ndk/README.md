@@ -1,30 +1,34 @@
-## INTRODUCTION
+## Introduction
 
-The nostr_ndk module is a DESCRIBE_THE_MODULE_HERE.
+The nostr_ndk module is a module to include the Javascript library Nostr Dev Kit (NDK) in your Drupal project.
 
-The primary use case for this module is:
+### Objective
 
-- Use case #1
-- Use case #2
-- Use case #3
+* Install and export the Nostr Dev Kit (NDK) library in a Drupal project. NDK will be available as a global store (singleton) in other Drupal provided Javascript files.
 
-## REQUIREMENTS
+The by Vite bundled Javascript file is loaded as a library on every page with the hook `nostr_ndk_preprocess_page`.
 
-DESCRIBE_MODULE_DEPENDENCIES_HERE
+## Requirements
 
-## INSTALLATION
+* Node `>16`
+
+## Installation
 
 Install as you would normally install a contributed Drupal module.
 See: https://www.drupal.org/node/895232 for further information.
+After the module is enabled, the necessary packages needs to be installed.
 
-## CONFIGURATION
-- Configuration step #1
-- Configuration step #2
-- Configuration step #3
+`npm install`
 
-## MAINTAINERS
+After this installation step, the Javascript files needs to be built. This is done with Vite.
 
-Current maintainers for Drupal 10:
+`npm build`
+
+The built Javascript files will be saved in the directory `dist`.
+
+## Maintainers
+
+Current maintainers:
 
 - Sebastian Hagens (Sebastix) - https://www.drupal.org/u/sebastian-hagens
 

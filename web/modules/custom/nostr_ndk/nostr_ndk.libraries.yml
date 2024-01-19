@@ -2,10 +2,15 @@
 nostr-dev-kit:
   js:
     dist/js/main.js: {
-      attributes: {
-        type: 'module'
-      }
+      attributes: { type: 'module' }
     }
+# importing does not work:
+# Uncaught SyntaxError: The requested module '../node_modules/@nostr-dev-kit/ndk/dist/index.js' does not provide an export named 'default' (at main.js?s7ewif:1:8)
+#    js/main.js: {
+#      attributes: {
+#        type: 'module'
+#      }
+#    }
   dependencies:
     - core/drupal
     - core/jquery
