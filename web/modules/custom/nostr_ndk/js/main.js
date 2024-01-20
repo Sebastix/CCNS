@@ -68,7 +68,7 @@ class NdkStore {
    * @param key
    */
   delete(key){
-
+    delete this._data[key];
   }
   /**
    * Return all keys in an array.
