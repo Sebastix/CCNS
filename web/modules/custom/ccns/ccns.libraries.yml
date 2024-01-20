@@ -5,8 +5,12 @@ nostr-login:
       attributes: { type: 'module' }
     }
   dependencies:
-    - core/drupal
     - core/jquery
-    - nostr_ndk/nostr-dev-kit
     - core/drupal.dialog.ajax
+    - core/drupal.dialog.off_canvas
+    - nostr_ndk/nostr-dev-kit
+
+login-options:
+  js:
+    js/login-options.js: {}
 

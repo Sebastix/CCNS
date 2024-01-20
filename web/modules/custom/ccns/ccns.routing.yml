@@ -15,8 +15,18 @@ ccns.login:
     _permission: 'access content'
 
 ccns.login_modal:
-  path: 'ajax/login-modal'
+  path: '/ajax/login-modal'
   defaults:
     _controller: '\Drupal\ccns\Controller\CcnsController::loginModal'
   requirements:
     _permission: 'access content'
+
+ccns.create_user:
+  path: '/create-user'
+  defaults:
+    _controller: '\Drupal\ccns\Controller\CcnsController::createUser'
+  methods:
+    - POST
+  requirements:
+    _permission: 'access content'
+    _format: json
