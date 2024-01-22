@@ -54,7 +54,6 @@ final class CcnsController extends ControllerBase {
       $postData = json_decode($request->getContent());
       // Check if user already exist.
       if ($user = user_load_by_mail($postData->npub.'@ccns.social')) {
-        $roles = $user->getRoles();
         if(!$user->hasRole('ccns')){
           $ccns_role = Role::load('ccns');
           $user->addRole($ccns_role->id());
