@@ -1,6 +1,0 @@
-multiple_registration_pages_allowed_list:
-  ccns: ccns
-  anonymous: 0
-  authenticated: 0
-  content_editor: 0
-  administrator: 0

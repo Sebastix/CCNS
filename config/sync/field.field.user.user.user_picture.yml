@@ -6,16 +6,7 @@ dependencies:
     - field.storage.user.user_picture
   module:
     - image
-    - multiple_registration
     - user
-third_party_settings:
-  multiple_registration:
-    user_additional_register_form_required:
-      authenticated: 0
-      ccns_member: 0
-    user_additional_register_form:
-      authenticated: 0
-      ccns_member: 0
 _core:
   default_config_hash: twhm-ZOwSVkUjuLI_pQsaPo_pVLcqFfDmY-ojfqw0yk
 id: user.user.user_picture

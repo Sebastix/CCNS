@@ -74,7 +74,6 @@ See `.gitlab-ci.yml`
 * Ultimate Cron
 * Advanced CSS/JS Aggregation
 * Flood control
-* Multiple registration
 * Comment delete
 * Comments order
 * Voting API

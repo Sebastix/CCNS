@@ -8,7 +8,6 @@ dependencies:
   module:
     - avatars
     - comment
-    - comment_delete
     - field_permissions
     - file
     - filter
@@ -25,12 +24,8 @@ permissions:
   - 'cancel account'
   - 'cast rate vote on node of instagram_profile_link'
   - 'create instagram_profile_link content'
-  - 'delete own comment'
-  - 'delete own comment anytime'
   - 'delete own files'
   - 'delete own instagram_profile_link content'
-  - 'delete own node instagram_profile_link field_comments'
-  - 'delete own node instagram_profile_link field_comments anytime'
   - 'edit own comments'
   - 'post comments'
   - 'search content'

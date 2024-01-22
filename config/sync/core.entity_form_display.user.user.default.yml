@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.user.user.avatars_avatar_generator
     - field.field.user.user.avatars_user_picture
+    - field.field.user.user.field_npub
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -25,14 +26,14 @@ content:
     third_party_settings: {  }
   avatars_avatar_generator:
     type: avatars_generator_preview
-    weight: 1
+    weight: 2
     region: content
     settings:
       preview_image_style: thumbnail
     third_party_settings: {  }
   avatars_user_picture:
     type: image_image
-    weight: 2
+    weight: 3
     region: content
     settings:
       progress_indicator: throbber
@@ -41,6 +42,14 @@ content:
   contact:
     weight: 5
     region: content
+  field_npub:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   langcode: true
   language: true

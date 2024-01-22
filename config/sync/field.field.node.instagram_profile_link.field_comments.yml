@@ -7,32 +7,6 @@ dependencies:
     - node.type.instagram_profile_link
   module:
     - comment
-    - comment_delete
-    - comments_order
-third_party_settings:
-  comment_delete:
-    operation:
-      hard: '0'
-      hard_partial: '0'
-      soft: soft
-    visibility: visible
-    label:
-      hard: ''
-      hard_partial: ''
-      soft: ''
-    message:
-      hard: ''
-      hard_partial: ''
-      soft: ''
-    mode: unset
-    anonymize: true
-    default: soft
-    time_limit: false
-    timer: null
-  comments_order:
-    order: ASC
-    children_natural_order: 1
-    created_order: 0
 id: node.instagram_profile_link.field_comments
 field_name: field_comments
 entity_type: node
