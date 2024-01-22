@@ -1,0 +1,25 @@
+uuid: db28d24c-7daa-4355-9e25-f3fb3962b82f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_npub
+  module:
+    - unique_content_field_validation
+    - user
+third_party_settings:
+  unique_content_field_validation:
+    unique: true
+    unique_text: ''
+id: user.user.field_npub
+field_name: field_npub
+entity_type: user
+bundle: user
+label: npub
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

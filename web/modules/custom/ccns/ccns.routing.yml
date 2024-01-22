@@ -6,16 +6,8 @@ ccns.post:
   requirements:
     _permission: 'access content'
 
-ccns.login:
-  path: '/login'
-  defaults:
-    _title: 'Login'
-    _controller: '\Drupal\ccns\Controller\CcnsController::login'
-  requirements:
-    _permission: 'access content'
-
 ccns.login_modal:
-  path: '/ajax/login-modal'
+  path: '/nostr-login'
   defaults:
     _controller: '\Drupal\ccns\Controller\CcnsController::loginModal'
   requirements:

@@ -20,8 +20,7 @@
             npub: n.npub
           })
           const profile = await user.fetchProfile()
-          alert('Welcome ' + profile.name + '!')
-          // @todo create user entity
+          // Create user entity.
           const postData = {
             npub: n.npub,
             pubkey: user._pubkey,
@@ -35,7 +34,19 @@
               'Content-Type': 'application/json'
             }
           })
-          // @todo close offcanvas modal
+          document.getElementById('nostr-auth').classList.remove('use-ajax');
+          document.getElementById('nostr-auth').href = '/user/2';
+          document.getElementById('nostr-auth').innerHTML = profile.name;
+          // Close modal
+          const $dialog = $('#drupal-off-canvas');
+          if ($dialog.length) {
+            await Drupal.dialog($dialog.get(0)).close();
+            await $dialog.remove();
+          }
+          // Unbind dialogButtonsChange.
+          $dialog.off('dialogButtonsChange');
+          // Refresh page.
+          location.reload();
         } catch (e) {
           console.log(e)
           alert(e)

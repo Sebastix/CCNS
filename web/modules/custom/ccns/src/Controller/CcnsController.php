@@ -3,10 +3,10 @@
 namespace Drupal\ccns\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\OpenModalDialogCommand;
 use Drupal\Core\Ajax\OpenOffCanvasDialogCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityStorageException;
+use Drupal\user\Entity\Role;
 use Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +40,6 @@ final class CcnsController extends ControllerBase {
     $attachments['library'][] = 'ccns/login-options';
     $response->setAttachments($attachments);
     $response->addCommand(new OpenOffCanvasDialogCommand('Login', $content, ['width' => '30%'], NULL, 'side'));
-    #$response->addCommand(new OpenModalDialogCommand('Login', $content, ['width' => '80%']'));
     return $response;
   }
 
@@ -50,20 +49,48 @@ final class CcnsController extends ControllerBase {
    */
   public function createUser(Request $request): JsonResponse
   {
+    $response = new JsonResponse();
     try {
       $postData = json_decode($request->getContent());
-      $user = User::create();
-      $user->setUsername($postData->profile->name); // This username must be unique and accept only [a-Z,0-9, - _ @].
-      $user->setPassword('password');
-      $user->setEmail($postData->npub.'@ccns.social');
-      $user->addRole('ccns');
-      $user->enforceIsNew();
-      $user->activate();
-      $user->save();
+      // Check if user already exist.
+      if ($user = user_load_by_mail($postData->npub.'@ccns.social')) {
+        $roles = $user->getRoles();
+        if(!$user->hasRole('ccns')){
+          $ccns_role = Role::load('ccns');
+          $user->addRole($ccns_role->id());
+          $user->save();
+        }
+        // Check if username is still the same.
+        if ($postData->profile->name !== $user->getAccountName()) {
+          $user->setUsername($postData->profile->name);
+          $user->save();
+        }
+      } else {
+        $user = User::create();
+        $user->setUsername($postData->profile->name); // This username must be unique and accept only [a-Z,0-9, - _ @].
+        $user->setPassword('password');
+        $user->setEmail($postData->npub.'@ccns.social');
+        $user->set('field_npub', $postData->npub);
+        $user->enforceIsNew();
+        $user->activate();
+        $user->save();
+        // Add role and save user.
+        $ccns_role = Role::load('ccns');
+        $user->addRole($ccns_role->id());
+        $user->save();
+      }
+      // login the user.
+      if (!\Drupal::currentUser()->id()) {
+        user_login_finalize($user);
+      }
+      $responseData = [
+        'userid' => $user->id()
+      ];
+      $response->setData($responseData);
     } catch (EntityStorageException $e) {
 
     }
-    return new JsonResponse();
+    return $response;
   }
 
 }

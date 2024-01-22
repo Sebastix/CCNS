@@ -1,0 +1,25 @@
+_core:
+  default_config_hash: bBsKNU9uuzzS7zaKZhHpof7W8sOAuKBZJDF5Eh76BTs
+name: CCNS
+short_name: CCNS
+description: ''
+start_url: /
+scope: /
+lang: ''
+dir: auto
+orientation: any
+categories: {  }
+theme_color: '#ffffff'
+background_color: '#ffffff'
+display: standalone
+cross_origin: false
+image_fid: null
+image_small_fid: null
+image_very_small_fid: null
+manifest_path_mode: all_except_listed
+manifest_paths: |-
+  /admin
+  /admin/*
+  /batch
+  /node/add*
+  /node/*/*
