@@ -33,9 +33,10 @@
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             }
-          })
+          });
+          const created_user_response = await created_user.json();
           document.getElementById('nostr-auth').classList.remove('use-ajax');
-          document.getElementById('nostr-auth').href = '/user/2';
+          document.getElementById('nostr-auth').href = '/user/'+created_user_response.userid;
           document.getElementById('nostr-auth').innerHTML = profile.name;
           // Close modal
           const $dialog = $('#drupal-off-canvas');
