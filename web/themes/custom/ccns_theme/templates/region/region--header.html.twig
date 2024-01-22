@@ -20,9 +20,6 @@
     <div class="flex-initial w-24">
       <a href="{{ path('ccns.post') }}" class="btn btn-outline btn-warning btn-xs">post</a>
     </div>
-    <div class="flex-initial w-8">
-      {{ drupal_block('views_block:danse_user_notifications-block_1') }}
-    </div>
     <div class="flex-none text-right user-links">
       {% if logged_in %}
         <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">{{ user.displayname }}</a>
