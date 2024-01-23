@@ -9,7 +9,9 @@
       document.getElementById('nostr-login-nip07').addEventListener('click', async (e) => {
         try {
           const ndk = Drupal.Ndk.store.get('ndk')
-          ndk.addExplicitRelay('wss://nostr.sebastix.dev')
+          ndk.addExplicitRelay('wss://purplepage.es/')
+          ndk.addExplicitRelay('wss://relay.nostr.band/')
+          ndk.addExplicitRelay('wss://nostr.sebastix.dev/')
           ndk.enableOutboxModel = true
           const nip07signer = Drupal.Ndk.store.get('nip07signer')
           ndk.signer = nip07signer
