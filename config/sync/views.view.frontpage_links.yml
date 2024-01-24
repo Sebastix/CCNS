@@ -609,18 +609,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text_custom
-          empty: true
-          content: "CCNS is a Nostr-focused community platform centered around link aggregation and discussion topics. Anyone with a Nostr account is able to post links and start discussions. Those are curated with zaps with a user defined number of sats.\r\n<br /><br />\r\nThis platform is build in public as it's TopBuilder 2024 project by <a href=\"https://nostr.com/npub1qe3e5wrvnsgpggtkytxteaqfprz0rgxr8c3l34kk3a9t7e2l3acslezefe\">Sebastix</a>. All the work in progress can be followed <a href=\"https://github.com/PlebLab/Top-Builder/issues/31\">here</a>, a repository with code is available <a href=\"https://github.com/Sebastix/CCNS\">here</a> and issues can be posted <a href=\"https://github.com/Sebastix/CCNS/issues\">here</a>.\r\n<br /><br />\r\n<img src=\"https://shares.sebastix.dev/A7lG9FsD.png\" />\r\n"
-          tokenize: false
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:

@@ -9,7 +9,7 @@ _core:
 id: ccns_theme_primary_local_tasks
 theme: ccns_theme
 region: content
-weight: -1
+weight: -3
 provider: null
 plugin: local_tasks_block
 settings:

@@ -9,7 +9,7 @@ _core:
 id: ccns_theme_local_actions
 theme: ccns_theme
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: local_actions_block
 settings:

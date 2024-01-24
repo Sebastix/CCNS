@@ -1,0 +1,21 @@
+uuid: 278d88f9-4eb8-49bc-b4be-ee06e5d0f68d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - unique_content_field_validation
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
+name: Link
+type: link
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

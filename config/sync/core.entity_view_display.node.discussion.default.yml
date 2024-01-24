@@ -1,0 +1,29 @@
+uuid: 6b169eb2-ef54-4b4f-8e3b-c33105bd34cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.discussion.body
+    - node.type.discussion
+  module:
+    - text
+    - user
+id: node.discussion.default
+targetEntityType: node
+bundle: discussion
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

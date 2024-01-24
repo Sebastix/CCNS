@@ -2,10 +2,6 @@ uuid: 2dceaf23-0d34-4148-9ace-1478e963c470
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:8783ba47-092f-4762-a8e1-6a479053c32e'
-  module:
-    - block_content
   theme:
     - ccns_theme
 id: ccns_theme_footermenu

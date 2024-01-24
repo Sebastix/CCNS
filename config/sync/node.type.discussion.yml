@@ -1,0 +1,21 @@
+uuid: 70019fee-247e-4f82-b31c-edbf60aad023
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - unique_content_field_validation
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
+name: Discussion
+type: discussion
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

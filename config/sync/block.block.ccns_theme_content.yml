@@ -11,7 +11,7 @@ _core:
 id: ccns_theme_content
 theme: ccns_theme
 region: content
-weight: 2
+weight: 0
 provider: null
 plugin: system_main_block
 settings:

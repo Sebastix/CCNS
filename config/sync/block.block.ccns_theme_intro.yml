@@ -1,0 +1,38 @@
+uuid: 73496ca6-2fa7-48da-9278-ad69685054ea
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9a958658-afae-40ec-97e4-152ba063286b'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - ccns_theme
+id: ccns_theme_intro
+theme: ccns_theme
+region: content
+weight: -1
+provider: null
+plugin: 'block_content:9a958658-afae-40ec-97e4-152ba063286b'
+settings:
+  id: 'block_content:9a958658-afae-40ec-97e4-152ba063286b'
+  label: Intro
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
