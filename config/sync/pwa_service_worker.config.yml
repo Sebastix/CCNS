@@ -1,0 +1,7 @@
+_core:
+  default_config_hash: hbRa0Aq228bV5le62OUn5se9xY8yPa-D0FRSHLHkHL4
+urls_to_cache: ''
+urls_to_exclude: "admin/.*\r\nuser/.*"
+offline_page: /offline
+cache_version: '1'
+skip_waiting: false

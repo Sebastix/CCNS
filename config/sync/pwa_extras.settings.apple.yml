@@ -1,0 +1,25 @@
+_core:
+  default_config_hash: 9GI_D1GieUjGRhrmoBOwyYF2BEo-uwfTLag-4eYsENM
+touch_icons:
+  touch-icon-default: '0'
+mask_color: '#0678be'
+meta_tags:
+  meta-capable: '0'
+  meta-status-bar-style: '0'
+  meta-app-title: '0'
+color_select: default
+home_screen_icons:
+  iphone5-splash: '0'
+  iphone6-splash: '0'
+  iphoneplus-splash: '0'
+  iphonex-splash: '0'
+  iphonexr-splash: '0'
+  iphonexsmax-splash: '0'
+  ipad-splash: '0'
+  ipadpro1-splash: '0'
+  ipadpro2-splash: '0'
+  ipadpro3-splash: '0'
+dependencies:
+  enforced:
+    module:
+      - pwa_extras
