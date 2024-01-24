@@ -1,9 +1,9 @@
-uuid: 73496ca6-2fa7-48da-9278-ad69685054ea
+uuid: ad73cedc-2334-4fc3-90bb-1226b27a17b8
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:9a958658-afae-40ec-97e4-152ba063286b'
+    - 'block_content:basic:6bc31f72-59d5-4254-a675-0a4b2acf62e7'
   module:
     - block_content
     - system
@@ -13,11 +13,11 @@ dependencies:
 id: ccns_theme_intro
 theme: ccns_theme
 region: content
-weight: -1
+weight: 0
 provider: null
-plugin: 'block_content:9a958658-afae-40ec-97e4-152ba063286b'
+plugin: 'block_content:6bc31f72-59d5-4254-a675-0a4b2acf62e7'
 settings:
-  id: 'block_content:9a958658-afae-40ec-97e4-152ba063286b'
+  id: 'block_content:6bc31f72-59d5-4254-a675-0a4b2acf62e7'
   label: Intro
   label_display: '0'
   provider: block_content
