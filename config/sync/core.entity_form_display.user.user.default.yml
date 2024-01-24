@@ -9,7 +9,6 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
-    - avatars
     - image
     - user
 _core:
@@ -25,11 +24,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   avatars_avatar_generator:
-    type: avatars_generator_preview
-    weight: 2
+    type: options_select
+    weight: 6
     region: content
-    settings:
-      preview_image_style: thumbnail
+    settings: {  }
     third_party_settings: {  }
   avatars_user_picture:
     type: image_image

@@ -4,10 +4,6 @@
   Drupal.behaviors.ccns = {
     // This function is called when the document is ready.
     attach: function(context, settings) {
-      console.log('ccns ready');
-      // @todo create watcher when Drupal.Ndk.store is not null
-      console.log(Drupal.Ndk.store)
-
       if (document.getElementById('nostr-login') === null) {
         return
       }

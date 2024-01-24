@@ -3,7 +3,6 @@ langcode: nl
 status: true
 dependencies:
   module:
-    - avatars
     - comment
     - field_permissions
     - file
@@ -20,7 +19,6 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access user profiles'
-  - 'avatars avatar_generator user user_upload'
   - 'delete own files'
   - 'post comments'
   - 'search content'

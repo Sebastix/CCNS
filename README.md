@@ -15,10 +15,17 @@ A Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.
 ---
 
 - [ ] Create content model
-- [ ] Add content entities and fields
+  - [ ] Topic entity
+  - [ ] User entity
+  - [ ] Link entity
+  - [ ] Discussion entity
+  - [ ] Comment entity
+  - [ ] CCNS member role and permissions
+- [ ] Add content entities and fields to Drupal
 - [ ] Add NDK for Nostr integration for authenticating users
 - [ ] Integrate Nostr key authentication with the Drupal user management system
 - [ ] Add crosspost to Nostr option to broadcast an event with your submitted link with [Nostr Simple Publish](https://www.drupal.org/project/nostr_simple_publish)
+- [ ] Add threaded comments to a topic
 
 To see all items on a Kanban project board, please have a look at https://github.com/users/Sebastix/projects/2.
 
@@ -28,6 +35,12 @@ To see all items on a Kanban project board, please have a look at https://github
 
 All contributions and issues are handled in the Github repo.
 The issue queue: https://github.com/Sebastix/CCNS/issues.
+
+# Telegram group
+
+---
+
+We have a Telegram group you can join: https://t.me/ccns_community
 
 # Support
 
