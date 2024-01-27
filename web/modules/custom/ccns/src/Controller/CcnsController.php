@@ -90,17 +90,17 @@ final class CcnsController extends ControllerBase {
         }
         $file_extension = pathinfo($source_uri, PATHINFO_EXTENSION);
         $destination_uri = 'sites/default/files/nostr-avatars/'.$postData->profile->name.'.'.$file_extension;
-        /** @var \GuzzleHttp\Psr7\Response $response */
-        $response = $client->get($source_uri, ['sink' => $destination_uri]);
+        /** @var \GuzzleHttp\Psr7\Response $guzzle_response */
+        $guzzle_response = $client->get($source_uri, ['sink' => $destination_uri]);
         // Create file entity with downloaded avatar file.
         $file = File::create();
-        $file->setFileUri($destination_uri);
+        $file->setFileUri('public://nostr-avatars/'.$postData->profile->name.'.'.$file_extension);
         $file->setOwnerId($user->id());
-        $file->setMimeType($response->getHeaderLine('content-type'));
+        $file->setMimeType($guzzle_response->getHeaderLine('content-type'));
         $file->setFilename($postData->profile->name);
         $file->setPermanent();
         $file->save();
-
+        // Set user picture with this file.
         $user->set('user_picture', $file->id());
         $user->save();
       }
