@@ -1,0 +1,11 @@
+uuid: d0ea9516-30da-4557-8fc3-aa032660bc62
+langcode: en
+status: true
+dependencies:
+  module:
+    - symfony_mailer_log
+id: symfony_mailer_log.symfony_mailer_log
+target_entity_type_id: symfony_mailer_log
+target_bundle: symfony_mailer_log
+default_langcode: site_default
+language_alterable: false

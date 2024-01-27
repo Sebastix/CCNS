@@ -6,6 +6,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\OpenOffCanvasDialogCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityStorageException;
+use Drupal\file\Entity\File;
 use Drupal\user\Entity\Role;
 use Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -72,13 +73,35 @@ final class CcnsController extends ControllerBase {
         $user->setUsername($postData->profile->name); // This username must be unique and accept only [a-Z,0-9, - _ @].
         $user->setPassword('password');
         $user->setEmail($postData->npub.'@ccns.social');
+        // Set fields.
         $user->set('field_npub', $postData->npub);
-        $user->enforceIsNew();
-        $user->activate();
-        $user->save();
         // Add role and save user.
         $ccns_role = Role::load('ccns');
         $user->addRole($ccns_role->id());
+        $user->enforceIsNew();
+        $user->activate();
+        $user->save();
+
+        // Download avatar file.
+        $client = \Drupal::httpClient();
+        $source_uri = $postData->profile->image;
+        if (!mkdir('sites/default/files/nostr-avatars/') && !is_dir('sites/default/files/nostr-avatars/')) {
+          throw new \RuntimeException(sprintf('Directory "%s" was not created', 'sites/default/files/nostr_avatars/'));
+        }
+        $file_extension = pathinfo($source_uri, PATHINFO_EXTENSION);
+        $destination_uri = 'sites/default/files/nostr-avatars/'.$postData->profile->name.'.'.$file_extension;
+        /** @var \GuzzleHttp\Psr7\Response $response */
+        $response = $client->get($source_uri, ['sink' => $destination_uri]);
+        // Create file entity with downloaded avatar file.
+        $file = File::create();
+        $file->setFileUri($destination_uri);
+        $file->setOwnerId($user->id());
+        $file->setMimeType($response->getHeaderLine('content-type'));
+        $file->setFilename($postData->profile->name);
+        $file->setPermanent();
+        $file->save();
+
+        $user->set('user_picture', $file->id());
         $user->save();
       }
       // login the user.

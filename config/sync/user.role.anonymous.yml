@@ -6,6 +6,7 @@ dependencies:
     - comment
     - field_permissions
     - media
+    - pwa
     - search
     - system
 _core:
@@ -17,6 +18,7 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access pwa'
   - 'access user profiles'
   - 'search content'
   - 'view field_is_verified'
