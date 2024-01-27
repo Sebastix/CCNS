@@ -3,8 +3,6 @@ langcode: nl
 status: true
 dependencies:
   config:
-    - field.field.user.user.avatars_avatar_generator
-    - field.field.user.user.avatars_user_picture
     - field.field.user.user.field_npub
     - field.field.user.user.user_picture
   module:
@@ -30,8 +28,6 @@ content:
     weight: 1
     region: content
 hidden:
-  avatars_avatar_generator: true
-  avatars_user_picture: true
   langcode: true
   member_for: true
   user_picture: true
