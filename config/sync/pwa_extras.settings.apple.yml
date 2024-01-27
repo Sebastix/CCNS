@@ -4,9 +4,9 @@ touch_icons:
   touch-icon-default: '0'
 mask_color: '#0678be'
 meta_tags:
+  meta-app-title: meta-app-title
   meta-capable: '0'
   meta-status-bar-style: '0'
-  meta-app-title: '0'
 color_select: default
 home_screen_icons:
   iphone5-splash: '0'

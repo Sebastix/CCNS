@@ -8,18 +8,14 @@ scope: /
 lang: ''
 dir: auto
 orientation: any
-categories: {  }
+categories:
+  - ''
 theme_color: '#ffffff'
 background_color: '#ffffff'
-display: standalone
+display: fullscreen
 cross_origin: false
-image_fid: null
+image_fid: 0
 image_small_fid: null
 image_very_small_fid: null
 manifest_path_mode: all_except_listed
-manifest_paths: |-
-  /admin
-  /admin/*
-  /batch
-  /node/add*
-  /node/*/*
+manifest_paths: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*"
