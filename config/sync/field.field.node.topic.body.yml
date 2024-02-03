@@ -1,16 +1,16 @@
-uuid: a22c5196-cd09-441e-967c-0d543fb930b0
+uuid: 55800f4b-bad6-4fee-9b2a-8ac6ed781c32
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.discussion
+    - node.type.topic
   module:
     - text
-id: node.discussion.body
+id: node.topic.body
 field_name: body
 entity_type: node
-bundle: discussion
+bundle: topic
 label: Body
 description: ''
 required: false

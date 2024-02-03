@@ -1,17 +1,17 @@
-uuid: 20017348-b5eb-4840-8dfd-b34ba5d8d4de
+uuid: a7e8f7d9-bb12-443f-95ca-e0c9c304fa69
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.discussion.body
-    - node.type.discussion
+    - field.field.node.topic.body
+    - node.type.topic
   module:
     - text
     - user
-id: node.discussion.teaser
+id: node.topic.teaser
 targetEntityType: node
-bundle: discussion
+bundle: topic
 mode: teaser
 content:
   body:

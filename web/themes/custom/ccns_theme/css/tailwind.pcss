@@ -35,6 +35,12 @@
   header .logo img {
     @apply w-16
   }
+  header .user-picture {
+    @apply inline-block ml-2
+  }
+  header .user-picture img {
+    @apply w-6 h-6
+  }
 
   #block-ccns-theme-headermenu a,
   #block-ccns-theme-footermenu a,
@@ -88,7 +94,7 @@
   }
 
   [id$="-local-tasks"] ul {
-    @apply menu menu-vertical md:menu-horizontal
+    @apply menu menu-vertical md:menu-horizontal;
   }
   [id$="-local-tasks"] ul li {
     @apply bg-blue-100 mb-1 md:mb-0 md:mr-2
@@ -108,6 +114,9 @@
   }
   #block-ccns-theme-content header {
     @apply mx-0;
+  }
+  .user-picture img {
+    @apply rounded-full;
   }
   /* Notification inbox in header */
   .danse-user-notification-widget .views-row,

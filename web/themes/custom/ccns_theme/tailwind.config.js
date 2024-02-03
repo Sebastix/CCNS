@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     "**/*.twig",
+    "../../../modules/custom/**/*.twig",
   ],
   theme: {
     container: {
@@ -28,6 +29,6 @@ module.exports = {
           warning: "FF4D4D"
         },
       },
-    ]
+    ],
   }
 }

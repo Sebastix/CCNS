@@ -1,4 +1,4 @@
-uuid: 70019fee-247e-4f82-b31c-edbf60aad023
+uuid: d7c35b46-ab4e-4af1-96d9-dc4663bf02ce
 langcode: en
 status: true
 dependencies:
@@ -12,8 +12,8 @@ third_party_settings:
   unique_content_field_validation:
     unique: false
     unique_text: ''
-name: Discussion
-type: discussion
+name: Topic
+type: topic
 description: ''
 help: ''
 new_revision: false

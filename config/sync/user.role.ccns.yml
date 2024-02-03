@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.ckeditor_comment
     - node.type.instagram_profile_link
+    - node.type.link
   module:
     - comment
     - field_permissions
@@ -24,9 +25,12 @@ permissions:
   - 'cancel account'
   - 'cast rate vote on node of instagram_profile_link'
   - 'create instagram_profile_link content'
+  - 'create link content'
   - 'delete own files'
   - 'delete own instagram_profile_link content'
+  - 'delete own link content'
   - 'edit own comments'
+  - 'edit own link content'
   - 'post comments'
   - 'search content'
   - 'select account cancellation method'

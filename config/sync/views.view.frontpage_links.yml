@@ -3,13 +3,11 @@ langcode: nl
 status: true
 dependencies:
   config:
-    - field.storage.node.field_instagram_profile_uri
-    - field.storage.node.field_is_verified
-    - node.type.instagram_profile_link
+    - field.storage.node.field_url
+    - node.type.link
   module:
     - link
     - node
-    - options
     - user
 id: frontpage_links
 label: 'Frontpage links'
@@ -92,10 +90,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_instagram_profile_uri:
-          id: field_instagram_profile_uri
-          table: node__field_instagram_profile_uri
-          field: field_instagram_profile_uri
+        field_url:
+          id: field_url
+          table: node__field_url
+          field: field_url
           relationship: none
           group_type: group
           admin_label: ''
@@ -119,75 +117,8 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: em
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: uri
-          type: link
-          settings:
-            trim_length: null
-            url_only: true
-            url_plain: false
-            rel: '0'
-            target: _blank
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_is_verified:
-          id: field_is_verified
-          table: node__field_is_verified
-          field: field_is_verified
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
+            max_length: 30
+            word_boundary: false
             ellipsis: true
             more_link: false
             more_link_text: ''
@@ -208,10 +139,15 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: list_key
-          settings: {  }
-          group_column: value
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: null
+            url_only: false
+            url_plain: false
+            rel: '0'
+            target: _blank
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -341,7 +277,7 @@ display:
           type: timestamp_ago
           settings:
             future_format: '@interval'
-            past_format: '@interval geleden'
+            past_format: '@interval ago'
             granularity: 1
           group_column: value
           group_columns: {  }
@@ -365,7 +301,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'door {{ uid }} {{ created }}'
+            text: 'by {{ uid }} {{ created }}'
             make_link: false
             path: ''
             absolute: false
@@ -464,7 +400,7 @@ display:
           admin_label: ''
           plugin_id: numeric
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: '<a href="{{ view_node }}"><span>{{ comment_count }}</span> comments</a>'
@@ -516,7 +452,7 @@ display:
         type: mini
         options:
           offset: 0
-          items_per_page: 25
+          items_per_page: 50
           total_pages: 3
           id: 0
           tags:
@@ -582,11 +518,44 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          operator: in
           value:
-            instagram_profile_link: instagram_profile_link
+            link: link
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: default
         options:
@@ -621,8 +590,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_instagram_profile_uri'
-        - 'config:field.storage.node.field_is_verified'
+        - 'config:field.storage.node.field_url'
   front:
     id: front
     display_title: Page
@@ -640,5 +608,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_instagram_profile_uri'
-        - 'config:field.storage.node.field_is_verified'
+        - 'config:field.storage.node.field_url'

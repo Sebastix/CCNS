@@ -1,16 +1,16 @@
-uuid: 6b169eb2-ef54-4b4f-8e3b-c33105bd34cf
+uuid: e611d0e3-bd35-4bf6-8315-b34668674d2c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.discussion.body
-    - node.type.discussion
+    - field.field.node.topic.body
+    - node.type.topic
   module:
     - text
     - user
-id: node.discussion.default
+id: node.topic.default
 targetEntityType: node
-bundle: discussion
+bundle: topic
 mode: default
 content:
   body:

@@ -1,13 +1,13 @@
-uuid: e29f777f-7e4b-468a-8323-45b4c829e423
+uuid: 19859925-7954-48da-9b06-69ff64a4638b
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.discussion
-id: node.discussion.promote
+    - node.type.topic
+id: node.topic.promote
 field_name: promote
 entity_type: node
-bundle: discussion
+bundle: topic
 label: 'Promoted to front page'
 description: ''
 required: false

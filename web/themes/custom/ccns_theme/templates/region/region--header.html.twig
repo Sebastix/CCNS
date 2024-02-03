@@ -22,8 +22,10 @@
     </div>
     <div class="flex-none text-right user-links">
       {% if logged_in %}
-        <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">{{ user.displayname }}</a>
-        <a href="{{ path('user.logout') }}">-</a>
+        <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">
+          {{ user.displayname }}
+          {{ drupal_field('user_picture', 'user', user.id) }}
+        </a>
       {% else %}
         <a href="{{ path('ccns.login_modal') }}" class="use-ajax" id="nostr-auth">login</a>
       {% endif %}
