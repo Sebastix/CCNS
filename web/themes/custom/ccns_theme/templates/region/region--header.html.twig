@@ -24,6 +24,8 @@
       {% if logged_in %}
         <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">
           {{ user.displayname }}
+        </a>
+        <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">
           {{ drupal_field('user_picture', 'user', user.id) }}
         </a>
       {% else %}

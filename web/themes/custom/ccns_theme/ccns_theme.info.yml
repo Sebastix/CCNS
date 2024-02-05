@@ -7,6 +7,7 @@ core: 8.x
 core_version_requirement: ^10
 libraries:
   - ccns_theme/global
+  - ccns_theme/satssymbol
 regions:
   header: 'Header'
   primary_menu: 'Primary menu'

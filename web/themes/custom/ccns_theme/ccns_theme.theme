@@ -46,6 +46,13 @@ function ccns_theme_preprocess_block(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function ccns_theme_preprocess_field(&$variables) {
+
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function ccns_theme_form_comment_form_alter(&$form, FormStateInterface $form_state) {

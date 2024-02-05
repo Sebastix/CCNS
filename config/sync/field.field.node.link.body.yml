@@ -1,0 +1,29 @@
+uuid: 5be69148-fc7d-4e91-aafd-171e08b7df84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.link
+  module:
+    - text
+    - unique_content_field_validation
+third_party_settings:
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
+id: node.link.body
+field_name: body
+entity_type: node
+bundle: link
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

@@ -20,3 +20,6 @@ global:
     theme:
       dist/tailwind.css: {}
       css/theme/print.css: { media: print }
+satssymbol:
+  js:
+    https://kit.fontawesome.com/090ca49637.js: { type: external, minified: true }
