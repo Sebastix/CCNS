@@ -62,7 +62,7 @@
     "drupal/core-dev": "^10.0",
     "drupal/devel": "^5.1",
     "drupal/webprofiler": "10.1.4",
-    "palantirnet/drupal-rector": "^0.18.2"
+    "palantirnet/drupal-rector": "^0.19.2"
   },
   "conflict": {
     "drupal/drupal": "*"
