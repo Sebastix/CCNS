@@ -2,10 +2,13 @@ uuid: fea52550-187c-4272-ac5e-97c938e0ca4e
 langcode: nl
 status: true
 dependencies:
+  config:
+    - filter.format.markdown_editor
   module:
     - comment
     - field_permissions
     - file
+    - filter
     - media
     - pwa
     - search
@@ -24,5 +27,6 @@ permissions:
   - 'delete own files'
   - 'post comments'
   - 'search content'
+  - 'use text format markdown_editor'
   - 'view field_is_verified'
   - 'view media'

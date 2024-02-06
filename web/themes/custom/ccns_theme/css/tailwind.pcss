@@ -12,11 +12,15 @@
   div.form-item {
     @apply mb-2
   }
+  div.form-item div#edit-body-0--description,
   div.form-item div.description {
     @apply text-xs text-gray-500
   }
   h1, h2, h3 {
     @apply font-bold
+  }
+  #block-ccns-theme-primary-local-tasks ul {
+    @apply p-0
   }
 }
 
@@ -71,8 +75,8 @@
   main .ccns-link strong.text-sm > a {
     @apply no-underline
   }
-  main .ccns-link small.text-ellipsis > a {
-    @apply underline-offset-2 decoration-1
+  main .ccns-link small > a {
+    @apply text-ellipsis overflow-hidden w-3/4 underline-offset-2 decoration-1 inline-block
   }
 
   article h2 {

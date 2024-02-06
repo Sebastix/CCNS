@@ -1,9 +1,9 @@
 <div class="post">
   {% if logged_in %}
-    Soon you will be able to start a topic with a link, a title and an optional text. <br />
-    When there is no link, the text will be required and will appear on top of the thread.
+    Soon you will be able to start a topic with a link, a title and an optional description. <br />
+    When there is no link, a text for the description will be required and will appear on top of the thread with the title.
     <div class="w-1/2 mx-auto mt-4 grid grid-cols-2 gap-4 justify-items-center">
-      <div><a href="{{ path('node.add', {'node_type' : 'link'}) }}" class="btn btn-warning">link</a></div>
+      <div><a href="{{ path('node.add', {'node_type' : 'link'}) }}" class="btn btn-outline btn-warning">link</a></div>
       <div><a href="#" class="btn btn-disabled">topic</a></div>
     </div>
   {% else %}

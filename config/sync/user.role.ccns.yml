@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.ckeditor_comment
+    - filter.format.markdown_editor
     - node.type.instagram_profile_link
     - node.type.link
   module:
@@ -36,5 +37,6 @@ permissions:
   - 'select account cancellation method'
   - 'skip comment approval'
   - 'use text format ckeditor_comment'
+  - 'use text format markdown_editor'
   - 'view field_is_verified'
   - 'view own field_is_verified'

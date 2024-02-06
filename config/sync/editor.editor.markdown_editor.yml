@@ -1,0 +1,39 @@
+uuid: 32f4f653-8cff-4a24-9f6b-b01c59248cf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.markdown_editor
+  module:
+    - ckeditor5
+format: markdown_editor
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - heading
+      - bold
+      - italic
+      - underline
+      - code
+      - bulletedList
+      - numberedList
+      - blockQuote
+      - link
+      - sourceEditing
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      properties:
+        reversed: false
+        startIndex: false
+      multiBlock: false
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+image_upload: {  }

@@ -10,8 +10,8 @@ dependencies:
     - unique_content_field_validation
 third_party_settings:
   unique_content_field_validation:
-    unique: false
-    unique_text: ''
+    unique: true
+    unique_text: '%value is already added to CCNS'
 id: node.link.field_url
 field_name: field_url
 entity_type: node
