@@ -55,6 +55,13 @@ function ccns_theme_preprocess_field(&$variables) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
+function ccns_theme_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $form['body']['widget']['#after_build'][] = '_remove_formatter';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function ccns_theme_form_comment_form_alter(&$form, FormStateInterface $form_state) {
   $form['comment_body']['widget'][0]['#title'] = '';
   $form['actions']['submit']['#value'] = new TranslatableMarkup('Post comment');
