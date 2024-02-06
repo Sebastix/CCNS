@@ -7,7 +7,6 @@ dependencies:
   module:
     - block_content
     - system
-    - user
   theme:
     - ccns_theme
 id: ccns_theme_intro
@@ -28,11 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '<front>'
-  user_role:
-    id: user_role
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    roles:
-      anonymous: anonymous
+    pages: /about

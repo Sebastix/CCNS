@@ -12,7 +12,7 @@ path:
     absolute_to_protocol_relative: true
     absolute: false
     force_https: false
-cache_level: 0
+cache_level: 2
 cron_frequency: 86400
 enabled: false
 global_counter: 0

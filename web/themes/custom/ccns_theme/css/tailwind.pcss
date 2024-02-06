@@ -19,9 +19,6 @@
   h1, h2, h3 {
     @apply font-bold
   }
-  #block-ccns-theme-primary-local-tasks ul {
-    @apply p-0
-  }
 }
 
 @layer components {
@@ -53,7 +50,16 @@
   }
   #block-ccns-theme-footermenu code {
     font-size: 0.85em;
-    @apply text-center block mt-4
+    @apply text-center block mt-2
+  }
+  #block-ccns-theme-footer {
+    @apply mt-3 mx-2
+  }
+  #block-ccns-theme-footer ul {
+    @apply menu menu-horizontal p-0
+  }
+  #block-ccns-theme-footer ul li > a {
+    @apply no-underline link link-info p-2 hover:decoration-purple-600/80 hover:text-primary text-sm
   }
 
   main {
@@ -104,8 +110,11 @@
     list-style-type: circle;
   }
 
+  #block-ccns-theme-primary-local-tasks ul {
+    @apply p-0
+  }
   [id$="-local-tasks"] ul {
-    @apply menu menu-vertical md:menu-horizontal;
+    @apply p-0 menu menu-vertical md:menu-horizontal;
   }
   [id$="-local-tasks"] ul li {
     @apply bg-blue-100 mb-1 md:mb-0 md:mr-2
