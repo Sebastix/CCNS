@@ -19,6 +19,15 @@
   h1, h2, h3 {
     @apply font-bold
   }
+  div.page-not-found {
+
+  }
+  #drupal-off-canvas-wrapper .ui-dialog-titlebar {
+    @apply p-2
+  }
+  #drupal-off-canvas-wrapper .ui-dialog-titlebar::before {
+    @apply hidden
+  }
 }
 
 @layer components {
@@ -34,13 +43,24 @@
     @apply mt-3
   }
   header .logo img {
-    @apply w-16
+    @apply w-20
   }
+
   header .user-picture {
     @apply inline-block ml-2
   }
   header .user-picture img {
-    @apply w-6 h-6
+    @apply w-[26px] rounded-full
+  }
+  header .user-links a {
+    @apply p-0 align-middle
+  }
+  header .user-links a.login {
+    @apply btn btn-outline btn-warning btn-xs h-[26px]
+  }
+
+  #block-ccns-theme-intro-2 {
+    @apply text-center p-4 bg-amber-100 mb-2
   }
 
   #block-ccns-theme-headermenu a,
@@ -82,7 +102,7 @@
     @apply no-underline
   }
   main .ccns-link small > a {
-    @apply text-ellipsis overflow-hidden w-3/4 underline-offset-2 decoration-1 inline-block
+    @apply break-all underline-offset-2 decoration-1 inline-block
   }
 
   article h2 {
@@ -134,9 +154,6 @@
   }
   #block-ccns-theme-content header {
     @apply mx-0;
-  }
-  .user-picture img {
-    @apply rounded-full;
   }
   /* Notification inbox in header */
   .danse-user-notification-widget .views-row,

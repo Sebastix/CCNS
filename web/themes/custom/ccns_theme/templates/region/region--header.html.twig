@@ -17,19 +17,15 @@
 {% if content %}
   <div{{ attributes.addClass('flex flex-wrap') }}>
     {{ content }}
-    <div class="flex-initial w-24">
-      <a href="{{ path('ccns.post') }}" class="btn btn-outline btn-warning btn-xs">post</a>
+    <div class="flex-initial w-20">
+      <a href="{{ path('ccns.post') }}" class="btn btn-outline btn-warning btn-xs h-[26px]">post</a>
     </div>
     <div class="flex-none text-right user-links">
       {% if logged_in %}
-        <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">
-          {{ user.displayname }}
-        </a>
-        <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">
-          {{ drupal_field('user_picture', 'user', user.id) }}
-        </a>
+        <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">{{ user.displayname }}</a>
+        <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">{{ drupal_field('user_picture', 'user', user.id) }}</a>
       {% else %}
-        <a href="{{ path('ccns.login_modal') }}" class="use-ajax" id="nostr-auth">login</a>
+        <a href="{{ path('ccns.login_modal') }}" class="use-ajax login" id="nostr-auth">login</a>
       {% endif %}
     </div>
   </div>

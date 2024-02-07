@@ -8,6 +8,9 @@
       }
       document.getElementById('nostr-login-nip07').addEventListener('click', async (e) => {
         try {
+          if (Drupal.Ndk.store === undefined) {
+            throw 'Ndk store is not set'
+          }
           const ndk = Drupal.Ndk.store.get('ndk')
           ndk.addExplicitRelay('wss://purplepage.es/')
           ndk.addExplicitRelay('wss://relay.nostr.band/')
@@ -55,6 +58,12 @@
           alert(e)
         }
       })
+      document.getElementById('nostr-login-bunker').addEventListener('click', () => {
+        alert('Not available yet')
+      });
+      document.getElementById('nostr-login-nsec').addEventListener('click', () => {
+        alert('Sharing your privacy key (nsec) is not recommended. Not available yet.')
+      });
     }
   }
 })(jQuery, Drupal, drupalSettings);

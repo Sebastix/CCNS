@@ -3,7 +3,7 @@ _core:
 langcode: nl
 mode: simple
 ignored_config_entities:
-  - symfony_mailer.mailer_transport.smtp
   - pwa.config.image_fid
   - pwa.config.image_small_fid
   - pwa.config.image_very_small_fid
+  - symfony_mailer.mailer_transport.smtp

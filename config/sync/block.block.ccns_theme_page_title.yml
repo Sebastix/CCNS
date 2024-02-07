@@ -11,7 +11,7 @@ _core:
 id: ccns_theme_page_title
 theme: ccns_theme
 region: content
-weight: -2
+weight: -3
 provider: null
 plugin: page_title_block
 settings:

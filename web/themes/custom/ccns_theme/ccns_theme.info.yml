@@ -2,6 +2,7 @@ name: CCNS theme
 type: theme
 base theme: stark
 description: CCNS Drupal theme
+logo: 'images/ccns_logo_color.webp'
 package: Custom
 core: 8.x
 core_version_requirement: ^10

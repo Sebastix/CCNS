@@ -26,7 +26,9 @@ module.exports = {
         lofi: {
           ...require("daisyui/src/theming/themes")["lofi"],
           info: "FF4D4D",
-          warning: "FF4D4D"
+          success: "6df78a",
+          warning: "FF4D4D",
+          error: "f64d4d"
         },
       },
     ],

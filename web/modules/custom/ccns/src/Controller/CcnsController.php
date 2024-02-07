@@ -37,10 +37,12 @@ final class CcnsController extends ControllerBase {
     $response = new AjaxResponse();
     // @todo use a template file for the content of this modal
     $content = '<br />';
-    $content .= '<button id="nostr-login-nip07" class="btn btn-warning">Log in with Nostr extension</button>';
+    $content .= '<button id="nostr-login-nip07" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; cursor: pointer;">Log in with a Nostr extension</button>';
     $content .= '<br /><br />';
-    $content .= '<button id="nostr-login-bunker" class="btn btn-disabled">Log in with bunker</button>';
-    // Add nostr-login library to the response which contains an event listeners for button#nostr-login-nip07.
+    $content .= '<button id="nostr-login-bunker" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Log in with a nsecbunker</button>';
+    $content .= '<br /><br />';
+    $content .= '<button id="nostr-login-nsec" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Log in with a nsec key</button>';
+    // Add nostr-login library to the response which contains an event listeners for these buttons.
     $attachments['library'][] = 'ccns/login-options';
     $response->setAttachments($attachments);
     $response->addCommand(new OpenOffCanvasDialogCommand('Login', $content, ['width' => '30%'], NULL, 'side'));

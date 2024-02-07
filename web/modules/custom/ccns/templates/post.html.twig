@@ -7,6 +7,13 @@
       <div><a href="#" class="btn btn-disabled">topic</a></div>
     </div>
   {% else %}
-    Please <a href="{{ path('ccns.login_modal') }}" class="use-ajax" id="nostr-auth">login</a> first.
+    <div class="p-2 bg-amber-100">
+      <p>
+        To start posting, please <a href="{{ path('ccns.login_modal') }}" class="use-ajax" id="nostr-auth">login with Nostr</a> first.
+      </p>
+      <p class="mt-4">
+        If you're curious what Nostr is and how to create an account, visit <a href="https://nostr.how" target="_blank">nostr.how</a>.
+      </p>
+    </div>
   {% endif %}
 </div>

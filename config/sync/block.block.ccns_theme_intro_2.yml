@@ -1,24 +1,24 @@
-uuid: ad73cedc-2334-4fc3-90bb-1226b27a17b8
+uuid: e28dfd77-e8da-48e5-bfaa-17c46b1bc723
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:6bc31f72-59d5-4254-a675-0a4b2acf62e7'
+    - 'block_content:basic:5d8e156a-94c7-4113-994e-0b7e1f40036e'
   module:
     - block_content
     - system
     - user
   theme:
     - ccns_theme
-id: ccns_theme_intro
+id: ccns_theme_intro_2
 theme: ccns_theme
 region: content
-weight: -1
+weight: -2
 provider: null
-plugin: 'block_content:6bc31f72-59d5-4254-a675-0a4b2acf62e7'
+plugin: 'block_content:5d8e156a-94c7-4113-994e-0b7e1f40036e'
 settings:
-  id: 'block_content:6bc31f72-59d5-4254-a675-0a4b2acf62e7'
-  label: 'About CCNS content'
+  id: 'block_content:5d8e156a-94c7-4113-994e-0b7e1f40036e'
+  label: 'Intro for anonymous visitors'
   label_display: '0'
   provider: block_content
   status: true
@@ -28,7 +28,7 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /about
+    pages: '<front>'
   user_role:
     id: user_role
     negate: false
