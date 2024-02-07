@@ -452,7 +452,7 @@ display:
         type: mini
         options:
           offset: 0
-          items_per_page: 50
+          items_per_page: 30
           total_pages: 3
           id: 0
           tags:
@@ -578,6 +578,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: false
       header: {  }
       footer: {  }
       display_extenders: {  }

@@ -9,6 +9,7 @@ dependencies:
     - field_permissions
     - file
     - filter
+    - matomo
     - media
     - pwa
     - search
@@ -25,6 +26,7 @@ permissions:
   - 'access pwa'
   - 'access user profiles'
   - 'delete own files'
+  - 'opt-in or out of matomo tracking'
   - 'post comments'
   - 'search content'
   - 'use text format markdown_editor'

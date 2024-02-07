@@ -37,7 +37,7 @@
     "drupal/honeypot": "^2.1",
     "drupal/markdown_easy": "^1.0",
     "drupal/masquerade": "^2.0@RC",
-    "drupal/matomo": "^1.21",
+    "drupal/matomo": "^1.23",
     "drupal/metatag": "^2.0",
     "drupal/multiple_registration": "^3.2",
     "drupal/nostr_id_nip05": "^1.0@alpha",
