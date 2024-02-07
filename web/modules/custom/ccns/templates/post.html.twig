@@ -4,7 +4,7 @@
     When there is no link, a text for the description will be required and will appear on top of the thread with the title.
     <div class="w-1/2 mx-auto mt-4 grid grid-cols-2 gap-4 justify-items-center">
       <div><a href="{{ path('node.add', {'node_type' : 'link'}) }}" class="btn btn-outline btn-warning">link</a></div>
-      <div><a href="#" class="btn btn-disabled">topic</a></div>
+      <div><a href="{{ path('node.add', {'node_type' : 'topic'}) }}" class="btn btn-outline btn-warning">topic</a></div>
     </div>
   {% else %}
     Please <a href="{{ path('ccns.login_modal') }}" class="use-ajax" id="nostr-auth">login</a> first.
