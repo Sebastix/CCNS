@@ -55,8 +55,18 @@ function ccns_theme_preprocess_field(&$variables) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function ccns_theme_form_node_form_alter(&$form, FormStateInterface $form_state) {
+function ccns_theme_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['body']['widget']['#after_build'][] = '_remove_formatter';
+  if ($form_id === 'node_link_form') {
+    // Alter submit text button from Save to Post link
+    $form['actions']['submit']['#value'] = 'Post link';
+    // Add crosspost to Nostr checkbox
+    $form['crosspost_to_nostr'] = array (
+      '#type' => 'checkbox',
+      '#title' => t ('Crosspost to Nostr (kind <code>1</code>)'),
+      '#weight' => 5,
+    );
+  }
 }
 
 /**

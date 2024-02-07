@@ -1,9 +1,7 @@
 # Custom library for general purposes.
 nostr-login:
   js:
-    js/main.js: {
-      attributes: { type: 'module' }
-    }
+    js/main.js: {}
   dependencies:
     - core/jquery
     - core/drupal.dialog.ajax
@@ -13,4 +11,9 @@ nostr-login:
 login-options:
   js:
     js/login-options.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.dialog.ajax
+    - core/drupal.dialog.off_canvas
+    - nostr_ndk/nostr-dev-kit
 

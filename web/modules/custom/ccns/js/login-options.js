@@ -15,12 +15,11 @@
           ndk.addExplicitRelay('wss://purplepage.es/')
           ndk.addExplicitRelay('wss://relay.nostr.band/')
           ndk.addExplicitRelay('wss://nostr.sebastix.dev/')
-          ndk.enableOutboxModel = true
+          //ndk.enableOutboxModel = true
           const nip07signer = Drupal.Ndk.store.get('nip07signer')
           ndk.signer = nip07signer
           await ndk.connect()
           const n = await nip07signer.user()
-          Drupal.Ndk.store.set('npub', n.npub)
           const user = ndk.getUser({
             npub: n.npub
           })
