@@ -4,9 +4,16 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.markdown_editor
+    - filter.format.plain_text
     - node.type.page
   module:
     - text
+    - unique_content_field_validation
+third_party_settings:
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
 _core:
   default_config_hash: KgVkxLl_K3E3lvN6CEoWQIDT0V8J4Mv-fVYrAIc7-FE
 id: node.page.body
@@ -20,7 +27,9 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  display_summary: true
+  display_summary: false
   required_summary: false
-  allowed_formats: {  }
+  allowed_formats:
+    - markdown_editor
+    - plain_text
 field_type: text_with_summary
