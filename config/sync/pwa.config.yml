@@ -2,17 +2,17 @@ _core:
   default_config_hash: bBsKNU9uuzzS7zaKZhHpof7W8sOAuKBZJDF5Eh76BTs
 name: CCNS
 short_name: CCNS
-description: ''
+description: 'CCNS is a Nostr-focused, social community platform centered around links and topics'
 start_url: /
 scope: /
 lang: ''
 dir: auto
-orientation: any
+orientation: portrait
 categories:
-  - ''
+  - 'social networking'
 theme_color: '#ffffff'
 background_color: '#ffffff'
-display: fullscreen
+display: browser
 cross_origin: false
 image_fid: 0
 image_small_fid: null

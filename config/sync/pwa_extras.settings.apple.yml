@@ -9,16 +9,16 @@ meta_tags:
   meta-status-bar-style: '0'
 color_select: default
 home_screen_icons:
-  iphone5-splash: '0'
-  iphone6-splash: '0'
-  iphoneplus-splash: '0'
-  iphonex-splash: '0'
-  iphonexr-splash: '0'
-  iphonexsmax-splash: '0'
-  ipad-splash: '0'
-  ipadpro1-splash: '0'
-  ipadpro2-splash: '0'
-  ipadpro3-splash: '0'
+  iphone5-splash: '1'
+  iphone6-splash: '1'
+  iphoneplus-splash: '1'
+  iphonex-splash: '1'
+  iphonexr-splash: '1'
+  iphonexsmax-splash: '1'
+  ipad-splash: '1'
+  ipadpro1-splash: '1'
+  ipadpro2-splash: '1'
+  ipadpro3-splash: '1'
 dependencies:
   enforced:
     module:
