@@ -61,10 +61,11 @@
                 //relaySet.addRelay(relay)
                 //console.log(relaySet)
                 // @todo try publishing a new kind: 13003 (a replaceable event) to my own relay
-                await nostrEvent.publish();
-                submitLinkForm.submit();
+                const publishedEvents = await nostrEvent.publish()
+                // @todo debug this further and show to which relays the event is published
+                submitLinkForm.submit()
               } else {
-                e.preventDefault();
+                submitLinkForm.submit()
               }
             })
           }
