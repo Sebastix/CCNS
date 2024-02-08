@@ -50,6 +50,7 @@ module:
   metatag_verification: 0
   mysql: 0
   node: 0
+  nostr_id_nip05: 0
   nostr_ndk: 0
   options: 0
   page_cache: 0

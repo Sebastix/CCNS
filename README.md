@@ -1,14 +1,15 @@
 # CCNS
+### Community Curated Nostr Stuff
 
----
-
-Community Curated Nostr Stuff
+CCNS is a Nostr-focused community platform centered around link aggregation and discussion topics. Anyone with a Nostr account is able to post links and start discussions. Those are curated with zaps with a user defined number of sats.
 
 > **Problem**
 >
 > Activity on https://stacker.news/~nostr has decreased significant since the introduction of territories.
 
-A Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.pub), [Lobste.rs](http://Lobste.rs) and [Stacker.news](http://Stacker.news).
+This is a Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.pub), [Lobste.rs](http://Lobste.rs) and [Stacker.news](http://Stacker.news).
+
+
 
 # Roadmap
 
@@ -16,16 +17,25 @@ A Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.
 
 - [ ] Create content model
   - [ ] Topic entity
-  - [ ] User entity
-  - [ ] Link entity
-  - [ ] Discussion entity
+  - [x] User entity
+  - [x] Link entity
   - [ ] Comment entity
-  - [ ] CCNS member role and permissions
+  - [x] CCNS member role and permissions
 - [ ] Add content entities and fields to Drupal
-- [ ] Add NDK for Nostr integration for authenticating users
-- [ ] Integrate Nostr key authentication with the Drupal user management system
-- [ ] Add crosspost to Nostr option to broadcast an event with your submitted link with [Nostr Simple Publish](https://www.drupal.org/project/nostr_simple_publish)
+  - [x] Link
+  - [x] User
+  - [ ] Comment
+  - [ ] Topic
+- [x] Add NDK for Nostr integration for authenticating users
+- [x] Integrate Nostr key authentication with the Drupal user management system
+- [x] Add 'crosspost to Nostr' option to broadcast an event with your submitted link (NIP-01)
+- [ ] Add 'crosspost to Nostr' option to broadcast an event with your submitted topic within the CCNS community (NIP-72)
 - [ ] Add threaded comments to a topic
+- [ ] Integrate zaps
+  - [ ] For links
+  - [ ] For comments
+- [ ] Setup e-mail notifications with [DANSE](https://www.drupal.org/project/danse)
+- [ ] Add a notifications center with [DANSE](https://www.drupal.org/project/danse)
 
 To see all items on a Kanban project board, please have a look at https://github.com/users/Sebastix/projects/2.
 
@@ -50,17 +60,23 @@ Contact [Sebastian Hagens](https://gitlab.com/Sebastix)
 
 Sebastian Hagens is a self-employed creative technologist working as a Drupal & fullstack webdeveloper and tech consultant from The Netherlands.
 
-Follow Sebastian on Nostr:
+**Follow Sebastian on Nostr**
 
 Pubkey: `npub1qe3e5wrvnsgpggtkytxteaqfprz0rgxr8c3l34kk3a9t7e2l3acslezefe`
 
 Handle: `sebastian@sebastix.dev`
 
-# CI/CD
+**Follow CCNS on Nostr**
+
+Pubkey: `npub12pj5g0370uz3f49flpz8scs85p8s9c7l6ueutjhkyc3jnggrlafsmmljva`
+
+Handle: `ccns@ccns.sebastix.dev`
+
+# CI/CD with GitLab
 
 ---
 
-See `.gitlab-ci.yml`
+See `.gitlab-ci.yml` and https://gitlab.com/sebastix-group/nostr/CCNS/-/pipelines
 
 # Build with Drupal
 
