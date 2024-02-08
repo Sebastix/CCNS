@@ -1,5 +1,6 @@
-# CCNS
-### Community Curated Nostr Stuff
+![](https://ccns.sebastix.dev/themes/custom/ccns_theme/images/ccns_logo_color.webp)
+
+# Community Curated Nostr Stuff (CCNS)
 
 CCNS is a Nostr-focused community platform centered around link aggregation and discussion topics. Anyone with a Nostr account is able to post links and start discussions. Those are curated with zaps with a user defined number of sats.
 
@@ -9,7 +10,9 @@ CCNS is a Nostr-focused community platform centered around link aggregation and 
 
 This is a Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http://Kbin.pub), [Lobste.rs](http://Lobste.rs) and [Stacker.news](http://Stacker.news).
 
-
+![](https://ccns.sebastix.dev/themes/custom/ccns_theme/images/screenshots/202402/01.png)
+![](https://ccns.sebastix.dev/themes/custom/ccns_theme/images/screenshots/202402/02.png)
+![](https://ccns.sebastix.dev/themes/custom/ccns_theme/images/screenshots/202402/03.png)
 
 # Roadmap
 
