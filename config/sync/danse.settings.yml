@@ -1,11 +1,14 @@
 _core:
   default_config_hash: xlEuwh-SYYN7P4ruDY-zofatT0VUaRoDYs8O1MFyauU
 subscriptions_as_tab:
-  events: 1
-  view: 1
+  events: 0
+  view: 0
 recipient_selection_plugin:
   config: default
-  content: admins
+  content: ''
   log: admins
-prune: {  }
+prune:
+  content:
+    value: ''
+    type: all
 langcode: nl

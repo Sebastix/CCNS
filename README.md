@@ -30,12 +30,18 @@ This is a Drupal & Nostr powered project inspired by HackerNews, [Kbin.pub](http
 - [x] Integrate Nostr key authentication with the Drupal user management system
 - [x] Add 'crosspost to Nostr' option to broadcast an event with your submitted link (NIP-01)
 - [ ] Add 'crosspost to Nostr' option to broadcast an event with your submitted topic within the CCNS community (NIP-72)
-- [ ] Add threaded comments to a topic
-- [ ] Integrate zaps
+- [ ] Add threaded comments below links and topics
+- [ ] Integrate zaps (NIP-57)
   - [ ] For links
   - [ ] For comments
 - [ ] Setup e-mail notifications with [DANSE](https://www.drupal.org/project/danse)
 - [ ] Add a notifications center with [DANSE](https://www.drupal.org/project/danse)
+- [ ] Integrate tags provided by a taxonomy managed by Drupal
+- [ ] Add a news/blog section
+  - [ ] Add options to crosspost these items to Nostr on behalf of the CCNS account
+- [ ] Add login method with nsecbunker
+- [ ] Add login method with nsec key
+- [ ] Add a way to register a new Nostr account
 
 To see all items on a Kanban project board, please have a look at https://github.com/users/Sebastix/projects/2.
 
