@@ -1,4 +1,4 @@
-import NDK, { NDKNip07Signer } from "@nostr-dev-kit/ndk";
+import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-kit/ndk";
 
 (function ($, Drupal, drupalSettings) {
   "use strict";
@@ -11,13 +11,26 @@ import NDK, { NDKNip07Signer } from "@nostr-dev-kit/ndk";
     // This function is called when the document is ready.
     attach: async function(context, settings) {
       /**
-       * Create NdkStore
+       * Create NdkStore.
        * @type {NdkStore}
        */
       const store = new NdkStore();
       store.set('ndk', new NDK());
       const nip07signer = new NDKNip07Signer();
       store.set('nip07signer', nip07signer);
+      if (Drupal.Ndk.store === undefined && drupalSettings.user.uid === 0) {
+        console.log('Ready to login with Nostr, LFG!')
+      } else if (drupalSettings.user.uid !== 0) {
+        // User is logged in but clientside Nostr auth is not active. Let's reconnect.
+        const ndk = store.get('ndk');
+        ndk.signer = nip07signer
+        await ndk.connect();
+        console.log('Reconnected to Nostr, LFG!')
+      } else {
+        // User is logged in and Nostr auth is set.
+        console.log('Logged in and Nostr authenticated, LFG!')
+      }
+      store.set('ndkEvent', new NDKEvent())
       // Let's 'export' the store, so we can use it globally in other Javascript files loaded by Drupal.
       Drupal.Ndk.store = store;
       console.log('NdkStore initialized');
