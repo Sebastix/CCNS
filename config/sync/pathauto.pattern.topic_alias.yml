@@ -1,22 +1,22 @@
-uuid: f6e701bd-7e81-472d-8307-2aa9ecf239cd
+uuid: 5d45b110-94b1-4651-8efb-fc30b9341451
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: link
-label: Link
+id: topic_alias
+label: 'Topic alias'
 type: 'canonical_entities:node'
-pattern: '/link/[node:title]'
+pattern: '/t/[node:title]'
 selection_criteria:
-  8c41ca76-fb4a-4cbd-8fbe-1bfa7c8fcedb:
+  aa50c2c2-2b26-483a-802b-a93402fbc617:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 8c41ca76-fb4a-4cbd-8fbe-1bfa7c8fcedb
+    uuid: aa50c2c2-2b26-483a-802b-a93402fbc617
     context_mapping:
       node: node
     bundles:
-      link: link
+      topic: topic
 selection_logic: and
 weight: -5
 relationships: {  }
