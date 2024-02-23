@@ -9,6 +9,7 @@ use Drupal\Core\Entity\EntityStorageException;
 use Drupal\file\Entity\File;
 use Drupal\user\Entity\Role;
 use Drupal\user\Entity\User;
+use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -52,6 +53,8 @@ final class CcnsController extends ControllerBase {
   /**
    * @param Request $request
    * @return JsonResponse
+   * @throws EntityStorageException
+   * @throws GuzzleException
    */
   public function createUser(Request $request): JsonResponse
   {
@@ -115,7 +118,8 @@ final class CcnsController extends ControllerBase {
       ];
       $response->setData($responseData);
     } catch (EntityStorageException $e) {
-
+      \Drupal::logger('ccns')->error($e->getMessage());
+      throw new EntityStorageException($e->getMessage(), $e->getCode(), $e);
     }
     return $response;
   }

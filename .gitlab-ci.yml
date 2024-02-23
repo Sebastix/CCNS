@@ -102,10 +102,10 @@ deploy:test:
     # New site install
     #- $SSH_LOGIN "drush si -y"
     # Existing site: updates must be run before configuration is imported
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush updatedb -y"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush config-import -y"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush core-cron"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/drush/drush/drush cache-rebuild -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush updatedb -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush config-import -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush core-cron"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush cache-rebuild -y"
     # Compile theme assets
     #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm install"
     #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm run build"
@@ -132,11 +132,11 @@ deploy:test:
 #    # symlinks
 #    # private_html -> web: ln -s ./web ./private_html
 #    # public_html -> web: ln -s ./web ./public_html
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush cache-rebuild -y"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush updatedb -y"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush config-import -y"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush locale:check"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush locale:update"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush core-cron"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/drush/drush/drush cache-rebuild -y"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush cache-rebuild -y"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush updatedb -y"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush config-import -y"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush locale:check"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush locale:update"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush core-cron"
+#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush cache-rebuild -y"
 #    - echo "Deployment ready, check $URL_PROD"
