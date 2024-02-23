@@ -115,6 +115,9 @@
         },
         "drupal/rate" : {
             "PHP Fatal Error | undefined method Drupal\\Core\\Extension\\ModuleHandler::getImplementations() - https://www.drupal.org/project/rate/issues/3327528" : "https://git.drupalcode.org/project/rate/-/merge_requests/9.patch"
+        },
+        "drupal/pwa" : {
+            "Undefined array key \"name\"\n - https://www.drupal.org/project/pwa/issues/3422906" : "https://www.drupal.org/files/issues/2024-02-21/pwa-3422906-3.patch"
         }
     }
   }
