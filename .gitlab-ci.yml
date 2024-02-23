@@ -93,11 +93,11 @@ deploy:test:
   script:
     - rsync -avz -e ssh ./composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - rsync -avz -e ssh ./composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz --delete -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz --delete -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz --delete -e ssh ./web $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
-    - rsync -avz --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
+    - rsync -azq --delete -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -azq --delete -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -azq --delete -e ssh ./web $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -azq --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
+    - rsync -azq --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
     - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
     #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && composer install --optimize-autoloader --no-dev --prefer-dist"
     # New site install
