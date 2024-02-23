@@ -106,6 +106,7 @@ deploy:test:
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush updatedb -y"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush config-import -y"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush core-cron"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush ckeditor5_markdown_editor:install"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush cache-rebuild -y"
     # Compile theme assets
     #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm install"

@@ -11,7 +11,6 @@ no_patching: false
 storage: folder
 folder: ../config/acceptance
 module:
-  big_pipe: 0
   raven: 0
 theme: {  }
 complete_list:
