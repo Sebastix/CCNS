@@ -42,7 +42,7 @@ before_script:
   - apk add nodejs npm
   - node --version
   - npm --version
-  # install php gd extension
+  # install php extensions
   # - see https://github.com/mlocati/docker-php-extension-installer
   - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
   - chmod +x /usr/bin/install-php-extensions
@@ -93,9 +93,9 @@ deploy:test:
   script:
     - rsync -avz -e ssh ./composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - rsync -avz -e ssh ./composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -azq --delete -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -azq --delete -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -azq --delete -e ssh ./web $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - rsync -azq --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
     - rsync -azq --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
     - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
