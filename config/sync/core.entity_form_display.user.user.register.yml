@@ -23,6 +23,11 @@ content:
   contact:
     weight: 5
     region: content
+  matomo:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_npub: true
   langcode: true

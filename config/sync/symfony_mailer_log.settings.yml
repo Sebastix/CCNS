@@ -1,0 +1,5 @@
+_core:
+  default_config_hash: bNo-nRdoFcQ0fcXWU4shQXIHhSor11nqlAef-08HglY
+log_expiry:
+  max_age: null
+  batch_size: 100

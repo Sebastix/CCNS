@@ -49,7 +49,7 @@
     "drupal/raven": "^5.0",
     "drupal/robotstxt": "^1.5",
     "drupal/symfony_mailer": "^1.2@beta",
-    "drupal/symfony_mailer_log": "^1.2@beta",
+    "drupal/symfony_mailer_log": "^1.2",
     "drupal/symfony_mailer_reroute": "^1.2@beta",
     "drupal/twig_tweak": "^3.2",
     "drupal/ultimate_cron": "^2.0@alpha",
