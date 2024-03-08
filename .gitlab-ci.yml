@@ -138,6 +138,6 @@ deploy:prod:
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush updatedb -y"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush config-import -y"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush core-cron"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush ckeditor5_markdown_editor:install"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush ckeditor5_markdown_editor:install"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush cache-rebuild -y"
     - echo "Deployment ready, check $URL_PROD"
