@@ -10,11 +10,11 @@ variables:
   SSH_USER: "root"
   SSH_HOST: "sebastix.dev"
   # Production
-#  DRUPAL_PROJECTROOT_PROD: "/home/cchs/domains/ccns.social"
-#  URL_PROD: "https://ccns.social"
-#  SSH_LOGIN_PROD: "ssh -T ccns@ccns.social"
-#  SSH_USER_PROD: "ccns"
-#  SSH_HOST_PROD: "ccns.social"
+  DRUPAL_PROJECTROOT_PROD: "/var/www/vhosts/sebastix.nl/ccns"
+  URL_PROD: "https://ccns.social"
+  SSH_LOGIN_PROD: "ssh -T ccns@ximo1.ximology.com"
+  SSH_USER_PROD: "sebastix"
+  SSH_HOST_PROD: "ximo1.ximology.com"
 
 stages:
   - build
@@ -26,6 +26,7 @@ before_script:
   - apk add --update bash
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | ssh-add -
+  - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
@@ -96,49 +97,47 @@ deploy:test:
     - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - rsync -avq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -azq --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
-    - rsync -azq --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
+    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
+    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
     - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && composer install --optimize-autoloader --no-dev --prefer-dist"
-    # New site install
-    #- $SSH_LOGIN "drush si -y"
-    # Existing site: updates must be run before configuration is imported
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush cache-rebuild -y"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush updatedb -y"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush config-import -y"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush core-cron"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush ckeditor5_markdown_editor:install"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush cache-rebuild -y"
-    # Compile theme assets
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm install"
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm run build"
     - echo "Deployment ready, check $URL"
 
-#deploy:prod:
-#  rules:
-#    - if: $CI_COMMIT_BRANCH == "develop"
-#      when: manual
-#    - if: $CI_COMMIT_BRANCH == "master"
-#      when: manual
-#  stage: deploy
-#  dependencies:
-#    - build:drupal
-#    - build:theme
-#  script:
-#    - rsync -avz -e ssh ./composer.json $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-#    - rsync -avz -e ssh ./composer.lock $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-#    - rsync -avz --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./config"
-#    - rsync -avz --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-#    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./web"
-#    # symlinks
-#    # private_html -> web: ln -s ./web ./private_html
-#    # public_html -> web: ln -s ./web ./public_html
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush cache-rebuild -y"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush updatedb -y"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush config-import -y"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush locale:check"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush locale:update"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush core-cron"
-#    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && vendor/bin/drush cache-rebuild -y"
-#    - echo "Deployment ready, check $URL_PROD"
+deploy:prod:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: manual
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: manual
+  stage: deploy
+  environment:
+    name: production
+    url: $URL_PROD
+  dependencies:
+    - build:drupal
+    - build:nostr-ndk
+    - build:theme
+  script:
+    - rsync -avz -e ssh ./composer.json $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avz -e ssh ./composer.lock $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./config"
+    - rsync -avq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh web/modules/custom $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web/modules
+    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh web/themes/custom $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web/themes
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./web"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 444 ./web/sites/default/settings.php"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 444 ./web/sites/default/settings.local.php"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush cache-rebuild -y"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush updatedb -y"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush config-import -y"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush core-cron"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush ckeditor5_markdown_editor:install"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush cache-rebuild -y"
+    - echo "Deployment ready, check $URL_PROD"
