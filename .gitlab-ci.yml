@@ -1,14 +1,6 @@
 image: php:8.2-alpine
 
-# Preparation:
-# Save $SSH_PRIVATE_KEY first in GitLab CI variables.
 variables:
-  # Test
-  DRUPAL_PROJECTROOT: "/var/www/ccns.sebastix.dev"
-  URL: "https://ccns.sebastix.dev"
-  SSH_LOGIN: "ssh -T root@sebastix.dev"
-  SSH_USER: "root"
-  SSH_HOST: "sebastix.dev"
   # Production
   DRUPAL_PROJECTROOT_PROD: "/var/www/vhosts/sebastix.nl/ccns"
   URL_PROD: "https://ccns.social"
@@ -79,34 +71,6 @@ build:theme:
   artifacts:
     paths:
       - web/themes/custom/ccns_theme/dist
-
-deploy:test:
-  rules:
-    - if: $CI_COMMIT_BRANCH == "develop"
-      when: always
-    - if: $CI_COMMIT_BRANCH == "master"
-      when: manual
-  stage: deploy
-  dependencies:
-    - build:drupal
-    - build:nostr-ndk
-    - build:theme
-  script:
-    - rsync -avz -e ssh ./composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz -e ssh ./composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
-    - rsync -azq --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
-    - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush cache-rebuild -y"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush updatedb -y"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush config-import -y"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush core-cron"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush ckeditor5_markdown_editor:install"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush cache-rebuild -y"
-    - echo "Deployment ready, check $URL"
 
 deploy:prod:
   rules:
