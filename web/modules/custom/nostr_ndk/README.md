@@ -22,9 +22,13 @@ After the module is enabled, the necessary packages needs to be installed.
 
 After this installation step, the Javascript files needs to be built. This is done with Vite.
 
-`npm build`
+`npm run build`
 
 The built Javascript files will be saved in the directory `dist`.
+
+## Updating dependencies
+
+Check if there are any updates with `npm outdated`. If so, you can run `npm update` and `npm run build`.
 
 ## Maintainers
 
