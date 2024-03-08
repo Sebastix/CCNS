@@ -12,7 +12,7 @@ variables:
   # Production
   DRUPAL_PROJECTROOT_PROD: "/var/www/vhosts/sebastix.nl/ccns"
   URL_PROD: "https://ccns.social"
-  SSH_LOGIN_PROD: "ssh -T ccns@ximo1.ximology.com"
+  SSH_LOGIN_PROD: "ssh -T sebastix@ximo1.ximology.com"
   SSH_USER_PROD: "sebastix"
   SSH_HOST_PROD: "ximo1.ximology.com"
 
