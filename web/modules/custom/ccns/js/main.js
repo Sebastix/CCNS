@@ -51,7 +51,7 @@
               content += description
             }
             content += '\n\n'
-            content += '🔂 crossposted from https://ccns.sebastix.dev'
+            content += '🔂 cross-posted from https://ccns.sebastix.dev'
             nostrEvent.content = content
             nostrEvent.tags = [
               ['client', 'CCNS']

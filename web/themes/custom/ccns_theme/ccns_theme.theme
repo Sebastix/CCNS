@@ -63,7 +63,7 @@ function ccns_theme_form_node_form_alter(&$form, FormStateInterface $form_state,
     // Add crosspost to Nostr checkbox
     $form['crosspost_to_nostr'] = array (
       '#type' => 'checkbox',
-      '#title' => t ('Crosspost to Nostr (kind <code>1</code>)'),
+      '#title' => t ('Cross-post to Nostr (kind <code>1</code>)'),
       '#weight' => 5,
     );
   }
