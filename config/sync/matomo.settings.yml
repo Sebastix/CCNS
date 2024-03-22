@@ -20,7 +20,7 @@ track:
   site_search: false
 privacy:
   donottrack: true
-  disablecookies: false
+  disablecookies: true
 custom:
   variable:
     1:
@@ -52,7 +52,7 @@ codesnippet:
   before: ''
   after: ''
 translation_set: false
-disable_tracking: false
+disable_tracking: true
 cache: false
 page_title_hierarchy: false
 page_title_hierarchy_exclude_home: true

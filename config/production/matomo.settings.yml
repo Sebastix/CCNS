@@ -1,4 +1,4 @@
-site_id: '11'
+site_id: '14'
 url_http: 'http://matomo.sebastix.nl/'
 url_https: 'https://matomo.sebastix.nl/'
 domain_mode: 0
@@ -18,7 +18,7 @@ track:
   site_search: false
 privacy:
   donottrack: false
-  disablecookies: false
+  disablecookies: true
 custom:
   variable:
     1:
