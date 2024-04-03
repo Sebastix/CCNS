@@ -12,6 +12,7 @@ workflow:
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^aupdt_/
       when: never
+    - when: always
 
 stages:
   - build
