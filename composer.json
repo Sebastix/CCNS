@@ -118,7 +118,7 @@
       "one_pull_request_per_package": 0,
       "run_scripts": 1,
       "security_updates_only": 0,
-      "timeframe_disallowed": "13:00-17:00",
+      "timeframe_disallowed": "17:00-13:00",
       "timezone": "Europe/Amsterdam",
       "update_dev_dependencies": 1,
       "update_with_dependencies": 1
