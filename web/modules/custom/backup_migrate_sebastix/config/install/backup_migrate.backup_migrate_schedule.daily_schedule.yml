@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {  }
+id: daily_schedule
+label: 'Daily Schedule'
+enabled: true
+keep: 2
+period: 86400
+cron: null
+source_id: default_db
+destination_id: private_files
+settings_profile_id: basic_backup

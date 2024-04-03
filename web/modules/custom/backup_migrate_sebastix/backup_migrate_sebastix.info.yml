@@ -1,0 +1,7 @@
+name: 'backup_migrate_sebastix'
+type: module
+description: 'Backup Migrate custom config'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - backup_migrate:backup_migrate

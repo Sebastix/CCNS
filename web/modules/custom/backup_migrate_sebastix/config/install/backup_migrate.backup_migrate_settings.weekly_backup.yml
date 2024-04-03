@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies: {  }
+id: weekly_backup
+label: 'Weekly backup'
+config:
+  namer:
+    filename: weekly_backup
+    timestamp: true
+    timestamp_format: Y-m-d\TH-i-s
+  compressor:
+    compression: gzip
+  utils:
+    site_offline: false
+  metadata:
+    description: ''
+  db_exclude:
+    exclude_tables:
+      drpl_cache_advagg: drpl_cache_advagg
+      drpl_cache_bootstrap: drpl_cache_bootstrap
+      drpl_cache_config: drpl_cache_config
+      drpl_cache_container: drpl_cache_container
+      drpl_cache_data: drpl_cache_data
+      drpl_cache_default: drpl_cache_default
+      drpl_cache_discovery: drpl_cache_discovery
+      drpl_cache_entity: drpl_cache_entity
+      drpl_cache_menu: drpl_cache_menu
+      drpl_cache_signal: drpl_cache_signal
+      drpl_cache_toolbar: drpl_cache_toolbar
+      drpl_cache_ultimate_cron_logger: drpl_cache_ultimate_cron_logger
+    nodata_tables: {  }
+  private_files_exclude:
+    exclude_filepaths:
+      - backup_migrate
+  public_files_exclude:
+    exclude_filepaths:
+      - js
+      - css
+      - php
+      - styles
+      - 'config_*'
+      - .htaccess
