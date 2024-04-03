@@ -8,6 +8,11 @@ variables:
   SSH_USER_PROD: "sebastix"
   SSH_HOST_PROD: "ximo1.ximology.com"
 
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^aupdt_/
+      when: never
+
 stages:
   - build
   - test
