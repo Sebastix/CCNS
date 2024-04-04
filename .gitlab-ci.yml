@@ -11,8 +11,8 @@ variables:
 workflow:
   rules:
     # Run pipelines when commit branch does not start with the prefix `aupdt_`
-    - if: '$CI_COMMIT_BRANCH !~ /^aupdt_*/'
-      when: always
+    - if: '$CI_COMMIT_BRANCH =~ /^aupdt_*/'
+      when: never
 
 stages:
   - build
