@@ -10,14 +10,10 @@ variables:
 
 workflow:
   rules:
-    # Run pipelines when commit branch does not start with the prefix `aupdt_` and is a merge request
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-    - if: '$CI_COMMIT_BRANCH =~ /^aupdt_*/'
+    # Pipelines do not run when branchname starts with ^aupdt_
+    - if: $CI_COMMIT_BRANCH =~ /^aupdt_/
       when: never
-    # Only run pipelines on protected branches.
-    - if: $CI_COMMIT_REF_PROTECTED == "true"
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_PROTECTED == "true"
-      when: always
+    - when: always
 
 stages:
   - build
