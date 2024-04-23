@@ -8,6 +8,7 @@
       }
       document.getElementById('nostr-login-nip07').addEventListener('click', async (e) => {
         try {
+          // @todo show loading icon in an overlay while connecting..
           if (Drupal.Ndk.store === undefined) {
             throw 'Ndk store is not set'
           }
@@ -20,10 +21,16 @@
           ndk.signer = nip07signer
           await ndk.connect()
           const n = await nip07signer.user()
-          const user = ndk.getUser({
+          console.log(n)
+          const user = await ndk.getUser({
             npub: n.npub
           })
-          const profile = await user.fetchProfile()
+          console.log(user)
+          if (user.profile === undefined) {
+            const profile = await user.fetchProfile()
+          } else {
+            const profile = user.profile
+          }
           // Create user entity.
           const postData = {
             npub: n.npub,
