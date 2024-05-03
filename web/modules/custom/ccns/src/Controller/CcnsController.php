@@ -38,11 +38,13 @@ final class CcnsController extends ControllerBase {
     $response = new AjaxResponse();
     // @todo use a template file for the content of this modal
     $content = '<br />';
-    $content .= '<button id="nostr-login-nip07" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; cursor: pointer;">Log in with a Nostr extension</button>';
+    $content .= '<button id="nostr-login-nip07" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; cursor: pointer;">Connect with a Nostr extension</button>';
     $content .= '<br /><br />';
-    $content .= '<button id="nostr-login-bunker" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Log in with a nsecbunker</button>';
+    $content .= '<small>Connecting with the Alby browser extension seems to be broken. Please use <a href="https://chromewebstore.google.com/detail/nos2x/kpgefcfmnafjgpblomihpgmejjdanjjp" target="_blank">nos2x</a> as an alternative.</small>';
     $content .= '<br /><br />';
-    $content .= '<button id="nostr-login-nsec" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Log in with a nsec key</button>';
+    $content .= '<button id="nostr-login-bunker" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Connect with a nsecbunker</button>';
+    $content .= '<br /><br />';
+    $content .= '<button id="nostr-login-nsec" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Connect with a nsec key</button>';
     // Add nostr-login library to the response which contains an event listeners for these buttons.
     $attachments['library'][] = 'ccns/login-options';
     $response->setAttachments($attachments);

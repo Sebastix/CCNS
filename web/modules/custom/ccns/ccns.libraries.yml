@@ -3,6 +3,7 @@ nostr-login:
   js:
     js/main.js: {}
   dependencies:
+    - core/once
     - core/jquery
     - core/drupal.dialog.ajax
     - core/drupal.dialog.off_canvas
@@ -12,6 +13,7 @@ login-options:
   js:
     js/login-options.js: {}
   dependencies:
+    - core/once
     - core/jquery
     - core/drupal.dialog.ajax
     - core/drupal.dialog.off_canvas

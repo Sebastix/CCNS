@@ -86,18 +86,27 @@
   Drupal.behaviors.ccns = {
     // This function is called when the document is ready.
     attach: function(context, settings) {
+      if (once('drupal-off-canvas', 'html').length) {
+        $(window).on();
+        checkNdkStore()
+      }
       // @todo find a better solution than polling with a watcher / observer when Drupal.Ndk.store is defined
       function checkNdkStore() {
-          const check = setInterval(async () => {
-            if(Drupal.Ndk.store !== undefined) {
-              // Clear this interval
-              await clearInterval(check);
-              // init
-              await Drupal.ccns.init();;
-            }
-          }, 10);
+        let counter = 0
+        const check = setInterval(async () => {
+          console.log('check Ndk Store')
+          if(Drupal.Ndk.store !== undefined) {
+            // Clear this interval
+            await clearInterval(check);
+            // init
+            await Drupal.ccns.init();
+          }
+          if (counter => 1000) {
+            await clearInterval(check);
+          }
+          counter++
+        }, 10);
       }
-      checkNdkStore()
     },
   }
 

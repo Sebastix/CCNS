@@ -2,7 +2,13 @@
   "use strict";
 
   Drupal.behaviors.login_options = {
-    attach: function(context, settings) {
+    attach: async function(context, settings) {
+
+      if (once('drupal-off-canvas', 'html').length) {
+        $(window).on();
+        console.log('off-canvas once called')
+      }
+
       if (document.getElementById('nostr-login-nip07') === null) {
         return
       }
@@ -16,27 +22,24 @@
           ndk.addExplicitRelay('wss://purplepage.es/')
           ndk.addExplicitRelay('wss://relay.nostr.band/')
           ndk.addExplicitRelay('wss://nostr.sebastix.dev/')
-          //ndk.enableOutboxModel = true
+          //ndk.enableOutboxModel = true // enabling this will make connecting much slower.
           const nip07signer = Drupal.Ndk.store.get('nip07signer')
           ndk.signer = nip07signer
           await ndk.connect()
           const n = await nip07signer.user()
-          console.log(n)
           const user = await ndk.getUser({
             npub: n.npub
           })
-          console.log(user)
-          if (user.profile === undefined) {
-            const profile = await user.fetchProfile()
-          } else {
-            const profile = user.profile
-          }
+          // Fetch profile of user.
+          //const profile = await requestProfile(n.pubkey)
+          const profile = await user.fetchProfile()
           // Create user entity.
           const postData = {
             npub: n.npub,
-            pubkey: user._pubkey,
+            pubkey: user.pubkey,
             profile: profile
           }
+          console.log(postData)
           const created_user = await fetch('/create-user', {
             method: 'post',
             body: JSON.stringify(postData),
@@ -72,4 +75,25 @@
       });
     }
   }
+
+  /**
+   * Request profile with NDKs fetchEvent.
+   *
+   * @param pubkey
+   * @returns {Promise<unknown>}
+   */
+  function requestProfile(pubkey) {
+    return new Promise( async (resolve, reject) => {
+      const ndk = Drupal.Ndk.store.get('ndk')
+      const filter = {
+        kinds: [0],
+        authors: [pubkey]
+      }
+      const profile = await ndk.fetchEvent(filter)
+      resolve(profile)
+    }).then((res) => {
+      return res
+    })
+  }
+
 })(jQuery, Drupal, drupalSettings);
