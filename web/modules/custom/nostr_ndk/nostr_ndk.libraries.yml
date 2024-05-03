@@ -14,3 +14,4 @@ nostr-dev-kit:
   dependencies:
     - core/drupal
     - core/jquery
+    - core/once

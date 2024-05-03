@@ -10,6 +10,17 @@ import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-k
 
     // This function is called when the document is ready.
     attach: async function(context, settings) {
+      for (const doc of once('init-once', context === document ? 'html' : context)) {
+        if (doc.tagName === 'HTML' || doc.tagName === 'BODY') {
+          await init();
+        }
+      }
+    }
+  }
+
+  const init = async () => {
+    try {
+      console.log('init nostr_ndk')
       /**
        * Create NdkStore.
        * @type {NdkStore}
@@ -24,8 +35,24 @@ import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-k
         // User is logged in but clientside Nostr auth is not active. Let's reconnect.
         const ndk = store.get('ndk');
         ndk.signer = nip07signer
-        await ndk.connect();
+        await ndk.connect()
         console.log('Reconnected to Nostr, LFG!')
+      } else if (Drupal.Ndk.store !== undefined && drupalSettings.user.uid === 0) {
+        // Ndk is set, but no user is logged in
+        const ndk = Drupal.Ndk.store.get('ndk')
+        console.log('Ready to login with Nostr (NDK is set, but Drupal uid is 0), LFG!')
+        //ndk.signer = nip07signer
+        //await ndk.connect()
+        // const user = await ndk.getUser({
+        //   npub: n.npub
+        // })
+        // if (user.profile === undefined) {
+        //   const profile = await user.fetchProfile()
+        //
+        // } else {
+        //   const profile = user.profile
+        //
+        // }
       } else {
         // User is logged in and Nostr auth is set.
         console.log('Logged in and Nostr authenticated, LFG!')
@@ -34,8 +61,11 @@ import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-k
       // Let's 'export' the store, so we can use it globally in other Javascript files loaded by Drupal.
       Drupal.Ndk.store = store;
       console.log('NdkStore initialized');
+    } catch (e) {
+      alert(e)
     }
   }
+
 }) (jQuery, Drupal, drupalSettings);
 
 /**
