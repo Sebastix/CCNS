@@ -10,8 +10,11 @@ module.exports = {
     extend: {},
   },
   safelist: [
+    'loading',
+    'loading-spinner',
+    'loading-xs',
     {
-      pattern: /rotate-.+/,
+      pattern: /rotate-.+|loading-.+/,
     },
   ],
   variants: {

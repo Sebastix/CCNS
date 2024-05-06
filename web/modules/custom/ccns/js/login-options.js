@@ -26,20 +26,18 @@
           const nip07signer = Drupal.Ndk.store.get('nip07signer')
           ndk.signer = nip07signer
           await ndk.connect()
-          const n = await nip07signer.user()
-          const user = await ndk.getUser({
-            npub: n.npub
-          })
+          /** @var {NDKUser} user */
+          const user = await nip07signer.user()
           // Fetch profile of user.
-          //const profile = await requestProfile(n.pubkey)
+          /** @var {NDKUserProfile} profile */
           const profile = await user.fetchProfile()
+          //const profile = await requestProfile(user.pubkey)
           // Create user entity.
           const postData = {
-            npub: n.npub,
+            npub: user.npub,
             pubkey: user.pubkey,
             profile: profile
           }
-          console.log(postData)
           const created_user = await fetch('/create-user', {
             method: 'post',
             body: JSON.stringify(postData),

@@ -62,7 +62,11 @@ final class CcnsController extends ControllerBase {
   {
     $response = new JsonResponse();
     try {
-      $postData = json_decode($request->getContent());
+      $postData = json_decode($request->getContent(), false);
+      // Check if the profile data is posted.
+      if ($postData->profile === null) {
+        throw new \RuntimeException('No profile data found');
+      }
       // Check if user already exist.
       if ($user = user_load_by_mail($postData->npub.'@ccns.social')) {
         if(!$user->hasRole('ccns')){
