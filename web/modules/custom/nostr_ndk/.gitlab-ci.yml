@@ -42,7 +42,7 @@ include:
 before_script:
   - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
   - chmod +x /usr/bin/install-php-extensions
-  - install-php-extensions gd gmp
+  - install-php-extensions gmp
 
 ################
 # Pipeline configuration variables
