@@ -10,6 +10,9 @@ module.exports = {
     extend: {},
   },
   safelist: [
+    'my-2',
+    'p-2',
+    'bg-base-200',
     'loading',
     'loading-spinner',
     'loading-xs',

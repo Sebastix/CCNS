@@ -46,7 +46,7 @@ final class CcnsController extends ControllerBase {
     $content .= '<br /><br />';
     $content .= '<button id="nostr-login-nsec" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Connect with a nsec key</button>';
     // Add nostr-login library to the response which contains an event listeners for these buttons.
-    $attachments['library'][] = 'ccns/login-options';
+    $attachments['library'][] = 'ccns/connect-options';
     $response->setAttachments($attachments);
     $response->addCommand(new OpenOffCanvasDialogCommand('Login', $content, ['width' => '30%'], NULL, 'side'));
     return $response;

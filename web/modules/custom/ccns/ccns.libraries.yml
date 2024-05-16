@@ -1,7 +1,7 @@
 # Custom library for general purposes.
-nostr-login:
+nostr-connect:
   js:
-    js/main.js: {}
+    js/nostr-connect.js: {}
   dependencies:
     - core/once
     - core/jquery
@@ -9,9 +9,9 @@ nostr-login:
     - core/drupal.dialog.off_canvas
     - nostr_ndk/nostr-dev-kit
 
-login-options:
+connect-options:
   js:
-    js/login-options.js: {}
+    js/connect-options.js: {}
   dependencies:
     - core/once
     - core/jquery

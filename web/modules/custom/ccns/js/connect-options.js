@@ -1,7 +1,7 @@
 (function ($, Drupal, drupalSettings) {
   "use strict";
 
-  Drupal.behaviors.login_options = {
+  Drupal.behaviors.connect_options = {
     attach: async function(context, settings) {
 
       if (once('drupal-off-canvas', 'html').length) {
@@ -19,10 +19,10 @@
             throw 'Ndk store is not set'
           }
           const ndk = Drupal.Ndk.store.get('ndk')
-          ndk.addExplicitRelay('wss://purplepage.es/')
-          ndk.addExplicitRelay('wss://relay.nostr.band/')
-          ndk.addExplicitRelay('wss://nostr.sebastix.dev/')
-          //ndk.enableOutboxModel = true // enabling this will make connecting much slower.
+          // ndk.addExplicitRelay('wss://purplepage.es/')
+          // ndk.addExplicitRelay('wss://relay.nostr.band/')
+          // ndk.addExplicitRelay('wss://nostr.sebastix.dev/')
+          // ndk.enableOutboxModel = true // enabling this will make connecting much slower.
           const nip07signer = Drupal.Ndk.store.get('nip07signer')
           ndk.signer = nip07signer
           await ndk.connect()

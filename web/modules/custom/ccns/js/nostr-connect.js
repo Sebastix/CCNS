@@ -14,9 +14,45 @@
       if (Drupal.Ndk.store.get('ndk') === undefined) {
         throw 'Ndk object in Ndk store is not set'
       }
+      const ndk = Drupal.Ndk.store.get('ndk')
       // Crosspost link entity to Nostr
       let submitLinkForm = document.getElementById('node-link-form');
       if (submitLinkForm !== null && submitLinkForm.length) {
+        // Preview checkbox listener.
+        submitLinkForm.elements['crosspost_to_nostr'].addEventListener('click', (e) => {
+          const title = submitLinkForm.elements['title[0][value]'].value
+          const url = submitLinkForm.elements['field_url[0][uri]'].value
+          const description = submitLinkForm.elements['body[0][value]'].value
+          let contentHtml = title + '\n' + url
+          if (description !== '') {
+            contentHtml += '<br /><br />'
+            contentHtml += description
+          }
+          contentHtml += '<br /><br />'
+          contentHtml += '🔂 cross-posted from https://ccns.nostrver.se'
+          // Generate a preview and insert this into the DOM.
+          let preview = document.createElement('div')
+          preview.id = 'previewEventKind1'
+          preview.classList.add('my-2', 'p-2', 'bg-base-200')
+          preview.insertAdjacentHTML('afterbegin', contentHtml)
+          if (document.getElementById('previewEventKind1') && e.target.checked === false) {
+            // Remove element.
+            document.getElementById('previewEventKind1').remove()
+          } else {
+            // Add preview to DOM.
+            document.getElementsByClassName('form-item-crosspost-to-nostr').item(0).after(preview)
+          }
+        })
+        // Form input change listener.
+        submitLinkForm.addEventListener('change', (e) => {
+          if (e.target.name !== 'crosspost_to_nostr') {
+            // Remove preview element.
+            document.getElementById('previewEventKind1').remove()
+            // Uncheck cross-post checkbox.
+            submitLinkForm.elements['crosspost_to_nostr'].checked = false
+          }
+        })
+        // Form submit listener.
         submitLinkForm.addEventListener('submit', async (e) => {
           e.preventDefault();
           if (submitLinkForm.elements['crosspost_to_nostr'].checked === true) {
@@ -32,9 +68,7 @@
               throw 'URL is empty'
             }
             const description = submitLinkForm.elements['body[0][value]'].value
-
             // Create event for Nostr
-            const ndk = Drupal.Ndk.store.get('ndk')
             const signer = Drupal.Ndk.store.get('nip07signer')
             if (signer === undefined) {
               throw 'signer in Ndk store is not set'
@@ -52,24 +86,36 @@
               content += description
             }
             content += '\n\n'
-            content += '🔂 cross-posted from https://ccns.sebastix.dev'
+            content += '🔂 cross-posted from https://ccns.nostrver.se'
             nostrEvent.content = content
             nostrEvent.tags = [
               ['client', 'CCNS']
             ];
             const nUser = await signer.user()
-            await nostrEvent.toNostrEvent(nUser.npub);
-            // @todo get user defined relays from user to post to
-            // @todo how could this work, publish an event to own set of relay..?
+            const n = await nostrEvent.toNostrEvent(nUser.npub);
+            // @todo get user defined relays from user to post to (enable outbox model on ndk)
+            // ndk.enableOutboxModel = true
+            // @todo how could this work, publish an event to own set of relays...?
             //const relaySet = Drupal.Ndk.store.get('relaySet')
             //let relay = Drupal.Ndk.store.get('relay')
             //relay.url = 'wss://nostr.sebastix.dev'
             //relaySet.addRelay(relay)
             //console.log(relaySet)
             // @todo try publishing a new kind: 13003 (a replaceable event) to my own relay
-            const publishedEvents = await nostrEvent.publish()
-            // @todo save this published event as a reference to the created link entity in Drupal
+            // ...
+            console.log('ready to publish')
+            console.log(n)
             // @todo debug this further and show to which relays the event is published
+            const eventPublishedToRelays = await nostrEvent.publish()
+            console.log(`The event is published to ${eventPublishedToRelays.size} relays:`)
+            // Loop over all relays
+            /**
+             * @var {NDKRelay} relay
+             */
+            for (const relay in eventPublishedToRelays) {
+              console.log(relay)
+            }
+            // @todo save this published event as a reference to the created link entity in Drupal
             submitLinkForm.submit()
           } else {
             submitLinkForm.submit()
@@ -95,7 +141,7 @@
             // init
             await init();
           }
-        }, 10);
+        }, 100);
       }
       checkNdkStore()
     },
