@@ -26,15 +26,32 @@ import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-k
        * @type {NdkStore}
        */
       const store = new NdkStore();
-      store.set('ndk', new NDK());
+      const ndk = new NDK({
+        explicitRelayUrls: [
+          'wss://nostr.sebastix.dev',
+          'wss://nos.lol',
+          'wss://relay.damus.io',
+          'wss://relay.nostr.band',
+          'wss://nostr.cheeserobot.org',
+          'wss://offchain.pub',
+        ],
+        enableOutboxModel: false,
+      })
+      // Show output of connecting & connected relays.
+      ndk.pool?.on("relay:connecting", (relay) => {
+        console.log("🪄 MAIN POOL Connecting to relay", relay.url);
+      });
+      ndk.pool?.on("relay:connect", (relay) => {
+        console.log("✅ MAIN POOL Connected to relay", relay.url);
+      });
+      store.set('ndk', ndk);
       const nip07signer = new NDKNip07Signer();
       store.set('nip07signer', nip07signer);
       if (Drupal.Ndk.store === undefined && drupalSettings.user.uid === 0) {
         console.log('Ready to login with Nostr, LFG!')
       } else if (Drupal.Ndk.store === undefined && drupalSettings.user.uid !== 0) {
         // User is logged in but clientside Nostr auth is not active. Let's reconnect.
-        const ndk = store.get('ndk');
-        ndk.signer = nip07signer
+        //ndk.signer = nip07signer
         await ndk.connect()
         console.log('Reconnected to Nostr, LFG!')
       } else if (Drupal.Ndk.store !== undefined && drupalSettings.user.uid === 0) {
