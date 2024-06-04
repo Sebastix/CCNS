@@ -1,0 +1,29 @@
+uuid: e5e1f0d1-ae52-4052-a438-5f06f13bc370
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.frontpage-menu
+  module:
+    - system
+  theme:
+    - ccns_theme
+id: ccns_theme_frontpagemenu
+theme: ccns_theme
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:frontpage-menu'
+settings:
+  id: 'system_menu_block:frontpage-menu'
+  label: 'Frontpage menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "<front>\r\n/topics"

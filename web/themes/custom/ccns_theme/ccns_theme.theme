@@ -67,6 +67,15 @@ function ccns_theme_form_node_form_alter(&$form, FormStateInterface $form_state,
       '#weight' => 5,
     );
   }
+  if ($form_id === 'node_topic_form') {
+    $form['actions']['submit']['#value'] = 'Start topic';
+    $form['crosspost_to_nostr'] = array (
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => 'This topic will be cross-posted to the Nostr network in the CCNS community.',
+      '#weight' => 5,
+    );
+  }
 }
 
 /**

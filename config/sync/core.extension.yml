@@ -58,7 +58,6 @@ module:
   pf_email: 0
   push_framework: 0
   pwa: 0
-  pwa_service_worker: 0
   rate: 0
   robotstxt: 0
   search: 0

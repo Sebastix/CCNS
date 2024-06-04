@@ -7,6 +7,7 @@ dependencies:
     - filter.format.markdown_editor
     - node.type.instagram_profile_link
     - node.type.link
+    - node.type.topic
   module:
     - comment
     - field_permissions
@@ -27,11 +28,14 @@ permissions:
   - 'cast rate vote on node of instagram_profile_link'
   - 'create instagram_profile_link content'
   - 'create link content'
+  - 'create topic content'
   - 'delete own files'
   - 'delete own instagram_profile_link content'
   - 'delete own link content'
+  - 'delete own topic content'
   - 'edit own comments'
   - 'edit own link content'
+  - 'edit own topic content'
   - 'post comments'
   - 'search content'
   - 'select account cancellation method'

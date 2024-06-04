@@ -121,6 +121,19 @@
             submitLinkForm.submit()
           }
         })
+
+        // Crosspost topic entity to Nostr
+        let submitTopicForm = document.getElementById('node-topic-form');
+        if (submitTopicForm !== null && submitTopicForm.length) {
+          // @todo
+          console.log('init xpost here for topic')
+          // Form submit listener.
+          submitTopicForm.addEventListener('submit', async (e) => {
+            e.preventDefault()
+
+            submitTopicForm.submit()
+          })
+        }
       }
     } catch (e) {
       console.log(e)

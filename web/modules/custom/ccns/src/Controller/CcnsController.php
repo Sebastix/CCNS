@@ -40,9 +40,9 @@ final class CcnsController extends ControllerBase {
     $content = '<br />';
     $content .= '<button id="nostr-login-nip07" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; cursor: pointer;">Connect with a Nostr extension</button>';
     $content .= '<br /><br />';
-    $content .= '<small>Connecting with the Alby browser extension seems to be broken. Please use <a href="https://chromewebstore.google.com/detail/nos2x/kpgefcfmnafjgpblomihpgmejjdanjjp" target="_blank">nos2x</a> as an alternative.</small>';
+    $content .= '<small>Connect your Nostr keypair by using a browser extension like <a href="https://chromewebstore.google.com/detail/nos2x/kpgefcfmnafjgpblomihpgmejjdanjjp" target="_blank">nos2x</a>, <a href="https://www.getflamingo.org/" target="_blank">Flamingo</a> or <a href="https://getalby.com" target="_blank">Alby</a></small>';
     $content .= '<br /><br />';
-    $content .= '<button id="nostr-login-bunker" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Connect with a nsecbunker</button>';
+    $content .= '<button id="nostr-connect" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Nostr connect (NIP-46)</button>';
     $content .= '<br /><br />';
     $content .= '<button id="nostr-login-nsec" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Connect with a nsec key</button>';
     // Add nostr-login library to the response which contains an event listeners for these buttons.
