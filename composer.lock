@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05f8ea7de0262eaa19a5f55762fa5289",
+    "content-hash": "71b725c1d3498dd40f696c5b8ea129be",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3525,20 +3525,20 @@
         },
         {
             "name": "drupal/raven",
-            "version": "5.0.14",
+            "version": "6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/raven.git",
-                "reference": "5.0.14"
+                "reference": "6.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/raven-5.0.14.zip",
-                "reference": "5.0.14",
-                "shasum": "b6487db5f6be84aa06ccf48e878021c30a8511ba"
+                "url": "https://ftp.drupal.org/files/projects/raven-6.0.3.zip",
+                "reference": "6.0.3",
+                "shasum": "bd55037731daf6a07498d27d94615edfa9ac1070"
             },
             "require": {
-                "drupal/core": "^10.1 || ^11",
+                "drupal/core": "^10.2 || ^11",
                 "sentry/sentry": "^4.4"
             },
             "require-dev": {
@@ -3550,8 +3550,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.0.14",
-                    "datestamp": "1716361931",
+                    "version": "6.0.3",
+                    "datestamp": "1716401085",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
