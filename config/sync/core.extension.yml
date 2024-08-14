@@ -1,6 +1,5 @@
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
-langcode: nl
 module:
   admin_toolbar: 0
   admin_toolbar_search: 0
@@ -58,7 +57,6 @@ module:
   pf_email: 0
   push_framework: 0
   pwa: 0
-  pwa_service_worker: 0
   rate: 0
   robotstxt: 0
   search: 0

@@ -99,7 +99,7 @@ display:
           entity_type: symfony_mailer_log
           entity_field: to
           plugin_id: field
-          label: Naar
+          label: To
           exclude: false
           alter:
             alter_text: false
@@ -229,7 +229,7 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: entity_operations
-          label: Bewerkingslinks
+          label: 'Operations links'
           exclude: false
           alter:
             alter_text: false
@@ -292,6 +292,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -300,8 +301,8 @@ display:
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Oplopend
-          sort_desc_label: Aflopend
+          sort_asc_label: Ascending
+          sort_desc_label: Descending
       access:
         type: perm
         options:

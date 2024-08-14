@@ -1,6 +1,5 @@
 _core:
   default_config_hash: UYfMzeP1S8jKm9PSvxf7nQNe8DsNS-3bc2WSNNXBQWs
-langcode: nl
 uid_only: false
 ip_limit: 10
 ip_window: 1800

@@ -14,8 +14,8 @@ third_party_settings:
     unique_text: ''
 name: Topic
 type: topic
-description: ''
-help: ''
+description: null
+help: null
 new_revision: false
 preview_mode: 0
 display_submitted: false

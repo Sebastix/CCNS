@@ -1,6 +1,5 @@
 _core:
   default_config_hash: UvSCt3S_NldJPFzvhSNOy9vWoPPFhmsmTC12vtVss9s
-langcode: nl
 favicon:
   use_default: true
 features:

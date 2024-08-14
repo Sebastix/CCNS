@@ -1,5 +1,6 @@
 _core:
   default_config_hash: bBsKNU9uuzzS7zaKZhHpof7W8sOAuKBZJDF5Eh76BTs
+langcode: en
 name: CCNS
 short_name: CCNS
 description: 'CCNS is a Nostr-focused, social community platform centered around links and topics'

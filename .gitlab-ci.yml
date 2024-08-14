@@ -1,4 +1,4 @@
-image: php:8.2-alpine
+image: php:8.3-alpine
 
 variables:
   # Production

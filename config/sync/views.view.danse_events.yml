@@ -569,7 +569,7 @@ display:
           entity_type: danse_event
           entity_field: silent
           plugin_id: field
-          label: Stil
+          label: Silent
           exclude: false
           alter:
             alter_text: false
@@ -636,7 +636,7 @@ display:
           entity_type: danse_event
           entity_field: processed
           plugin_id: field
-          label: Verwerkt
+          label: Processed
           exclude: false
           alter:
             alter_text: false
@@ -714,6 +714,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -1040,7 +1041,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Stil
+            label: Silent
             description: ''
             use_operator: false
             operator: silent_op
@@ -1085,7 +1086,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Verwerkt
+            label: Processed
             description: ''
             use_operator: false
             operator: processed_op

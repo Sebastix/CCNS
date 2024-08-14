@@ -14,7 +14,7 @@ third_party_settings:
     unique_text: ''
 name: 'Instagram profiel post'
 type: instagram_profile_link
-description: ''
+description: null
 help: 'Post een link naar een Instagram profiel van een Honda.'
 new_revision: false
 preview_mode: 0

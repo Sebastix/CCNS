@@ -304,7 +304,7 @@ display:
           admin_label: ''
           entity_type: vote
           entity_field: entity_id
-          plugin_id: numeric
+          plugin_id: entity_target_id
           default_action: 'not found'
           exception:
             value: all
@@ -330,6 +330,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          target_entity_type_id: node
         entity_type:
           id: entity_type
           table: votingapi_vote
@@ -724,6 +725,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       sorts:
         rate_widget:
           id: rate_widget

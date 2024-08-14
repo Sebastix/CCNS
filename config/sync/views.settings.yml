@@ -1,6 +1,5 @@
 _core:
   default_config_hash: uZHsLrDp1ThO0RvupHKcPzLOyVvWexm58JTTHNDo7yc
-langcode: nl
 display_extenders:
   - matomo
 sql_signature: false

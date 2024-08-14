@@ -8,9 +8,9 @@ dependencies:
 _core:
   default_config_hash: jvd5Pu6jy-lra4oMr-mR7zuY6CVDv9CaNeoj0Y70gV4
 id: block_content
-label: 'Custom block library'
+label: 'Content blocks'
 module: views
-description: 'Find and manage custom blocks.'
+description: 'Find and manage content blocks.'
 tag: default
 base_table: block_content_field_data
 base_field: id
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Custom block library'
+      title: 'Content blocks'
       fields:
         info:
           id: info
@@ -287,6 +287,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -314,7 +315,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'There are no custom blocks available.'
+          content: 'There are no content blocks available.'
           tokenize: false
         block_content_listing_empty:
           id: block_content_listing_empty
