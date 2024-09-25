@@ -7,6 +7,7 @@ dependencies:
     - field_permissions
     - media
     - pwa
+    - search
     - system
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
@@ -19,5 +20,7 @@ permissions:
   - 'access content'
   - 'access pwa'
   - 'access user profiles'
+  - 'search content'
+  - 'use advanced search'
   - 'view field_is_verified'
   - 'view media'

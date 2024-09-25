@@ -15,6 +15,7 @@ dependencies:
     - filter
     - node
     - path
+    - search
     - system
     - taxonomy
     - toolbar
@@ -45,6 +46,7 @@ permissions:
   - 'edit own comments'
   - 'edit own page content'
   - 'edit terms in tags'
+  - 'search content'
   - 'skip comment approval'
   - 'use text format ckeditor_comment'
   - 'use text format markdown_editor'
