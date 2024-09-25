@@ -15,11 +15,12 @@ third_party_settings:
 preset_accent_color: purple
 preset_focus_color: gin
 enable_darkmode: '0'
-classic_toolbar: horizontal
-secondary_toolbar_frontend: false
+classic_toolbar: vertical
+secondary_toolbar_frontend: true
 high_contrast_mode: false
 accent_color: ''
 focus_color: ''
-layout_density: medium
+layout_density: small
 show_description_toggle: false
 show_user_theme_settings: false
+sticky_action_buttons: false

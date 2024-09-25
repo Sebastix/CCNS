@@ -16,7 +16,6 @@ dependencies:
     - node
     - pwa
     - rate
-    - search
 id: ccns
 label: 'CCNS member'
 weight: 4
@@ -37,7 +36,6 @@ permissions:
   - 'edit own link content'
   - 'edit own topic content'
   - 'post comments'
-  - 'search content'
   - 'select account cancellation method'
   - 'skip comment approval'
   - 'use text format ckeditor_comment'

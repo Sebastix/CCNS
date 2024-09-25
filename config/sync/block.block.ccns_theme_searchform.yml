@@ -1,0 +1,26 @@
+uuid: 247573a4-2488-4b5e-827e-59b336ee87db
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+  theme:
+    - ccns_theme
+id: ccns_theme_searchform
+theme: ccns_theme
+region: content
+weight: -2
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/search\r\n/user"

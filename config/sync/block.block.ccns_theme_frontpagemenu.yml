@@ -1,6 +1,6 @@
 uuid: e5e1f0d1-ae52-4052-a438-5f06f13bc370
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.frontpage-menu
