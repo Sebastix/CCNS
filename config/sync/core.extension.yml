@@ -25,8 +25,6 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
-  facets: 0
-  facets_summary: 0
   field: 0
   field_permissions: 0
   field_ui: 0
@@ -62,8 +60,6 @@ module:
   rate: 0
   robotstxt: 0
   search: 0
-  search_api: 0
-  search_api_solr: 0
   symfony_mailer: 0
   symfony_mailer_log: 0
   symfony_mailer_reroute: 0
