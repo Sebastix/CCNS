@@ -8,3 +8,4 @@ tag_trim_maxlength:
   metatag_maxlength_og_site_name: null
   metatag_maxlength_og_title: null
 tag_scroll_max_height: ''
+tag_trim_end: '|.,-:;/+&([{"'''
