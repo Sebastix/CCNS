@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: symfony_mailer_log_cron
 weight: 0
 module: symfony_mailer_log
-callback: symfony_mailer_log_cron
+callback: 'symfony_mailer_log#cron'
 scheduler:
   id: simple
 launcher:

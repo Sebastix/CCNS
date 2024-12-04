@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: advancedqueue_cron
 weight: 2
 module: advancedqueue
-callback: advancedqueue_cron
+callback: 'advancedqueue#cron'
 scheduler:
   id: simple
   configuration:

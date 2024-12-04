@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: advagg_cron
 weight: -9
 module: advagg
-callback: advagg_cron
+callback: 'advagg#cron'
 scheduler:
   id: simple
 launcher:

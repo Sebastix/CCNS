@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: matomo_cron
 weight: 0
 module: matomo
-callback: matomo_cron
+callback: 'matomo#cron'
 scheduler:
   id: simple
 launcher:

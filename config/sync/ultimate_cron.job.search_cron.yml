@@ -8,7 +8,7 @@ title: 'Updates indexable active search pages'
 id: search_cron
 weight: 0
 module: search
-callback: search_cron
+callback: 'search#cron'
 scheduler:
   id: simple
 launcher:

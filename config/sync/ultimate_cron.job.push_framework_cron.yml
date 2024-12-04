@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: push_framework_cron
 weight: -5
 module: push_framework
-callback: push_framework_cron
+callback: 'push_framework#cron'
 scheduler:
   id: simple
   configuration:

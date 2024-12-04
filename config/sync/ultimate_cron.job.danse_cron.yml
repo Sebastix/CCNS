@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: danse_cron
 weight: 0
 module: danse
-callback: danse_cron
+callback: 'danse#cron'
 scheduler:
   id: simple
 launcher:
