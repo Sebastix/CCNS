@@ -38,7 +38,7 @@ before_script:
   - alias composer='php /usr/bin/composer'
   - composer --version
   # Install nodejs and npm
-  - apk add nodejs npm
+  - apk add --update nodejs npm
   - node --version
   - npm --version
   # install php extensions
