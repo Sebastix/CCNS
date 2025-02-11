@@ -1,4 +1,4 @@
-image: php:8.3-alpine
+image: php:8.3-alpine3.20
 
 variables:
   # Production
@@ -21,6 +21,7 @@ stages:
   - deploy
 
 before_script:
+  - cat /etc/alpine-release
   - 'which ssh-agent || ( apk add --update openssh )'
   - apk add --update bash
   - eval $(ssh-agent -s)
