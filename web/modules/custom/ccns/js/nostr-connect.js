@@ -62,7 +62,7 @@
           if (signer === undefined) {
             throw 'signer in Ndk store is not set'
           }
-          ndk.signer = signer;
+          ndk.signer = signer
           // Create Nostr event kind 39700
           const nostrEventKind39700 = Drupal.Ndk.store.get('ndkEvent')
           nostrEventKind39700.ndk = ndk
@@ -91,7 +91,9 @@
               throw 'URL is empty'
             }
             const description = submitLinkForm.elements['body[0][value]'].value
-            // Create event for Nostr
+            const ndk = Drupal.Ndk.store.get('ndk')
+            ndk.signer = signer
+            // Create note event for Nostr
             const nostrEvent = Drupal.Ndk.store.get('ndkEvent')
             if (nostrEvent === undefined) {
               throw 'ndkEvent in Ndk store is not set'
@@ -102,8 +104,9 @@
             nostrEvent.tags = [
               ['client', 'CCNS']
             ]
-            const nUser = await signer.user()
-            const n = await nostrEvent.toNostrEvent(nUser.npub)
+            await nostrEvent.sign(signer)
+            // const nUser = await signer.user()
+            // const n = await nostrEvent.toNostrEvent(nUser.npub)
             // @todo get user defined relays from user to post to (enable outbox model on ndk)
             // ndk.enableOutboxModel = true
             // @todo how could this work, publish an event to own set of relays...?
@@ -114,19 +117,19 @@
             //console.log(relaySet)
             // @todo try publishing a new kind: 13003 (a replaceable event) to my own relay
             // ...
-            console.log('ready to publish')
-            console.log(n)
+            console.log('ready to publish note kind 1')
+            //console.log(n)
             // @todo debug this further and show to which relays the event is published
+            // DO we have relays set where the event can be transmitted to?
             const eventPublishedToRelays = await nostrEvent.publish()
             console.log(`The event is published to ${eventPublishedToRelays.size} relays:`)
             // Loop over all relays
             /**
              * @var {NDKRelay} relay
              */
-            for (const relay in eventPublishedToRelays) {
+            for (const relay in nostrEvent.eventPublishedToRelays) {
               console.log(relay)
             }
-            // @todo save this published event as a reference to the created link entity in Drupal
             submitLinkForm.submit()
           } else {
             submitLinkForm.submit()
