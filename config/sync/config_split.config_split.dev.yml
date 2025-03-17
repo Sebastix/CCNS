@@ -13,6 +13,8 @@ folder: ../config/dev
 module:
   devel: 0
   tracer: 0
+  reroute_email: 0
+  upgrade_status: 0
   webprofiler: 0
 theme: {  }
 complete_list:

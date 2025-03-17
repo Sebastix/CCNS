@@ -28,11 +28,9 @@ import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-k
       const store = new NdkStore();
       const ndk = new NDK({
         explicitRelayUrls: [
-          'wss://nostr.sebastix.dev',
           'wss://nos.lol',
           'wss://relay.damus.io',
           'wss://relay.nostr.band',
-          'wss://nostr.cheeserobot.org',
           'wss://offchain.pub',
         ],
         enableOutboxModel: false,

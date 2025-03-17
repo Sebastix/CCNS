@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.link.body
+    - field.field.node.link.field_nostr_event_id
     - field.field.node.link.field_url
     - node.type.link
   module:
@@ -30,6 +31,14 @@ content:
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_nostr_event_id:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 32
+      placeholder: ''
     third_party_settings: {  }
   field_url:
     type: link_default

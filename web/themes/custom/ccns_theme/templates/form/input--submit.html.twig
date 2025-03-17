@@ -12,4 +12,7 @@
  * @ingroup themeable
  */
 #}
-<input{{ attributes.addClass('btn btn-outline btn-warning btn-sm btn-block md:btn-wide') }} />{{ children }}
+<button{{ attributes.addClass('btn btn-outline btn-warning btn-sm btn-block btn-wide') }}>
+  {{ attributes.value }}
+  {{ children }}
+</button>

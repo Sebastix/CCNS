@@ -5,7 +5,7 @@ description: CCNS Drupal theme
 logo: 'images/ccns_logo_color.webp'
 package: Custom
 core: 8.x
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 libraries:
   - ccns_theme/global
   - ccns_theme/satssymbol

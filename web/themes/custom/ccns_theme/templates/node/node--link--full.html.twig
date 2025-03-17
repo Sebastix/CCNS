@@ -108,7 +108,7 @@
     {{ content.body }}
     <div class="mt-4">
       <p class="italic">
-        You can place comments here in the future on behalf of your Nostr account.
+        You can place comments (kind <code>1111</code>) here in the future on behalf of your Nostr account.
       </p>
     </div>
 
@@ -118,15 +118,22 @@
         <label for="comment" class="sr-only">Your comment</label>
         <textarea id="comment" rows="6"
                   class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                  placeholder="Reply here..." required></textarea>
+                  placeholder="Your comment here..." required></textarea>
       </div>
       <button type="submit"
               class="btn-disabled block items-center btn btn-outline btn-xs btn-warning font-medium text-center focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-        Reply
+        Place comment
       </button>
     </form>
 
     <!-- END OF COMMENTS -->
+    {% if content.field_nostr_event_id.0 %}
+      <div class="text-xs">
+        This link / bookmark has been transmitted to the Nostr network (as an event kind <code>39700)</code>.
+        <br />
+        ID: <a href="https://njump.me/{{ content.field_nostr_event_id.0['#context']['value'] }}" target="_blank">{{ content.field_nostr_event_id.0['#context']['value'] }}</a>
+      </div>
+    {% endif %}
   </div>
 
 </article>

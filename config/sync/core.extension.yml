@@ -4,7 +4,6 @@ module:
   admin_toolbar: 0
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
-  advagg: 0
   advancedqueue: 0
   automated_cron: 0
   backup_migrate: 0
@@ -16,7 +15,6 @@ module:
   ckeditor5_markdown_editor: 0
   comment: 0
   config: 0
-  config_filter: 0
   config_ignore: 0
   config_split: 0
   danse: 0
@@ -62,7 +60,6 @@ module:
   search: 0
   symfony_mailer: 0
   symfony_mailer_log: 0
-  symfony_mailer_reroute: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -72,6 +69,7 @@ module:
   ultimate_cron: 0
   unique_content_field_validation: 0
   unlimited_number: 0
+  update: 0
   user: 0
   views_ui: 0
   votingapi: 0

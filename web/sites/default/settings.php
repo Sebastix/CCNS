@@ -777,6 +777,8 @@ $settings['entity_update_backup'] = TRUE;
  */
 $settings['migrate_node_migrate_type_classic'] = FALSE;
 
+$settings['state_cache'] = TRUE;
+
 /**
  * Load local development override configuration, if available.
  *

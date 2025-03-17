@@ -1,0 +1,25 @@
+uuid: bbd766fd-b8e0-430c-aebf-c0fd5db967e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nostr_event_id
+    - node.type.link
+  module:
+    - unique_content_field_validation
+third_party_settings:
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
+id: node.link.field_nostr_event_id
+field_name: field_nostr_event_id
+entity_type: node
+bundle: link
+label: 'Nostr event ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
