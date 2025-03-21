@@ -5,33 +5,34 @@ client_key: 'https://8902845570514742ae7cb42c7ef7317e@logs.sebastix.dev/18'
 environment: production
 release: ''
 log_levels:
-  1: 1
-  2: 2
-  3: 3
-  4: 4
-  5: 0
-  6: 0
-  7: 0
-  8: 0
+  emergency: true
+  alert: true
+  critical: true
+  error: true
+  warning: true
+  notice: true
+  info: true
+  debug: true
 stack: true
 timeout: 2.0
 message_limit: 2048
 trace: false
 fatal_error_handler: true
 fatal_error_handler_memory: 2560
-javascript_error_handler: false
+javascript_error_handler: true
 drush_error_handler: false
 public_dsn: 'https://8902845570514742ae7cb42c7ef7317e@logs.sebastix.dev/18'
 ssl: verify_ssl
 ca_cert: ''
 ignored_channels: {  }
+ignored_messages: {  }
 send_user_data: false
 rate_limit: 0
 send_request_body: false
 request_tracing: false
 traces_sample_rate: null
 browser_traces_sample_rate: null
-database_tracing: false
+database_tracing: true
 twig_tracing: false
 auto_session_tracking: false
 send_client_reports: false
@@ -40,6 +41,13 @@ seckit_set_report_uri: false
 send_monitoring_sensor_status_changes: false
 404_tracing: false
 show_report_dialog: false
-error_embed_url: ''
+error_embed_url: null
 tunnel: false
 modules: false
+cron_monitor_id: ''
+profiles_sample_rate: null
+http_compression: false
+send_inp_spans: false
+trace_propagation_targets_backend: {  }
+trace_propagation_targets_frontend: {  }
+database_tracing_args: false
