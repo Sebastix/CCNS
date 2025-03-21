@@ -28,7 +28,6 @@ module:
   field_ui: 0
   file: 0
   filter: 0
-  flood_control: 0
   gin_toolbar: 0
   history: 0
   honeypot: 0
@@ -52,12 +51,13 @@ module:
   options: 0
   path: 0
   path_alias: 0
-  pf_email: 0
+  pf_notifications: 0
   push_framework: 0
   pwa: 0
-  rate: 0
+  rest: 0
   robotstxt: 0
   search: 0
+  serialization: 0
   symfony_mailer: 0
   symfony_mailer_log: 0
   system: 0
@@ -72,7 +72,6 @@ module:
   update: 0
   user: 0
   views_ui: 0
-  votingapi: 0
   pathauto: 1
   views: 10
   standard: 1000

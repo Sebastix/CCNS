@@ -19,7 +19,6 @@ dependencies:
     - system
     - taxonomy
     - toolbar
-    - votingapi
 _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
@@ -40,7 +39,6 @@ permissions:
   - 'delete any instagram_profile_link content'
   - 'delete own files'
   - 'delete own page content'
-  - 'delete votes'
   - 'edit any instagram_profile_link content'
   - 'edit field_is_verified'
   - 'edit own comments'

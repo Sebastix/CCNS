@@ -15,7 +15,6 @@ dependencies:
     - filter
     - node
     - pwa
-    - rate
     - search
 id: ccns
 label: 'CCNS member'
@@ -25,7 +24,6 @@ permissions:
   - 'access pwa'
   - 'access user profiles'
   - 'cancel account'
-  - 'cast rate vote on node of instagram_profile_link'
   - 'create instagram_profile_link content'
   - 'create link content'
   - 'create topic content'
