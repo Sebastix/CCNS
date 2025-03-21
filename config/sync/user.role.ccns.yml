@@ -8,6 +8,7 @@ dependencies:
     - node.type.instagram_profile_link
     - node.type.link
     - node.type.topic
+    - rest.resource.pf_notifications_subscription
   module:
     - comment
     - field_permissions
@@ -15,6 +16,7 @@ dependencies:
     - filter
     - node
     - pwa
+    - rest
     - search
 id: ccns
 label: 'CCNS member'
@@ -35,6 +37,7 @@ permissions:
   - 'edit own link content'
   - 'edit own topic content'
   - 'post comments'
+  - 'restful post pf_notifications_subscription'
   - 'search content'
   - 'select account cancellation method'
   - 'skip comment approval'

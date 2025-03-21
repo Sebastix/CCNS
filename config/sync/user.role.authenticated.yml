@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.markdown_editor
+    - rest.resource.pf_notifications_subscription
   module:
     - comment
     - field_permissions
@@ -12,6 +13,7 @@ dependencies:
     - matomo
     - media
     - pwa
+    - rest
     - search
     - system
 _core:
@@ -28,6 +30,7 @@ permissions:
   - 'delete own files'
   - 'opt-in or out of matomo tracking'
   - 'post comments'
+  - 'restful post pf_notifications_subscription'
   - 'search content'
   - 'use advanced search'
   - 'use text format markdown_editor'
