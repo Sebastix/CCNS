@@ -6,6 +6,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\OpenOffCanvasDialogCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityStorageException;
+use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\user\Entity\Role;
 use Drupal\user\Entity\User;
@@ -40,11 +41,14 @@ final class CcnsController extends ControllerBase {
     $content = '<br />';
     $content .= '<button id="nostr-login-nip07" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; cursor: pointer;">Connect with a Nostr extension</button>';
     $content .= '<br /><br />';
-    $content .= '<small>Connecting with the Alby browser extension seems to be broken. Please use <a href="https://chromewebstore.google.com/detail/nos2x/kpgefcfmnafjgpblomihpgmejjdanjjp" target="_blank">nos2x</a> as an alternative.</small>';
-    $content .= '<br /><br />';
     $content .= '<button id="nostr-login-bunker" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Connect with a nsecbunker</button>';
     $content .= '<br /><br />';
     $content .= '<button id="nostr-login-nsec" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Connect with a nsec key</button>';
+    $content .= '<br /><br />';
+    $content .= '<div id="drupal-login" class="hidden">';
+    $content .= '<p>For now connecting your Nostr profile in a PWA is still impossible (the only option there is, is to share your private key here).</p>';
+    $content .= sprintf('<a href="%s">Drupal login with account</a>', Url::fromRoute('user.login')->toString());
+    $content .= '</div>';
     // Add nostr-login library to the response which contains an event listeners for these buttons.
     $attachments['library'][] = 'ccns/connect-options';
     $response->setAttachments($attachments);

@@ -12,6 +12,15 @@
       if (document.getElementById('nostr-login-nip07') === null) {
         return
       }
+
+      if(isPWA()) {
+        document.getElementById('nostr-login-nip07').classList.add('disabled');
+        document.getElementById('nostr-login-nip07').style.cursor = '';
+        document.getElementById('nostr-login-nip07').style.opacity = '.25';
+        // Show Drupal login link
+        document.getElementById('drupal-login').classList.remove('hidden')
+      }
+
       document.getElementById('nostr-login-nip07').addEventListener('click', async (e) => {
         try {
           // @todo show loading icon in an overlay while connecting..
@@ -92,6 +101,17 @@
     }).then((res) => {
       return res
     })
+  }
+
+  /**
+   * Detect if page is opened as progressive web app.
+   *
+   * @returns {boolean}
+   */
+  const isPWA = () => {
+    return ["fullscreen", "standalone", "minimal-ui"].some(
+      (displayMode) => window.matchMedia('(display-mode: ' + displayMode + ')').matches
+    );
   }
 
 })(jQuery, Drupal, drupalSettings);
