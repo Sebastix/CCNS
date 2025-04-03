@@ -2,7 +2,6 @@ _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 mode: simple
 ignored_config_entities:
-  - pwa.config.app_id
   - pwa.config.image_fid
   - pwa.config.image_small_fid
   - pwa.config.image_very_small_fid

@@ -63,21 +63,24 @@
             throw 'signer in Ndk store is not set'
           }
           ndk.signer = signer
+          // Add khatru.nostrver.se relay here to ndk instance
+          ndk.addExplicitRelay('wss://khatru.nostrver.se/')
           // Create Nostr event kind 39700
           const nostrEventKind39700 = Drupal.Ndk.store.get('ndkEvent')
           nostrEventKind39700.ndk = ndk
           nostrEventKind39700.kind = 39700
-          nostrEventKind39700.content = submitLinkForm.elements['field_url[0][uri]'].value;
+          nostrEventKind39700.content = submitLinkForm.elements['body[0][value]'].value
           nostrEventKind39700.tags = [
-            ['description', submitLinkForm.elements['body[0][value]'].value],
-            ['d', 'ccns-' + string_to_slug(submitLinkForm.elements['title[0][value]'].value)],
+            ['d', submitLinkForm.elements['field_url[0][uri]'].value],
             ['client', 'CCNS'],
-            ['t', 'CCNS']
           ]
           const nUser = await signer.user()
           const n = await nostrEventKind39700.toNostrEvent(nUser.npub)
           const event39700PublishedToRelays = await nostrEventKind39700.publish()
           console.log(`The 39700 event is published to ${event39700PublishedToRelays.size} relays:`)
+          event39700PublishedToRelays.forEach((relay) => {
+            console.log(relay.url)
+          })
           // Set event id in form to be saved to the created entity.
           submitLinkForm.elements['field_nostr_event_id[0][value]'].value = nostrEventKind39700.id
 

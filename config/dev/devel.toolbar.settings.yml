@@ -1,0 +1,6 @@
+toolbar_items:
+  - devel.route_info.item
+  - devel.entity_info_page
+  - devel.event_info
+  - devel.field_info_page
+  - devel.switch_user

@@ -3,7 +3,7 @@ _core:
 langcode: en
 name: CCNS
 short_name: CCNS
-app_id: ccns.nostrver.se
+app_id: localhost
 description: 'CCNS is a Nostr-focused, social community platform centered around links and topics'
 start_url: /
 scope: /

@@ -1,0 +1,34 @@
+exclude_paths: ''
+exclude_toolbar: ''
+intercept_redirects: false
+purge_on_cache_clear: true
+active_toolbar_items:
+  configs: configs
+  database: database
+  events: events
+  request: request
+  routing: routing
+  services: services
+  state: state
+  user: user
+  ajax: '0'
+  assets: '0'
+  blocks: '0'
+  cache: '0'
+  devel: '0'
+  extensions: '0'
+  forms: '0'
+  frontend: '0'
+  http: '0'
+  mail: '0'
+  memory: '0'
+  theme: '0'
+  time: '0'
+  translations: '0'
+  views: '0'
+query_sort: null
+query_highlight: null
+query_detailed_output_threshold: null
+ide: 'phpstorm://open?file=%f&line=%l'
+ide_remote_path: ''
+ide_local_path: ''
