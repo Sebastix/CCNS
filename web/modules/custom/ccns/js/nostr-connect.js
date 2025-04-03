@@ -73,6 +73,7 @@
           nostrEventKind39700.tags = [
             ['d', submitLinkForm.elements['field_url[0][uri]'].value],
             ['client', 'CCNS'],
+            ['title', submitLinkForm.elements['title[0][value]'].value]
           ]
           const nUser = await signer.user()
           const n = await nostrEventKind39700.toNostrEvent(nUser.npub)
