@@ -13,7 +13,7 @@
         return
       }
 
-      if(isPWA()) {
+      if(isPWA() && isIOS()) {
         document.getElementById('nostr-login-nip07').classList.add('disabled');
         document.getElementById('nostr-login-nip07').style.cursor = '';
         document.getElementById('nostr-login-nip07').style.opacity = '.25';
@@ -112,6 +112,16 @@
     return ["fullscreen", "standalone", "minimal-ui"].some(
       (displayMode) => window.matchMedia('(display-mode: ' + displayMode + ')').matches
     );
+  }
+
+  const getUserAgent = () => {
+    return navigator.userAgent;
+  }
+
+  // Detects if device is iOS
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test( userAgent );
   }
 
 })(jQuery, Drupal, drupalSettings);

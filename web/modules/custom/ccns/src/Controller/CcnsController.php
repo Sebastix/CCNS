@@ -46,7 +46,7 @@ final class CcnsController extends ControllerBase {
     $content .= '<button id="nostr-login-nsec" class="btn btn-warning" style="width:100%; padding: 10px; font-weight: bold; font-size: 1.2rem; opacity: .25;">Connect with a nsec key</button>';
     $content .= '<br /><br />';
     $content .= '<div id="drupal-login" class="hidden">';
-    $content .= '<p>For now connecting your Nostr profile in a PWA is still impossible (the only option there is, is to share your private key here).</p>';
+    $content .= '<p>For now connecting your Nostr profile in a PWA on iOS is still impossible (the only option available, is to share your private key here).</p>';
     $content .= sprintf('<a href="%s">Drupal login with account</a>', Url::fromRoute('user.login')->toString());
     $content .= '</div>';
     // Add nostr-login library to the response which contains an event listeners for these buttons.
