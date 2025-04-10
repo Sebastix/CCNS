@@ -110,3 +110,18 @@ deploy:prod:
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush ckeditor5_markdown_editor:install"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush cache-rebuild -y"
     - echo "Deployment ready, check $URL_PROD"
+
+test:e2e:
+  stage: test
+  when: manual
+  image: mcr.microsoft.com/playwright:v1.41.0-jammy
+  script:
+    - cd tests/e2e
+    - npm install
+    - npx playwright test
+  artifacts:
+    when: always
+    paths:
+      - tests/e2e/playwright-report/
+    reports:
+      junit: tests/e2e/results.xml
