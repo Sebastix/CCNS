@@ -120,8 +120,7 @@ test:e2e:
     - npm install
     - npx playwright test
   artifacts:
-    when: always
     paths:
-      - tests/e2e/playwright-report/
+      - tests/e2e/playwright-report
     reports:
       junit: tests/e2e/results.xml
