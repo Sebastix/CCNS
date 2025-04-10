@@ -115,14 +115,14 @@ test:e2e:
   stage: test
   when: manual
   image: mcr.microsoft.com/playwright:v1.51.1-noble
-  parallel: 6
   script:
     - cd tests/e2e
+    - ls -la
     - npm install
     - npx playwright test
   allow_failure: true
   artifacts:
     when: always
     paths:
-      - tests/e2e/playwright-report
+      - playwright-report
     expire_in: 2 days
