@@ -138,7 +138,8 @@
     "enable-patching": true,
     "patches": {
         "drupal/core": {
-            "[warning] No configuration objects have been updated - https://www.drupal.org/project/drupal/issues/2957279#comment-14355237" : "https://www.drupal.org/files/issues/2022-01-03/2957279-11.patch"
+            "[warning] No configuration objects have been updated - https://www.drupal.org/project/drupal/issues/2957279#comment-14355237" : "https://www.drupal.org/files/issues/2022-01-03/2957279-11.patch",
+            "https://www.drupal.org/project/drupal/issues/3453896": "https://git.drupalcode.org/project/drupal/-/merge_requests/8372.patch"
         },
         "drupal/rate" : {
             "PHP Fatal Error | undefined method Drupal\\Core\\Extension\\ModuleHandler::getImplementations() - https://www.drupal.org/project/rate/issues/3327528" : "https://git.drupalcode.org/project/rate/-/merge_requests/9.patch"
