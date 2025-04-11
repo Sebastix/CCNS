@@ -1,5 +1,3 @@
-image: php:8.3-alpine3.20
-
 variables:
   # Production
   DRUPAL_PROJECTROOT_PROD: "/var/www/vhosts/sebastix.nl/ccns"
@@ -20,35 +18,35 @@ stages:
   - test
   - deploy
 
-before_script:
-  - cat /etc/alpine-release
-  - 'which ssh-agent || ( apk add --update openssh )'
-  - apk add --update bash
-  - eval $(ssh-agent -s)
-  - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-  # Install rsync
-  - apk add rsync
-  - rsync --version
-  # Install curl
-  - apk add curl
-  # Install composer
-  - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
-  - alias composer='php /usr/bin/composer'
-  - composer --version
-  # Install nodejs and npm
-  - apk add --update nodejs npm
-  # install php extensions
-  # - see https://github.com/mlocati/docker-php-extension-installer
-  - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
-  - chmod +x /usr/bin/install-php-extensions
-  - install-php-extensions gd gmp
-  # install git
-  - apk add git
-
 build:drupal:
+  image: php:8.3-alpine3.20
+  before_script:
+    - cat /etc/alpine-release
+    - 'which ssh-agent || ( apk add --update openssh )'
+    - apk add --update bash
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # Install rsync
+    - apk add rsync
+    - rsync --version
+    # Install curl
+    - apk add curl
+    # Install composer
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+    - alias composer='php /usr/bin/composer'
+    - composer --version
+    # Install nodejs and npm
+    - apk add --update nodejs npm
+    # install php extensions
+    # - see https://github.com/mlocati/docker-php-extension-installer
+    - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
+    - chmod +x /usr/bin/install-php-extensions
+    - install-php-extensions gd gmp
+    # install git
+    - apk add git
   stage: build
   script:
     - composer install --no-dev --prefer-dist --optimize-autoloader
@@ -58,6 +56,35 @@ build:drupal:
       - vendor
 
 build:nostr-ndk:
+  image: php:8.3-alpine3.20
+
+  before_script:
+    - cat /etc/alpine-release
+    - 'which ssh-agent || ( apk add --update openssh )'
+    - apk add --update bash
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # Install rsync
+    - apk add rsync
+    - rsync --version
+    # Install curl
+    - apk add curl
+    # Install composer
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+    - alias composer='php /usr/bin/composer'
+    - composer --version
+    # Install nodejs and npm
+    - apk add --update nodejs npm
+    # install php extensions
+    # - see https://github.com/mlocati/docker-php-extension-installer
+    - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
+    - chmod +x /usr/bin/install-php-extensions
+    - install-php-extensions gd gmp
+    # install git
+    - apk add git
   stage: build
   script:
     - cd web/modules/custom/nostr_ndk
@@ -68,6 +95,35 @@ build:nostr-ndk:
       - web/modules/custom/nostr_ndk/dist
 
 build:theme:
+  image: php:8.3-alpine3.20
+
+  before_script:
+    - cat /etc/alpine-release
+    - 'which ssh-agent || ( apk add --update openssh )'
+    - apk add --update bash
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # Install rsync
+    - apk add rsync
+    - rsync --version
+    # Install curl
+    - apk add curl
+    # Install composer
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+    - alias composer='php /usr/bin/composer'
+    - composer --version
+    # Install nodejs and npm
+    - apk add --update nodejs npm
+    # install php extensions
+    # - see https://github.com/mlocati/docker-php-extension-installer
+    - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
+    - chmod +x /usr/bin/install-php-extensions
+    - install-php-extensions gd gmp
+    # install git
+    - apk add git
   stage: build
   script:
     - cd web/themes/custom/ccns_theme
@@ -78,6 +134,35 @@ build:theme:
       - web/themes/custom/ccns_theme/dist
 
 deploy:prod:
+  image: php:8.3-alpine3.20
+
+  before_script:
+    - cat /etc/alpine-release
+    - 'which ssh-agent || ( apk add --update openssh )'
+    - apk add --update bash
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # Install rsync
+    - apk add rsync
+    - rsync --version
+    # Install curl
+    - apk add curl
+    # Install composer
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+    - alias composer='php /usr/bin/composer'
+    - composer --version
+    # Install nodejs and npm
+    - apk add --update nodejs npm
+    # install php extensions
+    # - see https://github.com/mlocati/docker-php-extension-installer
+    - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
+    - chmod +x /usr/bin/install-php-extensions
+    - install-php-extensions gd gmp
+    # install git
+    - apk add git
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
       when: manual
@@ -116,6 +201,7 @@ test:e2e:
   when: manual
   image: mcr.microsoft.com/playwright:v1.51.1-noble
   script:
+    - ls -la
     - cd tests/e2e
     - ls -la
     - npm install
@@ -124,5 +210,5 @@ test:e2e:
   artifacts:
     when: always
     paths:
-      - playwright-report
+      - tests/e2e/playwright-report
     expire_in: 2 days

@@ -8,7 +8,6 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [
     ['html'],
-    ['junit', { outputFile: 'results.xml' }]
   ],
   use: {
     baseURL: 'https://ccns.nostrver.se',
@@ -21,4 +20,5 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
   ],
+  outputDir: 'test-results/'
 });
