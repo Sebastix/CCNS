@@ -1,0 +1,28 @@
+.before-script_php-alpine:
+  before_script:
+    - cat /etc/alpine-release
+    - 'which ssh-agent || ( apk add --update openssh )'
+    - apk add --update bash
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # Install rsync
+    - apk add rsync
+    - rsync --version
+    # Install curl
+    - apk add curl
+    # Install composer
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+    - alias composer='php /usr/bin/composer'
+    - composer --version
+    # Install nodejs and npm
+    - apk add --update nodejs npm
+    # install php extensions
+    # - see https://github.com/mlocati/docker-php-extension-installer
+    - curl -sSLf -o /usr/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions
+    - chmod +x /usr/bin/install-php-extensions
+    - install-php-extensions gd gmp
+    # install git
+    - apk add git
