@@ -12,3 +12,8 @@ To run the tests locally, you can use any of these commands from the tests/e2e d
 `npm run test:headed` - Run tests with visible browser
 `npm run test:ui` - Run tests in UI mode with interactive debugging
 `npm run report` - View the HTML test report
+
+## TODO's
+
+- [ ] Load NIP-07 signing extension (see https://playwright.dev/docs/chrome-extensions)
+- [ ] Provide extension with test privkey so signing events can be tested

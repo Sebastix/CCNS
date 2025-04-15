@@ -1,11 +1,8 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.3205829999999987">
-<testsuite name="login.spec.ts" timestamp="2025-04-10T20:53:05.063Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.418" errors="0">
-<testcase name="Drupal Login Page › should load login page" classname="login.spec.ts" time="1.418">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|test-results/login-Drupal-Login-Page-should-load-login-page-chromium/trace.zip]]
-]]>
-</system-out>
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="2.787767">
+<testsuite name="login.spec.ts" timestamp="2025-04-10T21:15:52.032Z" hostname="chromium" tests="2" failures="0" skipped="0" time="3.891" errors="0">
+<testcase name="Drupal Login Page › should load login page" classname="login.spec.ts" time="1.74">
+</testcase>
+<testcase name="Drupal Login Page › should show error message with invalid credentials" classname="login.spec.ts" time="2.151">
 </testcase>
 </testsuite>
 </testsuites>
