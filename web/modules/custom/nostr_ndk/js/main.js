@@ -46,7 +46,7 @@ import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-k
       const nip07signer = new NDKNip07Signer();
       store.set('nip07signer', nip07signer);
       if (Drupal.Ndk.store === undefined && drupalSettings.user.uid === 0) {
-        console.log('Ready to login with Nostr, LFG!')
+        console.log('Ready to connect with Nostr, LFG!')
       } else if (Drupal.Ndk.store === undefined && drupalSettings.user.uid !== 0) {
         // User is logged in but clientside Nostr auth is not active. Let's reconnect.
         //ndk.signer = nip07signer
@@ -54,7 +54,7 @@ import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-k
         console.log('Reconnected to Nostr, LFG!')
       } else if (Drupal.Ndk.store !== undefined && drupalSettings.user.uid === 0) {
         // Ndk is set, but no user is logged in
-        console.log('Ready to login with Nostr (NDK is set, but Drupal uid is 0).')
+        console.log('Ready to connect with Nostr (NDK is set, but Drupal uid is 0).')
       } else {
         // User is logged in and Nostr auth is set.
         console.log('Logged in and Nostr authenticated, LFG!')

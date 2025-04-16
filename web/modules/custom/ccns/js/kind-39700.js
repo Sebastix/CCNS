@@ -30,6 +30,7 @@
     ndk.addExplicitRelay('wss://relay.damus.io/')
     ndk.addExplicitRelay('wss://relay.primal.net/')
     ndk.addExplicitRelay('wss://nos.lol/')
+    await ndk.connect()
     // TODO limit results to ~50
     const sub = ndk.subscribe({
       kinds: [39700],
@@ -114,7 +115,7 @@
     attach: async function (context, settings) {
       function checkNdkStore() {
         const check = setInterval(async () => {
-          console.log('CheckNdkStore...')
+          console.log('CheckNdkStore in kind-39700.js')
           if(Drupal.Ndk.store !== undefined) {
             // Clear this interval
             await clearInterval(check);
