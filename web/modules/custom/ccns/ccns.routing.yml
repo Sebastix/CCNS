@@ -22,3 +22,11 @@ ccns.create_user:
   requirements:
     _permission: 'access content'
     _format: json
+
+ccns.global:
+  path: '/global'
+  defaults:
+    _title: 'Global feed with latest ~50 web bookmarks (NIP-B0)'
+    _controller: '\Drupal\ccns\Controller\CcnsController::globalFeed'
+  requirements:
+    _permission: 'access content'

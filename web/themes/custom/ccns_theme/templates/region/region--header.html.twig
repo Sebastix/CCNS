@@ -17,7 +17,8 @@
 {% if content %}
   <div{{ attributes.addClass('flex flex-wrap') }}>
     {{ content }}
-    <div class="flex w-36">
+    <div class="flex w-48">
+      <a href="{{ path('ccns.global') }}" class="btn btn-link btn-xs h-[24px]">global</a>
       <a href="{{ path('ccns.post') }}" class="btn btn-warning btn-xs text-white w-24 h-[26px]">post</a>
       <a href="{{ path('search.view') }}" class="btn btn-link btn-xs h-[24px]">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="stroke-warning size-6">
@@ -30,7 +31,7 @@
         <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">{{ user.displayname }}</a>
         <a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">{{ drupal_field('user_picture', 'user', user.id) }}</a>
       {% else %}
-        <a href="{{ path('ccns.login_modal') }}" class="use-ajax login" id="nostr-auth">login</a>
+        <a href="{{ path('ccns.login_modal') }}" class="use-ajax login" id="nostr-auth">connect</a>
       {% endif %}
     </div>
   </div>

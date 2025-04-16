@@ -7,7 +7,7 @@
    * @returns {Promise<void>}
    */
   const init = async () => {
-    // Set event listener here
+    // TODO Set event listener here when a comment is posted.
     console.log('submit-kind-1111')
   }
   Drupal.behaviors.kind_1111 = {

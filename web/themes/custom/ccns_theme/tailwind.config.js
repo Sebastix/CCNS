@@ -19,6 +19,7 @@ module.exports = {
     'loading-spinner',
     'loading-xs',
     'text-center',
+    'skeleton',
     {
       pattern: /rotate-.+|loading-.+/,
     },

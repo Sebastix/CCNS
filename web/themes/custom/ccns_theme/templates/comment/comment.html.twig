@@ -69,38 +69,52 @@
  */
 #}
 
-<article{{ attributes.addClass('js-comment') }}>
-  {#
-    Hide the "new" indicator by default, let a piece of JavaScript ask the
-    server which comments are new for the user. Rendering the final "new"
-    indicator here would break the render cache.
-  #}
-  <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
+{#<article{{ attributes.addClass('js-comment') }}>#}
+{#  #}{##}
+{#    Hide the "new" indicator by default, let a piece of JavaScript ask the#}
+{#    server which comments are new for the user. Rendering the final "new"#}
+{#    indicator here would break the render cache.#}
+{#  #}
+{#  <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>#}
 
-  {% if submitted %}
-    <footer>
+{#  {% if submitted %}#}
+{#    <footer>#}
+
+{#      <p>{{ submitted }}</p>#}
+
+{#      #}{##}
+{#        Indicate the semantic relationship between parent and child comments for#}
+{#        accessibility. The list is difficult to navigate in a screen reader#}
+{#        without this information.#}
+{#      #}
+{#      {% if parent %}#}
+{#        <p class="visually-hidden">{{ parent }}</p>#}
+{#      {% endif %}#}
+
+{#    </footer>#}
+{#  {% endif %}#}
+
+{#  <div{{ content_attributes }}>#}
+{#    {{ title }}#}
+{#    {{ content }}#}
+{#    {{ permalink }}#}
+{#  </div>#}
+{#</article>#}
+
+<div{{ attributes.addClass('js-comment chat chat-start p-0 mb-4') }}>
+  <mark class="hidden badge badge-info text-xs" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
+  <div class="chat-image avatar">
+    <div class="w-6 rounded-box">
       {{ user_picture }}
-      <p>{{ submitted }}</p>
-
-      {#
-        Indicate the semantic relationship between parent and child comments for
-        accessibility. The list is difficult to navigate in a screen reader
-        without this information.
-      #}
-      {% if parent %}
-        <p class="visually-hidden">{{ parent }}</p>
-      {% endif %}
-
-      {{ permalink }}
-    </footer>
-  {% endif %}
-
-  <div{{ content_attributes }}>
-    {% if title %}
-      {{ title_prefix }}
-      <h3{{ title_attributes }}>{{ title }}</h3>
-      {{ title_suffix }}
-    {% endif %}
+    </div>
+  </div>
+  <div class="chat-bubble text-xs bg-gray-100 text-primary border- min-h-8 relative rounded-xl rounded-br-none">
     {{ content }}
   </div>
-</article>
+  <div class="chat-footer text-xs text-gray-400">
+    <code>
+      {{ submitted }}
+    </code>
+    <a href="#comment-{{ comment.id() }}">#{{ comment.id() }}</a>
+  </div>
+</div>

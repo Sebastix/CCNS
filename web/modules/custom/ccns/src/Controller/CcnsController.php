@@ -52,7 +52,7 @@ final class CcnsController extends ControllerBase {
     // Add nostr-login library to the response which contains an event listeners for these buttons.
     $attachments['library'][] = 'ccns/connect-options';
     $response->setAttachments($attachments);
-    $response->addCommand(new OpenOffCanvasDialogCommand('Login', $content, ['width' => '30%'], NULL, 'side'));
+    $response->addCommand(new OpenOffCanvasDialogCommand('Connect', $content, ['width' => '30%'], NULL, 'side'));
     return $response;
   }
 
@@ -132,6 +132,14 @@ final class CcnsController extends ControllerBase {
       throw new EntityStorageException($e->getMessage(), $e->getCode(), $e);
     }
     return $response;
+  }
+
+  public function globalFeed(Request $request): array {
+    $build['content'] = [
+      '#theme' => 'global_feed',
+    ];
+    $build['#attached']['library'][] = 'ccns/kind-39700';
+    return $build;
   }
 
 }
