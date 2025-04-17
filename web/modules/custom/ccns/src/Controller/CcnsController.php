@@ -83,10 +83,12 @@ final class CcnsController extends ControllerBase {
           $user->setUsername($postData->profile->name);
           $user->save();
         }
+        // TODO check if we need to update the avatar
       } else {
         $user = User::create();
         $user->setUsername($postData->profile->name); // This username must be unique and accept only [a-Z,0-9, - _ @].
-        $user->setPassword('password');
+        $pwd = bin2hex(random_bytes(12));
+        $user->setPassword($pwd);
         $user->setEmail($postData->npub.'@ccns.social');
         // Set fields.
         $user->set('field_npub', $postData->npub);
