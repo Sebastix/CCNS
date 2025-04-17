@@ -83,6 +83,8 @@ final class CcnsController extends ControllerBase {
           $user->setUsername($postData->profile->name);
           $user->save();
         }
+        $user_picture_file_id = $user->get('user_picture')->getValue()[0]['target_id'];
+        $user_picture_file = File::load($user_picture_file_id);
         // TODO check if we need to update the avatar
       } else {
         $user = User::create();
@@ -98,7 +100,6 @@ final class CcnsController extends ControllerBase {
         $user->enforceIsNew();
         $user->activate();
         $user->save();
-
         // Download avatar file.
         $client = \Drupal::httpClient();
         $source_uri = $postData->profile->image;
@@ -106,20 +107,22 @@ final class CcnsController extends ControllerBase {
           throw new \RuntimeException(sprintf('Directory "%s" was not created', 'sites/default/files/nostr_avatars/'));
         }
         $file_extension = pathinfo($source_uri, PATHINFO_EXTENSION);
-        $destination_uri = 'sites/default/files/nostr-avatars/'.$postData->profile->name.'.'.$file_extension;
-        /** @var \GuzzleHttp\Psr7\Response $guzzle_response */
-        $guzzle_response = $client->get($source_uri, ['sink' => $destination_uri]);
-        // Create file entity with downloaded avatar file.
-        $file = File::create();
-        $file->setFileUri('public://nostr-avatars/'.$postData->profile->name.'.'.$file_extension);
-        $file->setOwnerId($user->id());
-        $file->setMimeType($guzzle_response->getHeaderLine('content-type'));
-        $file->setFilename($postData->profile->name);
-        $file->setPermanent();
-        $file->save();
-        // Set user picture with this file.
-        $user->set('user_picture', $file->id());
-        $user->save();
+        $destination_uri = 'sites/default/files/nostr-avatars/'.$postData->npub.'.'.$file_extension;
+        if (!file_exists($destination_uri)) {
+          /** @var \GuzzleHttp\Psr7\Response $guzzle_response */
+          $guzzle_response = $client->get($source_uri, ['sink' => $destination_uri]);
+          // Create file entity with downloaded avatar file.
+          $file = File::create();
+          $file->setFileUri('public://nostr-avatars/'.$postData->npub.'.'.$file_extension);
+          $file->setOwnerId($user->id());
+          $file->setMimeType($guzzle_response->getHeaderLine('content-type'));
+          $file->setFilename($postData->npub);
+          $file->setPermanent();
+          $file->save();
+          // Set user picture with this file.
+          $user->set('user_picture', $file->id());
+          $user->save();
+        }
       }
       // login the user.
       if (!\Drupal::currentUser()->id()) {
