@@ -143,7 +143,7 @@ final class CcnsController extends ControllerBase {
     $build['content'] = [
       '#theme' => 'global_feed',
     ];
-    $build['#attached']['library'][] = 'ccns/kind-39700';
+    $build['#attached']['library'][] = 'ccns/kind-39701';
     return $build;
   }
 

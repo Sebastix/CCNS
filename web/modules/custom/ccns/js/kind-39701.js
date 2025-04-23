@@ -33,7 +33,7 @@
     await ndk.connect()
     // TODO limit results to ~50
     const sub = ndk.subscribe({
-      kinds: [39700],
+      kinds: [39700, 397001],
       limit: 50 // this limit applies for each connected relay
     }, {})
     sub.on("event", (event) => {
@@ -79,6 +79,10 @@
     const created_at_date = new Date();
     created_at_date.setTime(event.created_at*1000);
     metadata.getElementsByClassName('created-at')[0].innerHTML = ' saved on ' + created_at_date.toUTCString()
+    const published_at = getTag(event, 'published_at')
+    if (published_at) {
+      metadata.getElementsByClassName('published-at')[0].innerHTML = ', updated at: ' + published_at.toUTCString()
+    }
     metadata.classList.remove('skeleton')
     const tags = card_body.getElementsByClassName('tags')[0]
     for (const tag of event.tags) {
@@ -90,7 +94,8 @@
         tags.appendChild(tagBadge)
       }
     }
-    card_body.getElementsByClassName('event-id')[0].innerHTML = '<a href="https://njump.me/'+event.id+'" target="_blank">'+event.id+'</a>'
+    card_body.getElementsByClassName('event-kind')[0].innerHTML = 'kind: <code>' + event.kind + '</code>'
+    card_body.getElementsByClassName('event-id')[0].innerHTML = 'id: <a href="https://njump.me/'+event.id+'" target="_blank">'+event.id+'</a>'
     // TODO fetch reactions
     // TODO fetch comments
   }
@@ -115,7 +120,7 @@
     attach: async function (context, settings) {
       function checkNdkStore() {
         const check = setInterval(async () => {
-          console.log('CheckNdkStore in kind-39700.js')
+          console.log('CheckNdkStore in kind-39701.js')
           if(Drupal.Ndk.store !== undefined) {
             // Clear this interval
             await clearInterval(check);

@@ -1,13 +1,18 @@
 <div class="feed">
   <div class="card bg-gray-100 shadow-md flex mb-4 hidden">
     <div class="card-body p-4 truncate ...">
-      <a href="" class="card-title skeleton" target="_blank"></a>
+      <a href="" class="card-title skeleton" target="_blank" title=""></a>
       <p class="content skeleton"></p>
       <p class="metadata skeleton min-h-6 text-xs">
-        <span class="pubkey"></span><span class="created-at"></span>
+        <span class="pubkey"></span>
+        <span class="created-at"></span>
+        <span class="updated-at"></span>
       </p>
       <div class="tags text-xs"></div>
-      <span class="event-id text-xs"></span>
+      <div class="flex">
+        <span class="event-kind text-xs mr-1"></span>
+        <span class="event-id text-xs"></span>
+      </div>
     </div>
   </div>
 </div>

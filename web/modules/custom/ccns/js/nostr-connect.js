@@ -65,25 +65,52 @@
           ndk.signer = signer
           // Add khatru.nostrver.se relay here to ndk instance
           ndk.addExplicitRelay('wss://khatru.nostrver.se/')
-          // Create Nostr event kind 39700
-          const nostrEventKind39700 = Drupal.Ndk.store.get('ndkEvent')
-          nostrEventKind39700.ndk = ndk
-          nostrEventKind39700.kind = 39700
-          nostrEventKind39700.content = submitLinkForm.elements['body[0][value]'].value
-          nostrEventKind39700.tags = [
-            ['d', submitLinkForm.elements['field_url[0][uri]'].value],
+          // Create Nostr event kind 39701
+          const nostrEventKind39701 = Drupal.Ndk.store.get('ndkEvent')
+          nostrEventKind39701.ndk = ndk
+          nostrEventKind39701.kind = 39701
+          nostrEventKind39701.content = submitLinkForm.elements['body[0][value]'].value
+          // Create URL object from submitted URI for the bookmark.
+          const bookmarkURI = new URL(submitLinkForm.elements['field_url[0][uri]'].value)
+          // Hostname
+          let dTagIdentifier = bookmarkURI.hostname
+          // Add port is set
+          if (bookmarkURI.port !== '') {
+            dTagIdentifier += ':' + bookmarkURI.port
+          }
+          // Add pathname if set
+          if (bookmarkURI.pathname !== '/') {
+            dTagIdentifier += bookmarkURI.pathname
+          }
+          // Add query params (search) if set
+          if (bookmarkURI.search !== '') {
+            // TODO add special cases
+            // - YouTube
+            // - HackerNews
+            // dTagIdentifier += bookmarkURI.search
+          }
+          // Add hash if set
+          if (bookmarkURI.hash !== '') {
+            dTagIdentifier += bookmarkURI.hash
+          }
+          nostrEventKind39701.tags = [
+            ['d', dTagIdentifier],
             ['client', 'CCNS'],
-            ['title', submitLinkForm.elements['title[0][value]'].value]
+            ['title', submitLinkForm.elements['title[0][value]'].value],
+            ['published_at', ''],
+            ['u', bookmarkURI.href],
+            ['scheme', bookmarkURI.protocol]
           ]
+          console.log(nostrEventKind39701.tags)
           const nUser = await signer.user()
-          const n = await nostrEventKind39700.toNostrEvent(nUser.npub)
-          const event39700PublishedToRelays = await nostrEventKind39700.publish()
-          console.log(`The 39700 event is published to ${event39700PublishedToRelays.size} relays:`)
-          event39700PublishedToRelays.forEach((relay) => {
+          //const n = await nostrEventKind39701.toNostrEvent(nUser.npub)
+          const event39701PublishedToRelays = await nostrEventKind39701.publish()
+          console.log(`The 39700 event is published to ${event39701PublishedToRelays.size} relays:`)
+          event39701PublishedToRelays.forEach((relay) => {
             console.log(relay.url)
           })
           // Set event id in form to be saved to the created entity.
-          submitLinkForm.elements['field_nostr_event_id[0][value]'].value = nostrEventKind39700.id
+          submitLinkForm.elements['field_nostr_event_id[0][value]'].value = nostrEventKind39701.id
 
           if (submitLinkForm.elements['crosspost_to_nostr'].checked === true) {
             // Get data for the content

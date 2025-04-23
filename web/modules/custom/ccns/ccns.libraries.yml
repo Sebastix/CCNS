@@ -19,9 +19,9 @@ connect-options:
     - core/drupal.dialog.off_canvas
     - nostr_ndk/nostr-dev-kit
 
-kind-39700:
+kind-39701:
   js:
-    js/kind-39700.js: {}
+    js/kind-39701.js: {}
   dependencies:
     - core/once
     - nostr_ndk/nostr-dev-kit
