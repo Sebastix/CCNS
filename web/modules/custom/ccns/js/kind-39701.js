@@ -33,7 +33,7 @@
     await ndk.connect()
     // TODO limit results to ~50
     const sub = ndk.subscribe({
-      kinds: [39700, 397001],
+      kinds: [39700, 39701],
       limit: 50 // this limit applies for each connected relay
     }, {})
     sub.on("event", (event) => {
@@ -53,22 +53,32 @@
     new_card.classList.remove('hidden')
     const card_body = new_card.getElementsByClassName('card-body')[0]
     const metadata = card_body.getElementsByClassName('metadata')[0]
-    // Replace contents
     const dTag = getTag(event, 'd')
-    if (dTag[1].startsWith('http')) {
-      card_body.getElementsByTagName('a')[0].href = dTag[1]
-      card_body.getElementsByTagName('a')[0].innerHTML = dTag[1]
-    } else {
-      card_body.getElementsByTagName('a')[0].href = event.content
-      card_body.getElementsByTagName('a')[0].innerHTML = event.content
-    }
-    if (dTag[1].startsWith('http')) {
-      card_body.getElementsByClassName('content')[0].innerHTML = event.content
-    } else {
-      const description = getTag(event, 'description')
-      if (description && description[1] !== '') {
-        card_body.getElementsByClassName('content')[0].innerHTML = description[1]
+    // Kind 39700
+    if (event.kind === 39700) {
+      if (dTag[1].startsWith('http')) {
+        card_body.getElementsByTagName('a')[0].href = dTag[1]
+        card_body.getElementsByTagName('a')[0].innerHTML = dTag[1]
+      } else {
+        card_body.getElementsByTagName('a')[0].href = event.content
+        card_body.getElementsByTagName('a')[0].innerHTML = event.content
       }
+      if (dTag[1].startsWith('http')) {
+        card_body.getElementsByClassName('content')[0].innerHTML = event.content
+      } else {
+        const description = getTag(event, 'description')
+        if (description && description[1] !== '') {
+          card_body.getElementsByClassName('content')[0].innerHTML = description[1]
+        }
+      }
+    }
+    // Kind 39701
+    if (event.kind === 39701) {
+      let scheme = (!dTag[1].startsWith('http')) ? 'https://' : ''
+      const bookmarkUrl =  new URL(scheme +''+ dTag[1])
+      card_body.getElementsByTagName('a')[0].href = bookmarkUrl.href
+      card_body.getElementsByTagName('a')[0].innerHTML = bookmarkUrl.protocol + '//' + dTag[1]
+      card_body.getElementsByClassName('content')[0].innerHTML = event.content
     }
     // Remove skeleton classes
     card_body.getElementsByTagName('a')[0].classList.remove('skeleton')
@@ -77,11 +87,15 @@
     const profile = await event.author.fetchProfile()
     metadata.getElementsByClassName('pubkey')[0].innerHTML = profile.name
     const created_at_date = new Date();
-    created_at_date.setTime(event.created_at*1000);
+    created_at_date.setTime(event.created_at * 1000);
     metadata.getElementsByClassName('created-at')[0].innerHTML = ' saved on ' + created_at_date.toUTCString()
-    const published_at = getTag(event, 'published_at')
-    if (published_at) {
-      metadata.getElementsByClassName('published-at')[0].innerHTML = ', updated at: ' + published_at.toUTCString()
+    let published_at = getTag(event, 'published_at')
+    if (published_at && published_at[1] !== '') {
+      // Format timestamp string to timestamp int in milliseconds
+      published_at = parseInt(published_at[1])
+      const published_at_date = new Date()
+      published_at_date.setTime(published_at * 1000)
+      metadata.getElementsByClassName('published-at')[0].innerHTML = ', updated at: ' + published_at_date.toUTCString()
     }
     metadata.classList.remove('skeleton')
     const tags = card_body.getElementsByClassName('tags')[0]
