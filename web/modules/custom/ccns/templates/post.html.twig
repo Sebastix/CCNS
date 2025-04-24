@@ -1,7 +1,7 @@
 <div class="post">
   {% if logged_in %}
-    When you post a link (bookmark), a Nostr event (kind <code>39700</code>) will be transmitted to the Nostr network and a copy of this data will be saved on this website. <br />
-    You can use other Nostr clients which have implemented kind <code>39700</code> like <a href="https://yumyu.me/" target="_blank">Yumyume</a> and <a href="https://www.pinja.in/" target="_blank">Pinja</a> to view your posted links.
+    When you post a link (bookmark), a Nostr event (kind <code>39701</code>) will be transmitted to the Nostr network and a copy of this data will be saved on this website. <br />
+    You can use other Nostr clients which have implemented kind <code>39701</code> like <a href="https://yumyu.me/" target="_blank">Yumyume</a> and <a href="https://www.pinja.in/" target="_blank">Pinja</a> to view your posted links.
     <div class="md:w-1/2 mx-auto mt-4 grid grid-cols-2 gap-4 justify-items-center">
       <div><a href="{{ path('node.add', {'node_type' : 'link'}) }}" class="btn btn-outline btn-warning">Post link / bookmark</a></div>
       <div><a href="#" class="btn btn-disabled">Start topic</a></div>
