@@ -3,11 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.link_comment.default
     - field.field.node.link.body
+    - field.field.node.link.field_comments
     - field.field.node.link.field_nostr_event_id
     - field.field.node.link.field_url
     - node.type.link
   module:
+    - comment
     - link
     - text
     - user
@@ -23,13 +26,22 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_comments:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_nostr_event_id:
     type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_url:
     type: link
@@ -49,4 +61,5 @@ content:
     weight: 0
     region: content
 hidden:
+  danse_subscribe: true
   langcode: true

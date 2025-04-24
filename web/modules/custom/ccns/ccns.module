@@ -45,8 +45,13 @@ function ccns_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $enti
  */
 function ccns_preprocess_page(&$variables) {
   $variables['#attached']['library'][] = 'ccns/nostr-connect';
-//  $variables['#attached']['library'][] = 'ccns/kind-39701';
-//  $variables['#attached']['library'][] = 'ccns/kind-1111';
+}
+
+/**
+ * Implements hook_preprocess_node_NODE_TYPE().
+ */
+function ccns_preprocess_node__link(&$variables) {
+  $variables['#attached']['library'][] = 'ccns/kind-1111';
 }
 
 /**

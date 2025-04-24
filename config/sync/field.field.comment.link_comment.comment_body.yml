@@ -5,8 +5,14 @@ dependencies:
   config:
     - comment.type.link_comment
     - field.storage.comment.comment_body
+    - filter.format.plain_text
   module:
     - text
+    - unique_content_field_validation
+third_party_settings:
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
 id: comment.link_comment.comment_body
 field_name: comment_body
 entity_type: comment
@@ -18,5 +24,6 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
+  allowed_formats:
+    - plain_text
 field_type: text_long

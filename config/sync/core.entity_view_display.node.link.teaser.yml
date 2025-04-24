@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.link.body
+    - field.field.node.link.field_comments
     - field.field.node.link.field_nostr_event_id
     - field.field.node.link.field_url
     - node.type.link
@@ -30,6 +31,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_comments: true
   field_nostr_event_id: true
   field_url: true
   langcode: true

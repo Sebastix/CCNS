@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.link.body
+    - field.field.node.link.field_comments
     - field.field.node.link.field_nostr_event_id
     - field.field.node.link.field_url
     - node.type.link
   module:
+    - comment
     - link
     - path
     - text
@@ -32,9 +34,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_comments:
+    type: comment_default
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_nostr_event_id:
     type: string_textfield
-    weight: 26
+    weight: 8
     region: content
     settings:
       size: 32

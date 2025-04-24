@@ -8,7 +8,10 @@
    */
   const init = async () => {
     // TODO Set event listener here when a comment is posted.
-    console.log('submit-kind-1111')
+    // Temp disable submit button of form
+    const submit = document.getElementById('comment-form').querySelector('[type="submit"]')
+    submit.disabled = true
+    console.log(submit)
   }
   Drupal.behaviors.kind_1111 = {
     attach: async function (context, settings) {
