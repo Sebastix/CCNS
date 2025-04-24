@@ -77,7 +77,7 @@
       let scheme = (!dTag[1].startsWith('http')) ? 'https://' : ''
       const bookmarkUrl =  new URL(scheme +''+ dTag[1])
       card_body.getElementsByTagName('a')[0].href = bookmarkUrl.href
-      card_body.getElementsByTagName('a')[0].innerHTML = bookmarkUrl.protocol + '//' + dTag[1]
+      card_body.getElementsByTagName('a')[0].innerHTML = scheme + dTag[1]
       card_body.getElementsByClassName('content')[0].innerHTML = event.content
     }
     // Remove skeleton classes
