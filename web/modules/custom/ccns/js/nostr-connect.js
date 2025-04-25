@@ -106,7 +106,7 @@
           console.log(nostrEventKind39701)
           const nUser = await signer.user()
           //const n = await nostrEventKind39701.toNostrEvent(nUser.npub)
-          //const event39701PublishedToRelays = await nostrEventKind39701.publish()
+          const event39701PublishedToRelays = await nostrEventKind39701.publish()
           console.log(`The 39701 event is published to ${event39701PublishedToRelays.size} relays:`)
           event39701PublishedToRelays.forEach((relay) => {
             console.log(relay.url)
