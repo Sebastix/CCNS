@@ -134,7 +134,7 @@
             nostrEvent.kind = 1
             nostrEvent.content = generate_nostr_note_preview(url, title, description)
             nostrEvent.tags = [
-              ['client', 'CCNS']
+              ['client', 'ccns.news']
             ]
             await nostrEvent.sign(signer)
             // const nUser = await signer.user()
@@ -190,7 +190,7 @@
       content += description
     }
     content += '\n\n'
-    content += '🔂 cross-posted from https://ccns.nostrver.se'
+    content += '🔂 cross-posted from https://ccns.news'
     return content
   }
 
