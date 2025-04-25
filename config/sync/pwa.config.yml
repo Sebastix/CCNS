@@ -1,10 +1,10 @@
 _core:
   default_config_hash: bBsKNU9uuzzS7zaKZhHpof7W8sOAuKBZJDF5Eh76BTs
 langcode: en
-name: CCNS
-short_name: CCNS
-app_id: localhost
-description: 'CCNS is a Nostr-focused, social community platform centered around links and topics'
+name: ccns.news
+short_name: ccns.news
+app_id: ccns.news
+description: 'ccns.news is a Nostr-focused, social community platform centered around links and topics'
 start_url: /
 scope: /
 lang: ''

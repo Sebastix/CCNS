@@ -71,7 +71,11 @@ function ccns_theme($existing, $type, $theme, $path) {
       'path' => $path . '/templates',
     ],
     'global_feed' => [
-      'variables' => [],
+      'variables' => [
+        'nostr_php' => [],
+        'profiles' => [],
+        'speed' => NULL,
+      ],
       'template' => 'global-feed',
       'path' => $path . '/templates',
     ]

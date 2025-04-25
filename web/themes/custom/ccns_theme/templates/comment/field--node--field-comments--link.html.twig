@@ -27,16 +27,13 @@
  */
 #}
 <section{{ attributes }}>
-  {% if comments and not label_hidden %}
-    {{ title_prefix }}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-    {{ title_suffix }}
-  {% endif %}
-
-  {{ comments }}
-
   {% if comment_form %}
+    <p class="italic mb-1">
+      You can place comments (kind <code>1111</code>) here in the future on behalf of your Nostr account.
+    </p>
     {{ comment_form }}
   {% endif %}
 
+  <h4 class="font-bold my-1">Comments</h4>
+  {{ comments }}
 </section>

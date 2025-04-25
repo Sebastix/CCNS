@@ -6,10 +6,9 @@
    * Called when Drupal.Ndk.store is set (see the attach function in Drupal.behaviors.ccns)
    * @returns {Promise<void>}
    */
-  const init = async () => {
+  const init = async (context, settings) => {
     // TODO Set event listener here when a link is posted.
 
-    // If global feed, fetch events.
     try {
       if (Drupal.Ndk.store === undefined) {
         throw 'Ndk store is not set'
@@ -17,7 +16,10 @@
       if (Drupal.Ndk.store.get('ndk') === undefined) {
         throw 'Ndk object in Ndk store is not set'
       }
-      await fetchEvents()
+      // If global feed, fetch events.
+      if (settings.path.currentPath === 'global') {
+        await fetchEvents()
+      }
     } catch (e) {
       console.log(e)
       alert(e)
@@ -31,25 +33,38 @@
     ndk.addExplicitRelay('wss://relay.primal.net/')
     ndk.addExplicitRelay('wss://nos.lol/')
     await ndk.connect()
-    // TODO limit results to ~50
+    // Limit results to ~50
+    const kinds  = [39701]
+    if (!drupalSettings.path.currentQuery) {
+      kinds.push(39700)
+    }
     const sub = ndk.subscribe({
-      kinds: [39700, 39701],
+      kinds: kinds,
       limit: 50 // this limit applies for each connected relay
     }, {})
     sub.on("event", (event) => {
       renderEvent(event)
     })
-    // TODO keep websocket connection active to process new events?
   }
 
   const renderEvent =  async (event) => {
+    const ndk_feed = document.getElementsByClassName('feed')[0]
     // Copy element last card element
-    const cards = document.getElementsByClassName('card');
-    const last_card = cards[cards.length-1]
+    const cards = ndk_feed.getElementsByClassName('card');
+    let number_of_cards = cards.length
+    let last_card = cards[number_of_cards-1]
     const new_card = last_card.cloneNode(true);
-    const feed = document.getElementsByClassName('feed')[0]
-    // Add to DOM
-    feed.append(new_card)
+    new_card.dataset.createdAt = event.created_at
+    // Add to DOM and apply sort on created_at value
+    do {
+      number_of_cards = number_of_cards -1
+      last_card = cards[number_of_cards]
+    } while (
+      event.created_at > last_card.dataset.createdAt
+    )
+    // Insert new_card element after last_card element
+    last_card.insertAdjacentElement('afterend', new_card)
+
     new_card.classList.remove('hidden')
     const card_body = new_card.getElementsByClassName('card-body')[0]
     const metadata = card_body.getElementsByClassName('metadata')[0]
@@ -85,18 +100,27 @@
     card_body.getElementsByClassName('content')[0].classList.remove('skeleton')
     // Fetch profile data
     const profile = await event.author.fetchProfile()
-    metadata.getElementsByClassName('pubkey')[0].innerHTML = profile.name
+    metadata.getElementsByClassName('pubkey')[0].getElementsByClassName('value')[0].innerHTML = profile.name
+    const pubkey = profile.pubkey !== undefined ? profile.pubkey : event.pubkey
+    metadata.getElementsByClassName('pubkey')[0].getElementsByTagName('a')[0].setAttribute('href', 'https://npub.world/' + pubkey)
+    metadata.getElementsByClassName('pubkey')[0].classList.remove('hidden')
     const created_at_date = new Date();
     created_at_date.setTime(event.created_at * 1000);
-    metadata.getElementsByClassName('created-at')[0].innerHTML = ' saved on ' + created_at_date.toUTCString()
     let published_at = getTag(event, 'published_at')
+    // When the bookmark event has been updated
     if (published_at && published_at[1] !== '') {
-      // Format timestamp string to timestamp int in milliseconds
-      published_at = parseInt(published_at[1])
-      const published_at_date = new Date()
-      published_at_date.setTime(published_at * 1000)
-      metadata.getElementsByClassName('published-at')[0].innerHTML = ', updated at: ' + published_at_date.toUTCString()
+      if (event.created_at > published_at) {
+        // Format timestamp string to timestamp int in milliseconds
+        const published_at_date = new Date()
+        published_at_date.setTime(published_at * 1000)
+        metadata.getElementsByClassName('created-at')[0].getElementsByClassName('value')[0].innerHTML = published_at_date.toUTCString()
+        metadata.getElementsByClassName('published-at')[0].innerHTML = ', updated at: ' + created_at_date.toUTCString()
+      }
+    } else {
+      metadata.getElementsByClassName('created-at')[0].getElementsByClassName('value')[0].innerHTML = created_at_date.toUTCString()
     }
+    metadata.getElementsByClassName('created-at')[0].classList.remove('hidden')
+    metadata.getElementsByClassName('published-at')[0].classList.remove('hidden')
     metadata.classList.remove('skeleton')
     const tags = card_body.getElementsByClassName('tags')[0]
     for (const tag of event.tags) {
@@ -104,14 +128,22 @@
         // Add hashtag to card.
         const tagBadge = document.createElement('div')
         tagBadge.classList.add('badge', 'text-xs')
-        tagBadge.innerHTML = '#'+tag[1]
+        tagBadge.innerHTML = '<a href="https://nostr.band?q=%23' + tag[1] + '" target="_blank">#' + tag[1] + '</a>'
         tags.appendChild(tagBadge)
+      }
+      if (tag[0] === 'client') {
+        metadata.getElementsByClassName('client-tag')[0].getElementsByClassName('value')[0].innerHTML = tag[1]
+        metadata.getElementsByClassName('client-tag')[0].classList.remove('hidden')
       }
     }
     card_body.getElementsByClassName('event-kind')[0].innerHTML = 'kind: <code>' + event.kind + '</code>'
     card_body.getElementsByClassName('event-id')[0].innerHTML = 'id: <a href="https://njump.me/'+event.id+'" target="_blank">'+event.id+'</a>'
     // TODO fetch reactions
+
     // TODO fetch comments
+
+    // TODO fetch zaps
+
   }
 
   /**
@@ -139,7 +171,7 @@
             // Clear this interval
             await clearInterval(check);
             // init
-            await init();
+            await init(context, settings);
           }
         }, 100);
       }

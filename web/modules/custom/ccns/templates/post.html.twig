@@ -7,18 +7,18 @@
       <div><a href="#" class="btn btn-disabled">Start topic</a></div>
     </div>
     <div class="mt-4">
-      <h4 class="text-sm font-bold">Most recent bookmarks:</h4>
-      <ul class="list-disc">
-        <li class="ml-8">TODO: fetch latest Nostr events with kind <code>39701</code> from the Nostr network</li>
-      </ul>
+      To view the most recent bookmarks posted by others, <a href="{{ path('ccns.global') }}">go to this global feed</a>
     </div>
   {% else %}
     <div class="p-2 bg-amber-100">
       <p>
-        To start posting, please <a href="{{ path('ccns.login_modal') }}" class="use-ajax" id="nostr-auth">login with Nostr</a> first.
+        To start posting, please <a href="{{ path('ccns.login_modal') }}" class="use-ajax" id="nostr-auth">connect with Nostr</a> first.
       </p>
       <p class="mt-4">
-        If you're curious what Nostr is and how to create an account, visit <a href="https://nostr.how" target="_blank">nostr.how</a>.
+        If you're curious what Nostr is and how to create a profile, visit <a href="https://nostr.how" target="_blank">nostr.how</a>.
+      </p>
+      <p class="mt-4">
+        Or create your profile now via <a href="https://nstart.me" target="_blank">https://nstart.me</a> and <a href="https://nostr.net/#nip-07-browser-extensions" target="_blank">install a browser signing extension</a>.
       </p>
     </div>
   {% endif %}

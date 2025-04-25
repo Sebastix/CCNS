@@ -1,18 +1,103 @@
-<div class="feed">
-  <div class="card bg-gray-100 shadow-md flex mb-4 hidden">
-    <div class="card-body p-4 truncate ...">
-      <a href="" class="card-title skeleton" target="_blank" title=""></a>
-      <p class="content skeleton"></p>
-      <p class="metadata skeleton min-h-6 text-xs">
-        <span class="pubkey"></span>
-        <span class="created-at"></span>
-        <span class="published-at"></span>
+{% if nostr_php is not empty %}
+  <div class="relative left-1/2 w-[98vw] max-w-none -translate-x-1/2 flex gap-4">
+{% endif %}
+  <div class="feed{{ nostr_php is not empty ? ' basis-1/2 w-1/2'}}">
+    {% if nostr_php is not empty %}
+      <p class="text-center font-bold mb-2">
+        Events fetched with <a href="https://github.com/nostr-dev-kit/ndk" target="_blank">NDK</a> (client-side Javascript)
       </p>
-      <div class="tags text-xs"></div>
-      <div class="flex">
-        <span class="event-kind text-xs mr-1"></span>
-        <span class="event-id text-xs"></span>
+    {% else %}
+      // Add feed column with events fetched by Nostr-PHP (<a href="{{ path('ccns.global', {}, {'query': {'nostr-php': 1} }) }}">view</a>)
+    {% endif %}
+    <div class="card bg-gray-100 shadow-md flex mb-4 hidden">
+      <div class="card-body p-4">
+        <a href="" class="card-title skeleton text-ellipsis overflow-hidden ..." target="_blank" title=""></a>
+        <p class="metadata skeleton min-h-4 text-xs">
+          <span class="pubkey hidden">Bookmarked by <a href="" target="_blank" class="value"></a></span>
+          <span class="created-at hidden">on <span class="value"></span></span>
+          <span class="published-at hidden"></span>
+          <span class="client-tag hidden">using client <span class="value"></span></span>
+        </p>
+        <p class="content skeleton"></p>
+        <div class="tags text-xs"></div>
+        <div class="flex">
+          <span class="event-kind text-xs mr-1"></span>
+          <span class="event-id text-xs"></span>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  {% if nostr_php is not empty %}
+    <div class="feed-nostr-php basis-1/2 w-1/2">
+      <p class="text-center font-bold mb-2">
+        {{ nostr_php|length }} events (kind 39701) fetched with <a href="https://nostr-php.dev" target="_blank">Nostr-PHP</a> (server-side PHP in {{ speed }}s)
+      </p>
+      {% for event in nostr_php %}
+        {% set dTag = '' %}
+        {% set client = '' %}
+        {% set hashTags = [] %}
+        {% set title = '' %}
+        {% set published_at = '' %}
+        {% for tag in event.tags %}
+          {% if tag.0 == 'd' %}
+            {% set dTag = tag.1 %}
+          {% endif %}
+          {% if tag.0 == 'client' %}
+            {% set client = tag.1 %}
+          {% endif %}
+          {% if tag.0 == 't' %}
+            {% set hashTags = hashTags|merge([tag.1]) %}
+          {% endif %}
+          {% if tag.0 == 'title' %}
+            {% set title = tag.1 %}
+          {% endif %}
+          {% if tag.0 == 'published_at' %}
+            {% set published_at = tag.1 %}
+          {% endif %}
+        {% endfor %}
+        <div class="card bg-gray-100 shadow-md flex mb-4">
+          <div class="card-body p-4">
+            {% if dTag %}
+              {% if dTag starts with 'http' %}
+                {% set dTag = dTag %}
+              {% else %}
+                {% set dTag = 'https://' ~ dTag %}
+              {% endif %}
+            <a href="{{ dTag }}" class="card-title text-ellipsis overflow-hidden ..." target="_blank">
+              {{ dTag }}
+            </a>
+            {% endif %}
+            <p class="metadata min-h-4 text-xs">
+              <span class="pubkey">Bookmarked by <a href="https://npub.world/{{ event.pubkey }}" target="_blank" class="value">
+                  {% if profiles[event.pubkey].content.name %}
+                    {{ profiles[event.pubkey].content.name }}
+                  {% else %}
+                    {{ event.pubkey }}
+                  {% endif %}
+                </a></span>
+              <span class="created-at ">on <span class="value">{{ event.created_at|date('d-m-Y, H:i:s') }}</span></span>
+              <span class="published-at"></span>
+              {% if client %}<span class="client-tag">using client {{ client }}</span>{% endif %}
+            </p>
+            <p class="content">{{ event.content }}</p>
+            {% if hashTags is not empty %}
+              <div class="tags text-xs">
+                {% for tag in hashTags %}
+                  <div class="badge text-xs">
+                    <a href="https://nostr.band?q=%23{{ tag }}" target="_blank">#{{ tag }}</a>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+            <div class="flex">
+              <span class="event-kind text-xs mr-1">kind: <code>{{ event.kind }}</code></span>
+              <span class="event-id text-xs">id: <a href="https://njump.me/{{ event.id }}" target="_blank">{{ event.id }}</a></span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% if nostr_php is not empty %}
+  </div>
+{% endif %}

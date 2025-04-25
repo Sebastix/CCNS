@@ -11,6 +11,13 @@ use Drupal\file\Entity\File;
 use Drupal\user\Entity\Role;
 use Drupal\user\Entity\User;
 use GuzzleHttp\Exception\GuzzleException;
+use swentel\nostr\Event\Event;
+use swentel\nostr\Filter\Filter;
+use swentel\nostr\Message\RequestMessage;
+use swentel\nostr\Relay\Relay;
+use swentel\nostr\Relay\RelaySet;
+use swentel\nostr\Request\Request as NostrRequest;
+use swentel\nostr\Subscription\Subscription;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -129,7 +136,7 @@ final class CcnsController extends ControllerBase {
         user_login_finalize($user);
       }
       $responseData = [
-        'userid' => $user->id()
+        'userid' => $user->id(),
       ];
       $response->setData($responseData);
     } catch (EntityStorageException $e) {
@@ -140,8 +147,102 @@ final class CcnsController extends ControllerBase {
   }
 
   public function globalFeed(Request $request): array {
+    // Check if query param nostr_php is set
+    if ($request->query->has('nostr-php')) {
+      $time_start = microtime(true);
+      /*
+       * Get latest 50 event kinds 39701 from the following relays:
+       * wss://relay.damus.io/
+       * wss://relay.primal.net/
+       * wss://nos.lol/
+       * wss://khatru.nostrver.se/
+      */
+      $subscription = new Subscription();
+      $filter = new Filter();
+      $filter->setKinds([39701]);
+      $filter->setLimit(50);
+      $requestMessage = new RequestMessage($subscription->getId(), [$filter]);
+      $relaySet = new RelaySet();
+      $relays = [
+        new Relay('wss://relay.damus.io/'),
+        new Relay('wss://relay.primal.net/'),
+        new Relay('wss://nos.lol/'),
+        new Relay('wss://khatru.nostrver.se/'),
+      ];
+      $relaySet->setRelays($relays);
+      $request = new NostrRequest($relaySet, $requestMessage);
+      $response = $request->send();
+      /**
+       * @var string $relayUrl
+       *   The relay URL.
+       * @var object $relayResponses
+       *   RelayResponses which will contain the messages returned by the relay.
+       *   Each message will also contain the event.
+       */
+      $events = [];
+      $profileToBeFetched = [];
+      foreach ($response as $relayUrl => $relayResponses) {
+        /** @var \swentel\nostr\RelayResponse\RelayResponse $relayResponse */
+        foreach ($relayResponses as $relayResponse) {
+          if ($relayResponse->type === 'EVENT') {
+            if (isset($events[$relayResponse->event->id])) {
+              // We need to filter out duplicate events, event is already in the array.
+              continue;
+            }
+            // Format data into a Nostr event object.
+            $events[$relayResponse->event->id] = $relayResponse->event;
+            $e = new Event();
+            $e->setId($relayResponse->event->id);
+            $e->setPublicKey($relayResponse->event->pubkey);
+            $e->setContent($relayResponse->event->content);
+            $e->setCreatedAt($relayResponse->event->created_at);
+            $e->setSignature($relayResponse->event->sig);
+            $e->setKind($relayResponse->event->kind);
+            $e->setTags($relayResponse->event->tags);
+            // Fetch profile data of pubkey
+            if ($relayResponse->event->pubkey) {
+              $profileToBeFetched[$relayResponse->event->pubkey] = $relayResponse->event->pubkey;
+            }
+            $events[$relayResponse->event->id]->e = $e;
+          }
+        }
+      }
+      if (!empty($profileToBeFetched)) {
+        $profiles = [];
+        $profileFilter = new Filter();
+        $profileFilter->setKinds([0]);
+        $profileFilter->setAuthors($profileToBeFetched);
+        $requestProfileMessage = new RequestMessage($subscription->getId(), [$profileFilter]);
+        $relay = new Relay('wss://relay.nostr.band');
+        $requestProfile = new NostrRequest($relay, $requestProfileMessage);
+        $response = $requestProfile->send();
+        foreach ($response as $relayUrl => $relayResponses) {
+          foreach ($relayResponses as $relayResponse) {
+            if ($relayResponse->type === 'EVENT') {
+              // Decode content JSON string to object
+              if (is_string($relayResponse->event->content)) {
+                $relayResponse->event->content = json_decode($relayResponse->event->content, true);
+              }
+              $profiles[$relayResponse->event->pubkey] = $relayResponse->event;
+            }
+          }
+        }
+      }
+      // Sort array on created_at value
+      usort($events, function ($a, $b) {
+        return $b->e->getCreatedAt() <=> $a->e->getCreatedAt();
+      });
+      $nostr_php = $events;
+      $time_end = microtime(true);
+      $speed = number_format(($time_end - $time_start), 2, '.', '');
+      // TODO cache these results?
+
+    }
     $build['content'] = [
       '#theme' => 'global_feed',
+      '#nostr_php' => $nostr_php ?? [],
+      '#profiles' => $profiles ?? [],
+      '#speed' => $speed ?? NULL,
     ];
     $build['#attached']['library'][] = 'ccns/kind-39701';
     return $build;

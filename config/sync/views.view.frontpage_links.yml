@@ -452,8 +452,9 @@ display:
         type: mini
         options:
           offset: 0
-          items_per_page: 30
-          total_pages: 3
+          pagination_heading_level: h4
+          items_per_page: 50
+          total_pages: 9
           id: 0
           tags:
             next: ››
@@ -462,11 +463,10 @@ display:
             items_per_page: false
             items_per_page_label: 'Items per page'
             items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all: true
+            items_per_page_options_all_label: '- Show All -'
             offset: false
             offset_label: Offset
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -599,7 +599,18 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
       path: front
     cache_metadata:
       max-age: -1

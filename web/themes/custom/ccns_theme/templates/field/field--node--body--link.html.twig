@@ -46,14 +46,14 @@
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes.addClass('mt-2') }}>
+    <div{{ attributes.addClass('mt-4') }}>
       {% for item in items %}
         <div{{ item.attributes }}>{{ item.content }}</div>
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass('mt-2') }}>{{ item.content }}</div>
+      <div{{ attributes.addClass('mt-4') }}>{{ item.content }}</div>
     {% endfor %}
   {% endif %}
 {% else %}

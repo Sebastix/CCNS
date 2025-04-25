@@ -59,13 +59,13 @@ function ccns_theme_form_node_form_alter(&$form, FormStateInterface $form_state,
   $form['body']['widget']['#after_build'][] = '_remove_formatter';
   if ($form_id === 'node_link_form') {
     $form['field_url']['widget'][0]['uri']['#placeholder'] = 'https://';
-    $form['title']['widget'][0]['value']['#title'] = 'Title (required, only used on CCNS)';
+    $form['title']['widget'][0]['value']['#title'] = 'Title (required for ccns.news)';
     // Alter submit text button from Save to Post link
     $form['actions']['submit']['#value'] = 'Post link';
     // Add crosspost to Nostr checkbox
     $form['crosspost_to_nostr'] = array (
       '#type' => 'checkbox',
-      '#title' => t ('Cross-post as a note (kind 1) to Nostr (click to view preview)'),
+      '#title' => t ('Cross-post as a note (kind 1) to Nostr (see preview)'),
       '#weight' => 5,
     );
     // Hide Nostr event ID field

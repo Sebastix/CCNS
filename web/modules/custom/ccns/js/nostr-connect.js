@@ -93,18 +93,20 @@
           if (bookmarkURI.hash !== '') {
             dTagIdentifier += bookmarkURI.hash
           }
+          // Set published at value
+          const published_at = new Date()
           nostrEventKind39701.tags = [
             ['d', dTagIdentifier],
-            ['client', 'CCNS'],
+            ['client', 'CCNS.news'],
             ['title', submitLinkForm.elements['title[0][value]'].value],
-            ['published_at', ''],
+            ['published_at', published_at.toString()],
             ['u', bookmarkURI.href],
             ['scheme', bookmarkURI.protocol]
           ]
-          console.log(nostrEventKind39701.tags)
+          console.log(nostrEventKind39701)
           const nUser = await signer.user()
           //const n = await nostrEventKind39701.toNostrEvent(nUser.npub)
-          const event39701PublishedToRelays = await nostrEventKind39701.publish()
+          //const event39701PublishedToRelays = await nostrEventKind39701.publish()
           console.log(`The 39701 event is published to ${event39701PublishedToRelays.size} relays:`)
           event39701PublishedToRelays.forEach((relay) => {
             console.log(relay.url)
