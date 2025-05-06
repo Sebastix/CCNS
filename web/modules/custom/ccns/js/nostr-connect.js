@@ -99,7 +99,7 @@
             ['d', dTagIdentifier],
             ['client', 'CCNS.news'],
             ['title', submitLinkForm.elements['title[0][value]'].value],
-            ['published_at', published_at.toString()],
+            ['published_at', published_at.toTimeString()],
             ['u', bookmarkURI.href],
             ['scheme', bookmarkURI.protocol]
           ]
