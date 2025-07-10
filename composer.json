@@ -48,7 +48,7 @@
     "drupal/raven": "^6.0",
     "drupal/reroute_email": "^2.3@RC",
     "drupal/robotstxt": "^1.5",
-    "drupal/symfony_mailer": "^1.2@beta",
+    "drupal/symfony_mailer": "^1.6",
     "drupal/symfony_mailer_log": "^1.2",
     "drupal/twig_tweak": "^3.4",
     "drupal/ultimate_cron": "^2.0",
