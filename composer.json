@@ -33,7 +33,7 @@
     "drupal/flood_control": "^3.0",
     "drupal/gin": "^4.0",
     "drupal/honeypot": "^2.1",
-    "drupal/markdown_easy": "^1.0",
+    "drupal/markdown_easy": "^2.0",
     "drupal/masquerade": "^2.0@RC",
     "drupal/matomo": "^2.0@alpha",
     "drupal/metatag": "^2.0",

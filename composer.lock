@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c28b80055652e6c3a5789105a8f0b7c",
+    "content-hash": "656a306c585933e3101ac3282e91c2fa",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2835,17 +2835,17 @@
         },
         {
             "name": "drupal/markdown_easy",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/markdown_easy.git",
-                "reference": "1.0.1"
+                "reference": "2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/markdown_easy-1.0.1.zip",
-                "reference": "1.0.1",
-                "shasum": "ecd23d34e1dcda077125e41d8afa3846cef9e137"
+                "url": "https://ftp.drupal.org/files/projects/markdown_easy-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "252dde66a34f8b5896f23182a00d92a4707387ea"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11",
@@ -2854,8 +2854,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.1",
-                    "datestamp": "1713470232",
+                    "version": "2.0.0",
+                    "datestamp": "1755422614",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7236,16 +7236,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "4.15.1",
+            "version": "4.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "0d09baf3700869ec4b723c95eb466de56c3d74b6"
+                "reference": "61a2d918e8424b6de4a2e265c15133a00c17db51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/0d09baf3700869ec4b723c95eb466de56c3d74b6",
-                "reference": "0d09baf3700869ec4b723c95eb466de56c3d74b6",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/61a2d918e8424b6de4a2e265c15133a00c17db51",
+                "reference": "61a2d918e8424b6de4a2e265c15133a00c17db51",
                 "shasum": ""
             },
             "require": {
@@ -7309,7 +7309,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-php/issues",
-                "source": "https://github.com/getsentry/sentry-php/tree/4.15.1"
+                "source": "https://github.com/getsentry/sentry-php/tree/4.15.2"
             },
             "funding": [
                 {
@@ -7321,7 +7321,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2025-08-28T15:45:14+00:00"
+            "time": "2025-09-03T07:23:48+00:00"
         },
         {
             "name": "simplito/bigint-wrapper-php",
