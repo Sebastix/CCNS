@@ -1,0 +1,91 @@
+blocks:
+  -
+    info: 'Header menu'
+    langcode: nl
+    uuid: 9374e7a3-72b4-42f6-8f2d-5f7960875838
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body: {  }
+  -
+    info: 'Footer menu'
+    langcode: en
+    uuid: 8783ba47-092f-4762-a8e1-6a479053c32e
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<code class="text-xs">Build with <a href="https://drupal.org" target="_blank">Drupal</a> and <a href="https://nostr.how/" target="_blank">Nostr</a> by <a href="https://sebastix.nl" target="_blank">Sebastix</a> | <a href="https://github.com/Sebastix/CCNS" title="GitHub" target="_blank">GitHub</a></code>'
+          summary: ''
+          format: restricted_html
+menus:
+  -
+    menu_name: footer
+    title: About
+    parent: null
+    uri: 'internal:/about'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -50
+    langcode: en
+    uuid: 3faf8c5e-100a-4ec5-a384-20561df923b7
+    options: {  }
+  -
+    menu_name: footer
+    title: Chat
+    parent: null
+    uri: 'https://t.me/ccns_community'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -49
+    langcode: en
+    uuid: 06fe1fd8-f3e8-4410-96c6-3d3a970ab5b7
+    options: {  }
+  -
+    menu_name: footer
+    title: '404'
+    parent: null
+    uri: 'internal:/404-not-found-nogood-splash'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -48
+    langcode: en
+    uuid: a8eaac55-4eef-4b72-a1e5-1d03676bddf9
+    options: {  }
+  -
+    menu_name: frontpage-menu
+    title: Links
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 6f105b4e-365c-4207-be3f-b5884f19bba0
+    options: {  }
+  -
+    menu_name: frontpage-menu
+    title: Topics
+    parent: null
+    uri: 'internal:/topics'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 11def3e9-8776-47f4-9985-5b9acf8f734c
+    options: {  }
+taxonomies:
+  tags: {  }

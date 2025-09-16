@@ -59,6 +59,7 @@ module:
   robotstxt: 0
   search: 0
   serialization: 0
+  structure_sync: 0
   symfony_mailer: 0
   symfony_mailer_log: 0
   system: 0
