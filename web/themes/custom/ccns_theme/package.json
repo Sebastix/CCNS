@@ -2,15 +2,15 @@
   "name": "ccns_theme",
   "private": true,
   "scripts": {
-    "dev": "npx tailwindcss --input css/tailwind.pcss --output dist/tailwind.css --watch",
-    "build": "npx tailwindcss --input css/tailwind.pcss --output dist/tailwind.css --minify"
+    "watch": "npx @tailwindcss/cli --input css/tailwind.pcss --output dist/tailwind.css --watch",
+    "build": "npx @tailwindcss/cli --input css/tailwind.pcss --output dist/tailwind.css --minify"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.7",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^4.1.13"
   },
   "dependencies": {
-    "daisyui": "^4.4.19"
+    "daisyui": "^5.1.12"
   }
 }

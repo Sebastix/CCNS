@@ -1,7 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: lofi;
+}
+@theme {
+  --color-info: #FF4D4D;
+  --success: #6df78a;
+  --color-warning: #FF4D4D;
+  --color-error: #f64d4d;
+}
 @layer base {
   input {
     @apply border w-full p-2
@@ -159,5 +165,33 @@
   }
   textarea#edit-comment-body-0-value {
     @apply p-2 w-full text-sm text-gray-900 focus:ring-0 focus:outline-none bg-gray-100;
+  }
+
+  form {
+    fieldset {
+      @apply fieldset;
+      legend {
+        @apply fieldset-legend;
+      }
+    }
+    .form-item-search-api-fulltext-op {
+      label {
+        @apply label;
+      }
+      select {
+        @apply select;
+      }
+    }
+    .form-item-search-api-fulltext-searched-fields {
+      label {
+        @apply label;
+      }
+      select {
+        @apply select min-h-fit;
+      }
+    }
+  }
+  .search-result {
+    @apply my-4;
   }
 }
