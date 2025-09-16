@@ -1,0 +1,93 @@
+uuid: 1b546f13-794c-4a47-ae02-9351f5eca319
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_comments
+    - field.storage.node.field_nostr_event_id
+    - field.storage.node.field_url
+    - search_api.server.database
+  module:
+    - node
+id: content
+name: Content
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: 'Description (optional)'
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  field_comments:
+    label: Comments
+    datasource_id: 'entity:node'
+    property_path: field_comments
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_comments
+  field_nostr_event_id:
+    label: 'Nostr event ID'
+    datasource_id: 'entity:node'
+    property_path: field_nostr_event_id
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_nostr_event_id
+  field_url:
+    label: URL
+    datasource_id: 'entity:node'
+    property_path: field_url
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_url
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - link
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  highlight:
+    weights:
+      postprocess_query: 0
+    prefix: '<strong>'
+    suffix: '</strong>'
+    excerpt: true
+    excerpt_always: false
+    excerpt_length: 256
+    exclude_fields: {  }
+    highlight: always
+    highlight_partial: true
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: database

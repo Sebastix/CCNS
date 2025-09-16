@@ -10,7 +10,6 @@ dependencies:
     - media
     - pwa
     - rest
-    - search
     - system
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
@@ -24,7 +23,5 @@ permissions:
   - 'access pwa'
   - 'access user profiles'
   - 'restful post pf_notifications_subscription'
-  - 'search content'
-  - 'use advanced search'
   - 'view field_is_verified'
   - 'view media'
