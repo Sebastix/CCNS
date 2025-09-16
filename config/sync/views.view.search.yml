@@ -366,16 +366,16 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: 'Fulltext search'
+            label: Keywords
             description: ''
-            use_operator: false
+            use_operator: true
             operator: search_api_fulltext_op
             operator_limit_selection: false
             operator_list: {  }
             identifier: search_api_fulltext
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -385,7 +385,7 @@ display:
             expose_fields: true
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
-            value_maxlength: 128
+            value_maxlength: 512
           is_grouped: false
           group_info:
             label: ''
@@ -409,7 +409,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: search-result
           default_row_class: true
       row:
         type: fields
