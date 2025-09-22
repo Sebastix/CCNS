@@ -21,4 +21,5 @@ complete_list:
   - symfony_mailer_mailer_transport.smtp
   - symfony_mailer_reroute.settings.yml
   - system.logging
-partial_list: {  }
+partial_list:
+  - pwa.config

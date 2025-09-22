@@ -1,0 +1,23 @@
+_core:
+  default_config_hash: bBsKNU9uuzzS7zaKZhHpof7W8sOAuKBZJDF5Eh76BTs
+langcode: en
+name: ccns.news
+short_name: ccns.news
+app_id: ccns.news
+description: 'ccns.news is a Nostr-focused, social community platform centered around links and topics'
+start_url: /
+scope: /
+lang: ''
+dir: auto
+orientation: portrait
+categories:
+  - 'social networking'
+theme_color: '#ffffff'
+background_color: '#ffffff'
+display: fullscreen
+cross_origin: false
+image_fid: 43
+image_small_fid: 44
+image_very_small_fid: 45
+manifest_path_mode: all_except_listed
+manifest_paths: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*"
