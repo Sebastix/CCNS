@@ -3,7 +3,8 @@
 
   /**
    * Init function
-   * Called when Drupal.Ndk.store is set (see the attach function in Drupal.behaviors.ccns)
+   * Called when Drupal.Ndk.store is set (see the attach function in Drupal.behaviors.ccns).
+   *
    * @returns {Promise<void>}
    */
   const init = async () => {
@@ -11,7 +12,7 @@
     // Temp disable submit button of form
     const submit = document.getElementById('comment-form').querySelector('[type="submit"]')
     submit.disabled = true
-    console.log(submit)
+    //console.log(submit)
   }
   Drupal.behaviors.kind_1111 = {
     attach: async function (context, settings) {

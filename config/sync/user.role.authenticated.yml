@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.ckeditor_comment
     - filter.format.markdown_editor
+    - rest.resource.pf_notifications_subscription
   module:
     - comment
     - field_permissions
@@ -13,6 +14,7 @@ dependencies:
     - matomo
     - media
     - pwa
+    - rest
     - system
 _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
@@ -28,6 +30,7 @@ permissions:
   - 'delete own files'
   - 'opt-in or out of matomo tracking'
   - 'post comments'
+  - 'restful post pf_notifications_subscription'
   - 'use text format ckeditor_comment'
   - 'use text format markdown_editor'
   - 'view field_is_verified'

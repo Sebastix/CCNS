@@ -54,6 +54,7 @@ module:
   options: 0
   path: 0
   path_alias: 0
+  pf_notifications: 0
   push_framework: 0
   pwa: 0
   rest: 0

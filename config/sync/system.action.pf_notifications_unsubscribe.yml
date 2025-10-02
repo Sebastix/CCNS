@@ -1,0 +1,13 @@
+uuid: d6fb7565-3daa-45c8-adb5-d4949f0836b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - pf_notifications
+_core:
+  default_config_hash: kuHD_j1y5HIPesUk4F56SkvQQEpGfzqPOKcMQFVhwkY
+id: pf_notifications_unsubscribe
+label: 'Unsubsribe user from all push notifications subscriptions.'
+type: user
+plugin: pf_notifications_unsubscribe
+configuration: {  }

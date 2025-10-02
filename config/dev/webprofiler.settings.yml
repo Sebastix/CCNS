@@ -3,6 +3,7 @@ exclude_toolbar: ''
 intercept_redirects: false
 purge_on_cache_clear: true
 active_toolbar_items:
+  ajax: ajax
   configs: configs
   database: database
   events: events
@@ -11,7 +12,6 @@ active_toolbar_items:
   services: services
   state: state
   user: user
-  ajax: '0'
   assets: '0'
   blocks: '0'
   cache: '0'

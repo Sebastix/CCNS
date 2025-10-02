@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: yi4cJJDPByF9vQlNIABM0mKpBwxfaxGs3u7XpHuJBKg
+active: 1
+use_default_settings: 1
+danse: 1
+ttl: 2419200
+urgency: normal
+batch_size: 1000
+topic: '[danse_notification:topic]'
+debug: false
+enable: false
+threshold: 5
+window: 3600
+ip: null
+skip: false
+title: '[push-object:op] "[push-object:label]" updates notifications!'
+body: 'Relevant updates on the current post will [push-object:op_push] notifications to your subscription in this browser/device - [push-object:client] 😎'
+icon: null
+url: null
+subscribe: false
