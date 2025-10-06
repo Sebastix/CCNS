@@ -39,7 +39,8 @@
 @layer components {
 
   header {
-    @apply my-3 mx-2
+    @apply my-3 mx-2;
+    padding-top: env(safe-area-inset-top,0);
   }
   header,
   footer {

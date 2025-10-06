@@ -7,11 +7,12 @@ _core:
 id: global
 label: Global
 tags:
+  apple_mobile_web_app_capable: 'yes'
+  apple_mobile_web_app_status_bar_style: black-translucent
+  apple_mobile_web_app_title: ccns.news
   canonical_url: '[current-page:url]'
-  description: ''
-  keywords: ''
-  og_description: ''
   og_site_name: '[site:name] - [site:slogan]'
   og_title: '[current-page:title] | [site:name] - [site:slogan]'
   og_url: '[current-page:url]'
   title: '[current-page:title] | [site:name] - [site:slogan]'
+  viewport: 'initial-scale=1, viewport-fit=cover, width=device-width'
