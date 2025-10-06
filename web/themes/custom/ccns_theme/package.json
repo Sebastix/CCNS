@@ -8,6 +8,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.7",
+    "pwa-asset-generator": "^8.1.2",
     "tailwindcss": "^4.1.13"
   },
   "dependencies": {
