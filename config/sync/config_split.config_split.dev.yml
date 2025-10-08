@@ -18,7 +18,6 @@ module:
   webprofiler: 0
 theme: {  }
 complete_list:
-  - advagg.settings
   - robotstxt.settings
   - symfony_mailer_mailer_transport.smtp
   - symfony_mailer_reroute.settings.yml

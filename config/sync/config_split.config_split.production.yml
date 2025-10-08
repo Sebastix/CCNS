@@ -15,7 +15,6 @@ module:
   raven: 0
 theme: {  }
 complete_list:
-  - advagg.settings
   - robotstxt.settings
   - symfony_mailer.settings
   - symfony_mailer_mailer_transport.smtp
