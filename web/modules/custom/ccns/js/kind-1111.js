@@ -13,7 +13,7 @@
     const comment_form = document.getElementById('comment-form');
     if (comment_form) {
       const submit = comment_form.querySelector('[type="submit"]')
-      submit.disabled = true
+      //submit.disabled = true
       //console.log(submit)
     }
   }
