@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "279635f9617dfe67e71b09c8d6bf1dcb",
+    "content-hash": "590d3f465e2e99582a434c180e2f96a8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1164,6 +1164,7 @@
                 "issues": "https://github.com/doctrine/annotations/issues",
                 "source": "https://github.com/doctrine/annotations/tree/1.14.4"
             },
+            "abandoned": true,
             "time": "2024-09-05T10:15:52+00:00"
         },
         {
@@ -1464,54 +1465,6 @@
             "homepage": "https://www.drupal.org/project/advancedqueue",
             "support": {
                 "source": "https://git.drupalcode.org/project/advancedqueue"
-            }
-        },
-        {
-            "name": "drupal/avatars",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/avatars.git",
-                "reference": "8.x-1.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/avatars-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "164ccaa8e22d0e665575d3a809454f9180ce4f3e"
-            },
-            "require": {
-                "drupal/core": ">=9.5",
-                "drupal/unlimited_number": "*",
-                "php": ">=7.4"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1671900794",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Phin",
-                    "homepage": "http://danielph.in",
-                    "email": "pro@danielph.in",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Provides a selection of generated avatars for users.",
-            "homepage": "http://drupal.org/project/avatars",
-            "support": {
-                "source": "https://git.drupalcode.org/project/avatars"
             }
         },
         {
@@ -2684,17 +2637,17 @@
         },
         {
             "name": "drupal/gin",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "4.1.0"
+                "reference": "4.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-4.1.0.zip",
-                "reference": "4.1.0",
-                "shasum": "96dd28e9ba8adce53313c334612135e3cfaef885"
+                "url": "https://ftp.drupal.org/files/projects/gin-4.1.1.zip",
+                "reference": "4.1.1",
+                "shasum": "b57ce01f7461f9322ddb36d4898923b9611115c1"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11 <11.2",
@@ -2703,8 +2656,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "4.1.0",
-                    "datestamp": "1750246743",
+                    "version": "4.1.1",
+                    "datestamp": "1759588202",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3337,22 +3290,25 @@
         },
         {
             "name": "drupal/pathauto",
-            "version": "1.13.0",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/pathauto.git",
-                "reference": "8.x-1.13"
+                "reference": "8.x-1.14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/pathauto-8.x-1.13.zip",
-                "reference": "8.x-1.13",
-                "shasum": "e64b5a82cf1b8ab48bce400b21ae6fc99c8078fd"
+                "url": "https://ftp.drupal.org/files/projects/pathauto-8.x-1.14.zip",
+                "reference": "8.x-1.14",
+                "shasum": "07f0d2efcf0bfb450e2ab69a43921fa39dc5f25b"
             },
             "require": {
-                "drupal/core": "^9.4 || ^10 || ^11",
+                "drupal/core": "^10 || ^11",
                 "drupal/ctools": "*",
                 "drupal/token": "*"
+            },
+            "conflict": {
+                "drush/drush": "<12.5.1"
             },
             "require-dev": {
                 "drupal/forum": "*"
@@ -3363,16 +3319,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.13",
-                    "datestamp": "1739552840",
+                    "version": "8.x-1.14",
+                    "datestamp": "1759838097",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^9 || ^10"
                     }
                 }
             },
@@ -3466,7 +3417,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/pf_notifications.git",
-                "reference": "575a7ea064e2284a9e3b0f29ca48051e41f7f404"
+                "reference": "a0f000a9de00b6de7269297fbc96fea26c4c3981"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -3485,8 +3436,8 @@
                     "dev-1.0.x": "1.0.x-dev"
                 },
                 "drupal": {
-                    "version": "1.0.1-beta1+9-dev",
-                    "datestamp": "1759348749",
+                    "version": "1.0.1-beta1+11-dev",
+                    "datestamp": "1759930132",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -4414,55 +4365,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/unique_content_field_validation",
                 "issues": "https://drupal.org/project/issues/unique_content_field_validation"
-            }
-        },
-        {
-            "name": "drupal/unlimited_number",
-            "version": "2.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/unlimited_number.git",
-                "reference": "2.0.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/unlimited_number-2.0.4.zip",
-                "reference": "2.0.4",
-                "shasum": "fe9ff5b40478d8c379f6e3ab31945d0afb983edb"
-            },
-            "require": {
-                "drupal/core": ">=9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.4",
-                    "datestamp": "1656650316",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "dpi",
-                    "homepage": "https://www.drupal.org/user/81431",
-                    "email": "pro@danielph.in"
-                }
-            ],
-            "description": "Provides a render element and a widget for number fields.",
-            "homepage": "http://drupal.org/project/unlimited_number",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/unlimited_number",
-                "issues": "https://www.drupal.org/project/issues/unlimited_number"
             }
         },
         {
@@ -6158,16 +6060,16 @@
         },
         {
             "name": "paragonie/sodium_compat",
-            "version": "v2.3.1",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/sodium_compat.git",
-                "reference": "4a2ab4341bc5802e1db1f761a9eab15fbb34f967"
+                "reference": "547e2dc4d45107440e76c17ab5a46e4252460158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/sodium_compat/zipball/4a2ab4341bc5802e1db1f761a9eab15fbb34f967",
-                "reference": "4a2ab4341bc5802e1db1f761a9eab15fbb34f967",
+                "url": "https://api.github.com/repos/paragonie/sodium_compat/zipball/547e2dc4d45107440e76c17ab5a46e4252460158",
+                "reference": "547e2dc4d45107440e76c17ab5a46e4252460158",
                 "shasum": ""
             },
             "require": {
@@ -6248,9 +6150,9 @@
             ],
             "support": {
                 "issues": "https://github.com/paragonie/sodium_compat/issues",
-                "source": "https://github.com/paragonie/sodium_compat/tree/v2.3.1"
+                "source": "https://github.com/paragonie/sodium_compat/tree/v2.4.0"
             },
-            "time": "2025-09-30T15:08:52+00:00"
+            "time": "2025-10-06T08:47:40+00:00"
         },
         {
             "name": "pear/archive_tar",
@@ -13391,16 +13293,16 @@
         },
         {
             "name": "open-telemetry/api",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/api.git",
-                "reference": "ee17d937652eca06c2341b6fadc0f74c1c1a5af2"
+                "reference": "610b79ad9d6d97e8368bcb6c4d42394fbb87b522"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/api/zipball/ee17d937652eca06c2341b6fadc0f74c1c1a5af2",
-                "reference": "ee17d937652eca06c2341b6fadc0f74c1c1a5af2",
+                "url": "https://api.github.com/repos/opentelemetry-php/api/zipball/610b79ad9d6d97e8368bcb6c4d42394fbb87b522",
+                "reference": "610b79ad9d6d97e8368bcb6c4d42394fbb87b522",
                 "shasum": ""
             },
             "require": {
@@ -13420,7 +13322,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "1.4.x-dev"
+                    "dev-main": "1.7.x-dev"
                 }
             },
             "autoload": {
@@ -13457,7 +13359,7 @@
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-09-19T00:05:49+00:00"
+            "time": "2025-10-02T23:44:28+00:00"
         },
         {
             "name": "open-telemetry/context",
@@ -13647,22 +13549,22 @@
         },
         {
             "name": "open-telemetry/sdk",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/sdk.git",
-                "reference": "105c6e81e3d86150bd5704b00c7e4e165e957b89"
+                "reference": "8986bcbcbea79cb1ba9e91c1d621541ad63d6b3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/sdk/zipball/105c6e81e3d86150bd5704b00c7e4e165e957b89",
-                "reference": "105c6e81e3d86150bd5704b00c7e4e165e957b89",
+                "url": "https://api.github.com/repos/opentelemetry-php/sdk/zipball/8986bcbcbea79cb1ba9e91c1d621541ad63d6b3e",
+                "reference": "8986bcbcbea79cb1ba9e91c1d621541ad63d6b3e",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "nyholm/psr7-server": "^1.1",
-                "open-telemetry/api": "^1.6",
+                "open-telemetry/api": "^1.7",
                 "open-telemetry/context": "^1.4",
                 "open-telemetry/sem-conv": "^1.0",
                 "php": "^8.1",
@@ -13697,7 +13599,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "1.0.x-dev"
+                    "dev-main": "1.9.x-dev"
                 }
             },
             "autoload": {
@@ -13740,7 +13642,7 @@
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-09-19T00:05:49+00:00"
+            "time": "2025-10-02T23:44:28+00:00"
         },
         {
             "name": "open-telemetry/sem-conv",
@@ -14426,30 +14328,31 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.22.0",
+            "version": "v1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "35f1adb388946d92e6edab2aa2cb2b60e132ebd5"
+                "reference": "8cce4df9a20660cdc671e8f45ac61959ecdde8e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/35f1adb388946d92e6edab2aa2cb2b60e132ebd5",
-                "reference": "35f1adb388946d92e6edab2aa2cb2b60e132ebd5",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/8cce4df9a20660cdc671e8f45ac61959ecdde8e8",
+                "reference": "8cce4df9a20660cdc671e8f45ac61959ecdde8e8",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.2 || ^2.0",
-                "php": "^7.4 || 8.0.* || 8.1.* || 8.2.* || 8.3.* || 8.4.*",
+                "php": "8.2.* || 8.3.* || 8.4.*",
                 "phpdocumentor/reflection-docblock": "^5.2",
                 "sebastian/comparator": "^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0",
-                "sebastian/recursion-context": "^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0"
+                "sebastian/recursion-context": "^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0",
+                "symfony/deprecation-contracts": "^2.5 || ^3.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.40",
-                "phpspec/phpspec": "^6.0 || ^7.0",
+                "friendsofphp/php-cs-fixer": "^3.88",
+                "phpspec/phpspec": "^6.0 || ^7.0 || ^8.0",
                 "phpstan/phpstan": "^2.1.13",
-                "phpunit/phpunit": "^8.0 || ^9.0 || ^10.0"
+                "phpunit/phpunit": "^11.0 || ^12.0"
             },
             "type": "library",
             "extra": {
@@ -14490,9 +14393,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpspec/prophecy/issues",
-                "source": "https://github.com/phpspec/prophecy/tree/v1.22.0"
+                "source": "https://github.com/phpspec/prophecy/tree/v1.23.0"
             },
-            "time": "2025-04-29T14:58:06+00:00"
+            "time": "2025-10-08T08:50:26+00:00"
         },
         {
             "name": "phpspec/prophecy-phpunit",

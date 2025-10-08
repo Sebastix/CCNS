@@ -1,8 +1,0 @@
-id: fivestar
-label: 'Five star'
-value_type: 'points'
-description: 'A simple 1-5 star rating.'
-dependencies:
-  enforced:
-    module:
-      - rate
