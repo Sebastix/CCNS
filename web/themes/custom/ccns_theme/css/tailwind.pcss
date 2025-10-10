@@ -3,36 +3,36 @@
   themes: lofi;
 }
 @theme {
+  --color-success: #6df78a;
   --color-info: #FF4D4D;
-  --success: #6df78a;
   --color-warning: #FF4D4D;
   --color-error: #f64d4d;
 }
 @layer base {
   input {
-    @apply border w-full p-2
+    @apply border w-full p-2;
   }
   textarea {
-    @apply border
+    @apply border w-full p-2;
   }
   div.form-item {
-    @apply mb-2
+    @apply mb-2;
   }
   div.form-item div#edit-body-0--description,
   div.form-item div.description {
-    @apply text-xs text-gray-500
+    @apply text-xs text-gray-500;
   }
   h1, h2, h3 {
-    @apply font-bold
+    @apply font-bold;
   }
   div.page-not-found {
 
   }
   #drupal-off-canvas-wrapper .ui-dialog-titlebar {
-    @apply p-2
+    @apply p-2;
   }
   #drupal-off-canvas-wrapper .ui-dialog-titlebar::before {
-    @apply hidden
+    @apply hidden;
   }
 }
 
@@ -44,72 +44,75 @@
   }
   header,
   footer {
-    @apply text-xs
+    @apply text-xs;
   }
   footer {
-    @apply mt-3
+    @apply mt-3;
   }
-  header .logo img {
-    @apply w-20
+  header .logo {
+    @apply focus:outline-2 focus:outline-offset-2 focus:outline-purple-500;
+    img {
+      @apply w-20;
+    }
   }
 
   header .user-picture {
-    @apply inline-block ml-2
+    @apply inline-block ml-2;
   }
   header .user-picture img {
-    @apply w-[26px] rounded-full
+    @apply w-[26px] rounded-full;
   }
   header .user-links a {
-    @apply p-0 align-middle
+    @apply p-0 align-middle;
   }
   header .user-links a.login {
-    @apply btn btn-outline btn-warning btn-xs h-[26px]
+    @apply btn btn-warning btn-xs btn-outline no-underline h-[26px];
   }
 
   #block-ccns-theme-headermenu a,
   #block-ccns-theme-footermenu a,
   .user-links a {
-    @apply link link-info p-1 hover:decoration-purple-600/80 hover:text-primary
+    @apply link link-info p-1 active:decoration-purple-600/80 active:text-primary;
   }
   #block-ccns-theme-footermenu code {
     font-size: 0.85em;
-    @apply text-center block mt-2
+    @apply text-center block mt-2;
   }
   #block-ccns-theme-footer {
     @apply mt-3 mx-2
   }
   #block-ccns-theme-footer ul {
-    @apply menu menu-horizontal p-0
+    @apply menu menu-horizontal p-0;
   }
   #block-ccns-theme-footer ul li > a {
-    @apply no-underline link link-info p-2 hover:decoration-purple-600/80 hover:text-primary text-sm
+    @apply no-underline link link-info p-2 active:decoration-purple-600/80 active:text-primary text-sm;
   }
 
   .chat .chat-bubble p {
-    @apply m-0
+    @apply m-0;
   }
 
   main {
-    @apply text-sm m-2
+    @apply text-sm m-2;
   }
   main a {
-    @apply underline underline-offset-2 decoration-purple-600/30 decoration-2 transition hover:decoration-purple-600/80 hover:bg-purple-600/30
+    @apply underline underline-offset-2 decoration-purple-600/30 decoration-2 transition active:decoration-purple-600/80 active:bg-purple-600/30 focus:bg-purple-600/30 hover:decoration-purple-600/80  hover:bg-purple-600/30;
   }
   main code {
-    @apply text-xs
+    @apply text-xs;
   }
   main h1 {
-    @apply text-lg
+    @apply text-lg;
   }
   main .node h1 {
-    @apply text-2xl
+    @apply text-2xl;
   }
   /* CCNS link */
   main .ccns-link strong.text-sm > a {
-    @apply no-underline
+    @apply no-underline;
   }
   main .ccns-link small > a {
-    @apply break-all underline-offset-2 decoration-1 inline-block
+    @apply break-all underline-offset-2 decoration-1 inline-block;
   }
 
   article h2 {
@@ -141,16 +144,16 @@
     @apply p-0
   }
   [id$="-local-tasks"] ul {
-    @apply p-0 menu menu-vertical md:menu-horizontal;
+    @apply p-0 menu menu-horizontal;
   }
   [id$="-local-tasks"] ul li {
-    @apply bg-blue-100 mb-1 md:mb-0 md:mr-2
+    @apply bg-blue-100 mb-1 md:mb-0 mr-1;
   }
   [id$="-local-tasks"] ul li a {
-    @apply no-underline
+    @apply no-underline focus:underline focus:underline-offset-1 focus:decoration-4 active:underline-offset-4 hover:decoration-4;
   }
   [id$="-local-tasks"] ul li a.is-active {
-
+    @apply underline underline-offset-1 decoration-4;
   }
 
   #block-ccns-theme-content header {
@@ -164,9 +167,15 @@
   .danse-user-notification-widget .badge {
     font-size: 10px;
   }
-  textarea#edit-comment-body-0-value {
-    @apply p-2 w-full text-sm text-gray-900 focus:ring-0 focus:outline-none bg-gray-100;
+  form.comment-link-comment-form {
+    textarea#edit-comment-body-0-value {
+      @apply p-2 w-full text-sm text-gray-900 focus:ring-0 focus:outline-none bg-purple-50;
+    }
+    button.form-submit {
+      @apply btn btn-warning btn-sm btn-block text-white border-0;
+    }
   }
+
 
   form {
     fieldset {
@@ -190,6 +199,9 @@
       select {
         @apply select min-h-fit;
       }
+    }
+    button.form-submit {
+      @apply btn btn-warning border-0 text-white w-full;
     }
   }
   .search-result {

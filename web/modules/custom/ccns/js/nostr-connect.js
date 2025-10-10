@@ -29,7 +29,7 @@
           // Generate a preview and insert this into the DOM.
           let preview = document.createElement('div')
           preview.id = 'previewEventKind1'
-          preview.classList.add('my-2', 'p-2', 'bg-base-200')
+          preview.classList.add('my-2', 'p-2', 'bg-neutral-100')
           preview.insertAdjacentHTML('afterbegin', contentHtml)
           if (document.getElementById('previewEventKind1') && e.target.checked === false) {
             // Remove element.
