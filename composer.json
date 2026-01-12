@@ -43,7 +43,7 @@
     "drupal/pf_notifications": "1.0.x-dev",
     "drupal/push_framework": "^2.3",
     "drupal/pwa": "^2.1@beta",
-    "drupal/raven": "^6.0",
+    "drupal/raven": "^7.0",
     "drupal/reroute_email": "^2.3@RC",
     "drupal/robotstxt": "^1.5",
     "drupal/search_api": "^1.38",
