@@ -1,0 +1,63 @@
+{
+    "_hash": "ddda33cbe699187a75557879b80665b15292bafc34e5c6386ed7666921f72a07",
+    "patches": {
+        "drupal/core": [
+            {
+                "package": "drupal/core",
+                "description": "[warning] No configuration objects have been updated - https://www.drupal.org/project/drupal/issues/2957279#comment-14355237",
+                "url": "https://www.drupal.org/files/issues/2022-01-03/2957279-11.patch",
+                "sha256": "1da66d4516462d276c17bb5f1a3a5960728f5978de7ecfe63be644fc4fbbe26f",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "https://www.drupal.org/project/drupal/issues/3453896",
+                "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/8372.patch",
+                "sha256": "cb7b319dc7f70de895f98bceb600ad7671fcf0fac99989949e0b25ae09de0455",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/rate": [
+            {
+                "package": "drupal/rate",
+                "description": "PHP Fatal Error | undefined method Drupal\\Core\\Extension\\ModuleHandler::getImplementations() - https://www.drupal.org/project/rate/issues/3327528",
+                "url": "https://git.drupalcode.org/project/rate/-/merge_requests/9.patch",
+                "sha256": "a7df19deb1c291c45e99372dda47b8e73963500cfad59b928aa10e3a0d0e2023",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/pwa": [
+            {
+                "package": "drupal/pwa",
+                "description": "Undefined array key \"name\"\n - https://www.drupal.org/project/pwa/issues/3422906",
+                "url": "https://www.drupal.org/files/issues/2024-02-21/pwa-3422906-3.patch",
+                "sha256": "80809bce379d523b9f49e95977b9d94f3bf89d4f9a5718c73c40e612b1abb43a",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/multiple_registration": [
+            {
+                "package": "drupal/multiple_registration",
+                "description": "D11 - https://www.drupal.org/project/multiple_registration/issues/3479929",
+                "url": "https://git.drupalcode.org/project/multiple_registration/-/merge_requests/20.patch",
+                "sha256": "8002025dbdc0be095bccf11894de7178f08892811397c2f886eb4c14d0635a96",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

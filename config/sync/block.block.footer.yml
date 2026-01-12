@@ -2,10 +2,6 @@ uuid: b95d7cc3-b435-4a61-869d-8441621ac880
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:5117f318-1235-465e-b98c-371649f8fc14'
-  module:
-    - block_content
   theme:
     - stark
 id: footer
@@ -19,7 +15,5 @@ settings:
   label: Footer
   label_display: '0'
   provider: block_content
-  status: true
-  info: ''
   view_mode: full
 visibility: {  }
