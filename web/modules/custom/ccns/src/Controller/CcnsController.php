@@ -213,7 +213,7 @@ final class CcnsController extends ControllerBase {
         $profileFilter->setKinds([0]);
         $profileFilter->setAuthors($profileToBeFetched);
         $requestProfileMessage = new RequestMessage($subscription->getId(), [$profileFilter]);
-        $relay = new Relay('wss://relay.nostr.band');
+        $relay = new Relay('wss://profiles.nostrver.se');
         $requestProfile = new NostrRequest($relay, $requestProfileMessage);
         $response = $requestProfile->send();
         foreach ($response as $relayUrl => $relayResponses) {

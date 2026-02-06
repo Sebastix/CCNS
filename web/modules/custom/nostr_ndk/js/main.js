@@ -30,8 +30,6 @@ import NDK, {NDKNip07Signer, NDKEvent, NDKRelaySet, NDKRelay} from "@nostr-dev-k
         explicitRelayUrls: [
           'wss://nos.lol',
           'wss://relay.damus.io',
-          'wss://relay.nostr.band',
-          'wss://offchain.pub',
         ],
         enableOutboxModel: false,
       })

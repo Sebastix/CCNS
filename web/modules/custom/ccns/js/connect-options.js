@@ -29,7 +29,6 @@
           }
           const ndk = Drupal.Ndk.store.get('ndk')
           // ndk.addExplicitRelay('wss://purplepage.es/')
-          // ndk.addExplicitRelay('wss://relay.nostr.band/')
           // ndk.addExplicitRelay('wss://nostr.sebastix.dev/')
           // ndk.enableOutboxModel = true // enabling this will make connecting much slower.
           const nip07signer = Drupal.Ndk.store.get('nip07signer')
