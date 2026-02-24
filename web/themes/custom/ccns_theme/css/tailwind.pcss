@@ -34,6 +34,7 @@
   #drupal-off-canvas-wrapper .ui-dialog-titlebar::before {
     @apply hidden;
   }
+
 }
 
 @layer components {
@@ -66,7 +67,7 @@
     @apply p-0 align-middle;
   }
   header .user-links a.login {
-    @apply btn btn-warning btn-xs btn-outline no-underline h-[26px];
+    @apply btn btn-warning px-2 btn-xs btn-outline border-2 no-underline h-[26px] hover:text-black
   }
 
   #block-ccns-theme-headermenu a,
@@ -156,6 +157,16 @@
     @apply underline underline-offset-1 decoration-4;
   }
 
+  nav.pager {
+    @apply mt-8 text-center text-sm;
+    li {
+      @apply border-0!;
+    }
+    li.is-active {
+      @apply bg-slate-200!;
+    }
+  }
+
   #block-ccns-theme-content header {
     @apply mx-0;
   }
@@ -176,6 +187,18 @@
     }
   }
 
+  .frontpage-feed-filter {
+    @apply border-b-2 border-slate-200 mb-2;
+    ul {
+      @apply flex gap-2;
+      li {
+        @apply basis-1/3 text-center bg-slate-50 py-2;
+        &.active {
+          @apply bg-slate-200;
+        }
+      }
+    }
+  }
 
   form {
     fieldset {

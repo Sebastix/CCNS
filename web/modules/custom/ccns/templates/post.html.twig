@@ -2,9 +2,13 @@
   {% if logged_in %}
     When you post a link (bookmark), a Nostr event (kind <code>39701</code>) will be transmitted to the Nostr network and a copy of this data will be saved on this website. <br />
     You can use other Nostr clients which have implemented kind <code>39701</code> like <a href="https://yumyu.me/" target="_blank">Yumyume</a> and <a href="https://www.pinja.in/" target="_blank">Pinja</a> to view your posted links.
-    <div class="md:w-1/2 mx-auto mt-4 grid grid-cols-2 gap-4 justify-items-center">
-      <div><a href="{{ path('node.add', {'node_type' : 'link'}) }}" class="btn btn-warning text-white no-underline">Post link / bookmark</a></div>
-      <div><a href="#" class="btn btn-disabled no-underline">Start topic</a></div>
+    <div class="flex mt-4 gap-4 justify-center">
+      <div>
+        <a href="{{ path('node.add', {'node_type' : 'link'}) }}" class="btn btn-warning border-0 text-white no-underline">Post link / bookmark</a>
+      </div>
+      <div>
+        <a href="#" class="btn btn-disabled cursor-not-allowed no-underline border-0">Start topic</a>
+      </div>
     </div>
     <div class="mt-4">
       To view the most recent bookmarks posted by others, <a href="{{ path('ccns.global') }}">go to this global feed</a>

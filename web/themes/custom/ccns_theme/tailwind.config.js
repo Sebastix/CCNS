@@ -21,6 +21,9 @@ module.exports = {
     'loading-xs',
     'text-center',
     'skeleton',
+    'gap-4',
+    'justify-center',
+    'cursor-not-allowed',
     {
       pattern: /rotate-.+|loading-.+/,
     },

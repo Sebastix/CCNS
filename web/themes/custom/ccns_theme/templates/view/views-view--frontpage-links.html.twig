@@ -51,6 +51,8 @@
   {{ exposed }}
   {{ attachment_before }}
 
+  {% include '@ccns_theme/frontpage-feed-nav-filter.html.twig' %}
+
   {% if rows -%}
     {{ rows }}
   {% elseif empty -%}

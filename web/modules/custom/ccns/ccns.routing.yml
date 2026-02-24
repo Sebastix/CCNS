@@ -30,3 +30,11 @@ ccns.global:
     _controller: '\Drupal\ccns\Controller\CcnsController::globalFeed'
   requirements:
     _permission: 'access content'
+
+ccns.for_you:
+  path: 'for-you'
+  defaults:
+    _title: 'For you feed with latest ~50 web bookmarks (NIP-B0)'
+    _controller: '\Drupal\ccns\Controller\CcnsController::forYouFeed'
+  requirements:
+    _permission: 'access content'

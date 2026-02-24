@@ -1,0 +1,13 @@
+<div class="frontpage-feed-filter">
+  <ul>
+    <li class="{{ path('<current>') == path('ccns.global') ? 'active' }}">
+      <a href="{{ path('ccns.global') }}">Global bookmarks</a>
+    </li>
+    <li class="{{ path('<current>') == path('ccns.for_you') ? 'active' }}">
+      <a href="{{ path('ccns.for_you') }}">For you</a>
+    </li>
+    <li class="{{ path('<current>') == '/front' ? 'active' }}">
+      <a href="{{ path('<front>') }}">CCNS</a>
+    </li>
+  </ul>
+</div>

@@ -248,4 +248,11 @@ final class CcnsController extends ControllerBase {
     return $build;
   }
 
+  public function forYouFeed(Request $request): array {
+    $build['content'] = [
+      '#theme' => 'for_you_feed',
+    ];
+    return $build;
+  }
+
 }
