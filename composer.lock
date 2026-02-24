@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e329f0d79df348842d9d41790f0b84ff",
+    "content-hash": "5ae63a8af3a030e809e0b8069c085a00",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2123,17 +2123,11 @@
         },
         {
             "name": "drupal/danse",
-            "version": "2.3.6",
+            "version": "dev-2.3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/danse.git",
-                "reference": "2.3.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/danse-2.3.6.zip",
-                "reference": "2.3.6",
-                "shasum": "9d9e9634dbb32016040a5f8bef85a70dc22757ca"
+                "reference": "88fc362bbd6d29ce5104f541e6a6f6f417795a9f"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -2145,12 +2139,15 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.3.x": "2.3.x-dev"
+                },
                 "drupal": {
-                    "version": "2.3.6",
-                    "datestamp": "1724743561",
+                    "version": "2.3.6+7-dev",
+                    "datestamp": "1755340412",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -3146,7 +3143,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/pf_notifications.git",
-                "reference": "ae6a8257632a25f72e24cd7886991033f7333ac8"
+                "reference": "c466c64494673879de4bb64a72084444f4b2bde0"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -3165,8 +3162,8 @@
                     "dev-1.0.x": "1.0.x-dev"
                 },
                 "drupal": {
-                    "version": "1.0.1-beta2+1-dev",
-                    "datestamp": "1762179431",
+                    "version": "1.0.1-beta2+2-dev",
+                    "datestamp": "1771924355",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -17633,6 +17630,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/ckeditor5_markdown_editor": 20,
+        "drupal/danse": 20,
         "drupal/masquerade": 5,
         "drupal/matomo": 15,
         "drupal/nostr_id_nip05": 15,

@@ -1,4 +1,5 @@
-image: php:8.3-alpine3.20
+# https://hub.docker.com/_/php/tags?name=8.4-alpine
+image: php:8.4-alpine
 
 variables:
   # Production
@@ -17,6 +18,7 @@ workflow:
 
 stages:
   - build
+  - validate
   - test
   - deploy
 
@@ -76,6 +78,40 @@ build:theme:
   artifacts:
     paths:
       - web/themes/custom/ccns_theme/dist
+
+validate:composer-lint:
+  rules:
+    - changes:
+        - composer.json
+        - composer.lock
+  stage: validate
+  dependencies:
+    - build:drupal
+  script:
+    - composer --version
+    - composer validate
+
+validate:phpcs:
+  rules:
+    - changes:
+        - web/modules/custom/**/*
+        - web/themes/custom/**/*
+  stage: validate
+  allow_failure: true
+  script:
+    - vendor/bin/phpcs web/modules/custom
+    - vendor/bin/phpcs web/themes/custom
+
+validate:phpstan:
+  rules:
+    - changes:
+        - web/modules/custom/**/*
+        - web/themes/custom/**/*
+  stage: validate
+  allow_failure: true
+  script:
+    - vendor/bin/phpstan web/modules/custom
+    - vendor/bin/phpstan web/themes/custom
 
 deploy:prod:
   rules:

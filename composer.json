@@ -26,7 +26,7 @@
     "drupal/config_split": "^2.0",
     "drupal/core-composer-scaffold": "^11",
     "drupal/core-recommended": "^11",
-    "drupal/danse": "^2.3",
+    "drupal/danse": "^2.3.x-dev@dev",
     "drupal/facets": "^3.0",
     "drupal/field_permissions": "^1.2",
     "drupal/flood_control": "^3.0",
