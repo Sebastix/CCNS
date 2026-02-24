@@ -178,12 +178,36 @@
   .danse-user-notification-widget .badge {
     font-size: 10px;
   }
-  form.comment-link-comment-form {
-    textarea#edit-comment-body-0-value {
-      @apply p-2 w-full text-sm text-gray-900 focus:ring-0 focus:outline-none bg-purple-50;
+
+  .comments {
+    .chat {
+      @apply bg-purple-300/5;
+      .chat-bubble {
+        @apply px-2! py-1! bg-white! min-h-auto!;
+      }
+      .chat-footer {
+        @apply w-full flex;
+        code {
+          @apply flex-none;
+        }
+        a {
+          @apply flex-none;
+        }
+        .comment__links {
+          @apply grow flex gap-x-1 justify-end;
+        }
+      }
     }
-    button.form-submit {
-      @apply btn btn-warning btn-sm btn-block text-white border-0;
+    .indented {
+      @apply ml-4;
+    }
+    form.comment-link-comment-form {
+      textarea#edit-comment-body-0-value {
+        @apply p-2 w-full text-sm text-gray-900 focus:ring-0 focus:outline-none bg-purple-50;
+      }
+      button.form-submit {
+        @apply btn btn-warning btn-sm btn-block text-white border-0;
+      }
     }
   }
 

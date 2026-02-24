@@ -101,20 +101,24 @@
 {#  </div>#}
 {#</article>#}
 
-<div{{ attributes.addClass('js-comment chat chat-start p-0 mb-4') }}>
+<div{{ attributes.addClass('js-comment chat chat-start p-1') }}>
   <mark class="hidden badge badge-info text-xs" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
   <div class="chat-image avatar">
     <div class="w-6 rounded-box">
       {{ user_picture }}
     </div>
   </div>
-  <div class="chat-bubble text-xs bg-gray-100 text-primary border- min-h-8 relative rounded-xl rounded-b-none">
-    {{ content }}
+  <div class="chat-bubble text-xs text-primary border- relative rounded-xl rounded-b-none">
+    {{ content.comment_body }}
+    {% if parent %}
+      <p class="visually-hidden">{{ parent }}</p>
+    {% endif %}
   </div>
   <div class="chat-footer text-xs text-gray-400 mt-[2px]">
     <code>
       {{ submitted }}
     </code>
     <a href="#comment-{{ comment.id() }}">#{{ comment.id() }}</a>
+    {{ content.links }}
   </div>
 </div>

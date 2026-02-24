@@ -449,16 +449,18 @@ display:
           prefix: ''
           suffix: ''
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           pagination_heading_level: h4
           items_per_page: 50
-          total_pages: 9
+          total_pages: 5
           id: 0
           tags:
             next: ››
             previous: ‹‹
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -467,6 +469,7 @@ display:
             items_per_page_options_all_label: '- Show All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
