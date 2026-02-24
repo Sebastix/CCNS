@@ -2179,7 +2179,7 @@
         },
         {
             "name": "drupal/danse_content",
-            "version": "2.3.6",
+            "version": "2.3.7",
             "require": {
                 "drupal/core": "^10 || ^11",
                 "drupal/danse": "*"
@@ -2187,8 +2187,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "2.3.6",
-                    "datestamp": "1724743561",
+                    "version": "2.3.7",
+                    "datestamp": "1771942611",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
