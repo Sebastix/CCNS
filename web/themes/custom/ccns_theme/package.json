@@ -2,7 +2,7 @@
   "name": "ccns_theme",
   "private": true,
   "scripts": {
-    "watch": "npx @tailwindcss/cli --input css/tailwind.pcss --output dist/tailwind.css --watch",
+    "dev": "npx @tailwindcss/cli --input css/tailwind.pcss --output dist/tailwind.css --watch",
     "build": "npx @tailwindcss/cli --input css/tailwind.pcss --output dist/tailwind.css --minify"
   },
   "devDependencies": {

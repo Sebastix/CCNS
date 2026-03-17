@@ -10,19 +10,19 @@
     {% else %}
       // Add feed column with events fetched by Nostr-PHP (<a href="{{ path('ccns.global', {}, {'query': {'nostr-php': 1} }) }}">view</a>)
     {% endif %}
-    <div class="card bg-gray-100 shadow-md flex mb-4 hidden">
+    <div class="card bg-neutral-100 shadow-md mb-4 hidden">
       <div class="card-body p-4">
-        <a href="" class="card-title skeleton text-ellipsis overflow-hidden ..." target="_blank" title=""></a>
+        <a href="" class="card-title skeleton text-ellipsis overflow-hidden ... font-bold inline-block mb-1 break-all" target="_blank" title=""></a>
         <p class="metadata skeleton min-h-4 text-xs">
           <span class="pubkey hidden">Bookmarked by <a href="" target="_blank" class="value"></a></span>
           <span class="created-at hidden">on <span class="value"></span></span>
           <span class="published-at hidden"></span>
           <span class="client-tag hidden">using client <span class="value"></span></span>
         </p>
-        <p class="content skeleton"></p>
+        <p class="content skeleton text-wrap break-all"></p>
         <div class="tags text-xs"></div>
-        <div class="flex">
-          <span class="event-kind text-xs mr-1"></span>
+        <div class="flex gap-1">
+          <span class="event-kind text-xs"></span>
           <span class="event-id text-xs"></span>
         </div>
       </div>
