@@ -128,7 +128,7 @@
         // Add hashtag to card.
         const tagBadge = document.createElement('div')
         tagBadge.classList.add('badge', 'text-xs')
-        tagBadge.innerHTML = '<a href="https://nostr.band?q=%23' + tag[1] + '" target="_blank">#' + tag[1] + '</a>'
+        tagBadge.innerHTML = '<a href="https://nostrarchives.com/search?q=%23' + tag[1] + '" target="_blank">#' + tag[1] + '</a>'
         tags.appendChild(tagBadge)
       }
       if (tag[0] === 'client') {
@@ -137,7 +137,7 @@
       }
     }
     card_body.getElementsByClassName('event-kind')[0].innerHTML = 'kind: <code>' + event.kind + '</code>'
-    card_body.getElementsByClassName('event-id')[0].innerHTML = 'id: <a href="https://njump.me/'+event.id+'" target="_blank">'+event.id+'</a>'
+    card_body.getElementsByClassName('event-id')[0].innerHTML = 'id: <a href="https://nostrver.se/e/'+event.id+'" target="_blank">'+event.id+'</a>'
     // TODO fetch reactions
 
     // TODO fetch comments
