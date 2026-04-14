@@ -30,7 +30,7 @@
     "drupal/facets": "^3.0",
     "drupal/field_permissions": "^1.2",
     "drupal/flood_control": "^3.0",
-    "drupal/gin": "^4.0",
+    "drupal/gin": "^5.0",
     "drupal/honeypot": "^2.1",
     "drupal/markdown_easy": "^2.0",
     "drupal/masquerade": "^2.0@RC",
@@ -57,12 +57,11 @@
     "drush/drush": "^13.0"
   },
   "require-dev": {
-    "drupal/coder": "^8.3",
     "drupal/core-dev": "^11",
     "drupal/devel": "^5.1",
     "drupal/upgrade_status": "^4.3",
     "drupal/webprofiler": "^11.1",
-    "palantirnet/drupal-rector": "^0.20.3"
+    "palantirnet/drupal-rector": "^0.21.1"
   },
   "conflict": {
     "drupal/drupal": "*"

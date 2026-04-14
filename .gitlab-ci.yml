@@ -54,6 +54,7 @@ build:drupal:
   stage: build
   script:
     - composer install --no-dev --prefer-dist --optimize-autoloader
+    - composer patches-repatch
   artifacts:
     paths:
       - web
