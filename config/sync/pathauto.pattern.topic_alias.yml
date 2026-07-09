@@ -2,6 +2,8 @@ uuid: 5d45b110-94b1-4651-8efb-fc30b9341451
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.topic
   module:
     - node
 id: topic_alias
@@ -12,7 +14,6 @@ selection_criteria:
   aa50c2c2-2b26-483a-802b-a93402fbc617:
     id: 'entity_bundle:node'
     negate: false
-    uuid: aa50c2c2-2b26-483a-802b-a93402fbc617
     context_mapping:
       node: node
     bundles:

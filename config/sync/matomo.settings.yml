@@ -21,6 +21,8 @@ track:
 privacy:
   donottrack: true
   disablecookies: false
+  cookieduration: null
+  securecookies: false
 custom:
   variable:
     1:
