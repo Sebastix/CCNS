@@ -1,17 +1,7 @@
 {
-    "_hash": "ddda33cbe699187a75557879b80665b15292bafc34e5c6386ed7666921f72a07",
+    "_hash": "e9a68638b9ce8d627c135ee46afedb0a110fef0868ebf219dee1784cb9de8318",
     "patches": {
         "drupal/core": [
-            {
-                "package": "drupal/core",
-                "description": "[warning] No configuration objects have been updated - https://www.drupal.org/project/drupal/issues/2957279#comment-14355237",
-                "url": "https://www.drupal.org/files/issues/2022-01-03/2957279-11.patch",
-                "sha256": "1da66d4516462d276c17bb5f1a3a5960728f5978de7ecfe63be644fc4fbbe26f",
-                "depth": 2,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
             {
                 "package": "drupal/core",
                 "description": "https://www.drupal.org/project/drupal/issues/3453896",
